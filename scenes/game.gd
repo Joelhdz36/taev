@@ -1,18 +1,25 @@
 extends Node
 
 @onready var world_2d: Node2D = %World2D
+@onready var ui: Node = %UI
+
+#PauseMenu
+var pause_menu_scene:PackedScene = preload("uid://dhfa6pg30wute")
+var pause_action:GUIDEAction = preload("uid://cn2pd0oga6t16")
+var pause_context:GUIDEMappingContext = preload("uid://bas2hiqp4lqkd")
 
 var _camera:PackedScene = preload("uid://dgrbfm8uraqa1")
-
 var _player:PackedScene = preload("uid://cm5xa8wyhrdn1")
 var player:CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GUIDE.enable_mapping_context(pause_context)
 	create_player()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if pause_action.is_triggered():
+		pause_game()
 
 
 func create_player():
@@ -31,3 +38,9 @@ func new_camera_creation(player_in_cam:CharacterBody2D):
 	new_camera._player = player_in_cam
 	world_2d.add_child(new_camera)
 	CameraManager.current_camera = new_camera
+
+
+func pause_game():
+	var new_pause_scene = pause_menu_scene.instantiate()
+	ui.add_child(new_pause_scene)
+	get_tree().paused = !get_tree().paused

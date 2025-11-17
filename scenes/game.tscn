@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsiu560phtwcg"]
+[gd_scene load_steps=3 format=3 uid="uid://dsiu560phtwcg"]
 
 [ext_resource type="Script" uid="uid://cu4q028m7evic" path="res://scenes/game.gd" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dqe78tl78j53t" path="res://scenes/test_scene.tscn" id="2_yqjtg"]
-[ext_resource type="PackedScene" uid="uid://dhfa6pg30wute" path="res://scenes/UI/pause_menu.tscn" id="3_lnu2h"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_uwrxv")
@@ -19,5 +18,4 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="UI" type="Node" parent="."]
-
-[node name="PauseMenu" parent="UI" instance=ExtResource("3_lnu2h")]
+unique_name_in_owner = true
