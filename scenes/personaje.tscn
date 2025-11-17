@@ -7,7 +7,7 @@ size = Vector2(28, 37)
 
 [node name="Personaje" type="CharacterBody2D"]
 script = ExtResource("1_2kcgv")
-SPEED = 110.0
+SPEED = 4500.0
 
 [node name="ChSize2" type="ColorRect" parent="."]
 anchors_preset = 7
