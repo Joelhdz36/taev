@@ -14,3 +14,7 @@ func _process(delta: float) -> void:
 
 func _on_option_btn_pressed() -> void:
 	options.visible = true
+
+
+func _on_continue_btn_pressed() -> void:
+	hide()

@@ -14,6 +14,12 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="ContinueBtn" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Continue
+"
+
 [node name="OptionBtn" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -24,4 +30,5 @@ text = "Options
 unique_name_in_owner = true
 visible = false
 
+[connection signal="pressed" from="VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionBtn" to="." method="_on_option_btn_pressed"]
