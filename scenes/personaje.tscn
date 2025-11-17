@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm5xa8wyhrdn1"]
+
+[ext_resource type="Script" uid="uid://cjri4qklw0gvo" path="res://scenes/personaje.gd" id="1_2kcgv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1j4d1"]
+size = Vector2(28, 37)
+
+[node name="Personaje" type="CharacterBody2D"]
+script = ExtResource("1_2kcgv")
+SPEED = 110.0
+
+[node name="ChSize2" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(1, 0.3137255, 1, 0.49019608)
+
+[node name="ChSize" type="ColorRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -11.0
+offset_top = -32.0
+offset_right = 11.18
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -18.5)
+shape = SubResource("RectangleShape2D_1j4d1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+centered = false
+offset = Vector2(0, -16)
