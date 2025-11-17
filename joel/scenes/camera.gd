@@ -38,8 +38,8 @@ func follow_player(_delta:float):
 	var _player_direction = _player.velocity.normalized()
 	var camera_offset:Vector2 = Vector2(player_offset.x * _player_direction.x,-player_offset.y - roundi(player_offset.y * 0.35))
 	global_position = lerp(global_position, _player.global_position + camera_offset, damping_speed)
-	print(camera_offset)
-	
+
+
 func go_back_to_player(_delta:float):
 	damping_speed = 0.0
 	var camera_offset:Vector2 = Vector2(0,-player_offset.y)

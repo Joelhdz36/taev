@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c4mqr7824uavn"]
 
-[ext_resource type="Script" uid="uid://b0rs7usj4cyn5" path="res://scenes/UI/options.gd" id="1_u46ye"]
+[ext_resource type="Script" uid="uid://b0rs7usj4cyn5" path="res://joel/scenes/UI/options.gd" id="1_u46ye"]
 
 [node name="Options" type="CanvasLayer"]
 layer = 2
