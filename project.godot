@@ -18,10 +18,15 @@ config/icon="res://icon.svg"
 [autoload]
 
 CameraManager="*res://data/camera_manager.gd"
+GUIDE="*res://addons/guide/guide.gd"
 
 [display]
 
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/guide/plugin.cfg")
 
 [rendering]
 
