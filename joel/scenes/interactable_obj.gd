@@ -24,7 +24,6 @@ func display_info():
 
 func pickup():
 	InventoryManager.add_to_inventory(obj_resource)
-	print(InventoryManager.objects_in_inventory.size())
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

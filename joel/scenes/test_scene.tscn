@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://dqe78tl78j53t"]
+[gd_scene load_steps=9 format=4 uid="uid://dqe78tl78j53t"]
 
 [ext_resource type="Script" uid="uid://buvg8yopj8qjg" path="res://joel/scenes/test_scene.gd" id="1_g7g4h"]
 [ext_resource type="Texture2D" uid="uid://bums6fcrvwn47" path="res://joel/trash/tiles.png" id="2_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="3_slgip"]
-[ext_resource type="Resource" uid="uid://dxm6fknqv1r6a" path="res://data/objects/notas/nota_test_02.tres" id="4_bnych"]
+[ext_resource type="Resource" uid="uid://dhn202dtrjtef" path="res://data/objects/keys/key_test_02.tres" id="4_j20uc"]
+[ext_resource type="Resource" uid="uid://67i4ag423h52" path="res://data/objects/keys/key_test_01.tres" id="5_j20uc"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a5oyu"]
 
@@ -68,6 +69,16 @@ tile_set = SubResource("TileSet_7ddre")
 [node name="InteractableObj" parent="." instance=ExtResource("3_slgip")]
 position = Vector2(103, -46)
 
+[node name="InteractableObj3" parent="." instance=ExtResource("3_slgip")]
+position = Vector2(174, -46)
+
+[node name="InteractableObj4" parent="." instance=ExtResource("3_slgip")]
+position = Vector2(245, -46)
+
 [node name="InteractableObj2" parent="." instance=ExtResource("3_slgip")]
 position = Vector2(-263, -46)
-obj_resource = ExtResource("4_bnych")
+obj_resource = ExtResource("4_j20uc")
+
+[node name="InteractableObj5" parent="." instance=ExtResource("3_slgip")]
+position = Vector2(-195, -46)
+obj_resource = ExtResource("5_j20uc")

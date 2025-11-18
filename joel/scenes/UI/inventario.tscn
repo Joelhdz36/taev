@@ -1,10 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://chiow8h7m2so7"]
+[gd_scene load_steps=4 format=3 uid="uid://chiow8h7m2so7"]
 
 [ext_resource type="Script" uid="uid://c2i6c8c451j83" path="res://joel/scenes/UI/inventario.gd" id="1_13d1u"]
+[ext_resource type="LabelSettings" uid="uid://cdek3rehd63k4" path="res://joel/assets/labels/Inventory_window_label.tres" id="2_nu5i1"]
+[ext_resource type="LabelSettings" uid="uid://coget2fvi5cbf" path="res://joel/assets/labels/Inventory_title_label.tres" id="3_855sf"]
 
-[node name="Inventario" type="CanvasLayer"]
+[node name="Inventario" type="CanvasLayer" node_paths=PackedStringArray("inventory_displayers")]
 process_mode = 3
 script = ExtResource("1_13d1u")
+inventory_displayers = [NodePath("MarginContainer/InventoryLayout/LeftSide/NotesInv"), NodePath("MarginContainer/InventoryLayout/LeftSide/KeyInv")]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 15
@@ -14,31 +17,57 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08235294, 0.08235294, 0.5058824, 0.73333335)
 
-[node name="InventoryLayout" type="HBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 40
 
-[node name="LeftSide" type="VBoxContainer" parent="InventoryLayout"]
+[node name="InventoryLayout" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LeftSide" type="VBoxContainer" parent="MarginContainer/InventoryLayout"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Title" type="Label" parent="InventoryLayout/LeftSide"]
+[node name="WindowName" type="Label" parent="MarginContainer/InventoryLayout/LeftSide"]
 unique_name_in_owner = true
 layout_mode = 2
+text = "NOTAS"
+label_settings = ExtResource("2_nu5i1")
+horizontal_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="InventoryLayout/LeftSide"]
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/InventoryLayout/LeftSide"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="NotesInv" type="VBoxContainer" parent="MarginContainer/InventoryLayout/LeftSide"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 90
-theme_override_constants/margin_top = 90
-theme_override_constants/margin_right = 90
-theme_override_constants/margin_bottom = 90
 
-[node name="HBoxContainer" type="HBoxContainer" parent="InventoryLayout/LeftSide/MarginContainer"]
+[node name="NotesTitle" type="Label" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Title"
+label_settings = ExtResource("3_855sf")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -46,25 +75,101 @@ theme_override_constants/separation = 30
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="LeftBtn" type="Button" parent="InventoryLayout/LeftSide/MarginContainer/HBoxContainer"]
+[node name="NoteLeftBtn" type="Button" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 text = "<"
 
-[node name="ImageVisualizer" type="PanelContainer" parent="InventoryLayout/LeftSide/MarginContainer/HBoxContainer"]
+[node name="ImageVisualizer" type="PanelContainer" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="RightBtn" type="Button" parent="InventoryLayout/LeftSide/MarginContainer/HBoxContainer"]
+[node name="NoteRightBtn" type="Button" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 text = ">"
 
-[node name="RightSide" type="VBoxContainer" parent="InventoryLayout"]
+[node name="KeyInv" type="VBoxContainer" parent="MarginContainer/InventoryLayout/LeftSide"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="KeyTitle" type="Label" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Title"
+label_settings = ExtResource("3_855sf")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 60
+theme_override_constants/margin_right = 60
+theme_override_constants/margin_bottom = 60
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="KeyLeftBtn" type="Button" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "<"
+
+[node name="KeyVisualizer" type="PanelContainer" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[connection signal="pressed" from="InventoryLayout/LeftSide/MarginContainer/HBoxContainer/LeftBtn" to="." method="_on_left_btn_pressed"]
-[connection signal="pressed" from="InventoryLayout/LeftSide/MarginContainer/HBoxContainer/RightBtn" to="." method="_on_right_btn_pressed"]
+[node name="KeyRightBtn" type="Button" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = ">"
+
+[node name="RightSide" type="VBoxContainer" parent="MarginContainer/InventoryLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NoteText" type="RichTextLabel" parent="MarginContainer/InventoryLayout/RightSide"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+text = "Esta llave seguramente abre alguna puerta en algun lugar de un gran pais"
+fit_content = true
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="NotesBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[node name="KeyBtn" type="Button" parent="CanvasLayer/VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer/NoteLeftBtn" to="." method="_on_note_left_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer/NoteRightBtn" to="." method="_on_note_right_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer/KeyLeftBtn" to="." method="_on_key_left_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer/KeyRightBtn" to="." method="_on_key_right_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/NotesBtn" to="." method="_on_notes_btn_pressed"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/KeyBtn" to="." method="_on_key_btn_pressed"]

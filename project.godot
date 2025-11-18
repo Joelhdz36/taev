@@ -25,6 +25,10 @@ InventoryManager="*res://data/globals/inventory_manager.gd"
 
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/DICIS/Videos/video_inventario.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/guide/plugin.cfg")
