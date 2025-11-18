@@ -26,7 +26,11 @@ window/stretch/mode="viewport"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/guide/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/guide/plugin.cfg")
+
+[godot_resource_groups]
+
+auto_rebuild=true
 
 [rendering]
 
