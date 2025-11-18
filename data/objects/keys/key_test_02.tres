@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Note" load_steps=3 format=3 uid="uid://dhn202dtrjtef"]
+
+[ext_resource type="Texture2D" uid="uid://bn5i6qwmv70y" path="res://joel/trash/Nota_test_01.png" id="1_4u3bb"]
+[ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/note.gd" id="2_tp0qv"]
+
+[resource]
+script = ExtResource("2_tp0qv")
+title = "Tarjeta de acceso"
+inventory_icon = ExtResource("1_4u3bb")
+note_text = "Una tarjeta que le quite a un cadaver quemado con acido mientras escapaba de los zombies nazis"
+obj_type = "key"
+color_test = Color(0.7545009, 0.01785054, 0.54747474, 1)
+metadata/_custom_type_script = "uid://cxujipwv6hp7y"

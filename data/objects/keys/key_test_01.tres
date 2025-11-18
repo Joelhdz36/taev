@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Note" load_steps=3 format=3 uid="uid://67i4ag423h52"]
+
+[ext_resource type="Texture2D" uid="uid://bn5i6qwmv70y" path="res://joel/trash/Nota_test_01.png" id="1_irh03"]
+[ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/note.gd" id="1_mu7u5"]
+
+[resource]
+script = ExtResource("1_mu7u5")
+title = "Llave de la prision"
+inventory_icon = ExtResource("1_irh03")
+note_text = "Esta llave seguramente abre alguna puerta en algun lugar de un gran pais"
+obj_type = "key"
+color_test = Color(1.92523e-07, 0.50387585, 0.47180933, 1)
+metadata/_custom_type_script = "uid://cxujipwv6hp7y"

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0cayd5fr4mjn"]
+
+[ext_resource type="Texture2D" uid="uid://rvfpb44ueskx" path="res://icon.svg" id="1_1g8ef"]
+[ext_resource type="Script" uid="uid://ccu1uspxhq0xp" path="res://joel/scenes/inventory/inventory_item.gd" id="1_b5vp4"]
+
+[node name="ItemImage" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_1g8ef")
+stretch_mode = 3
+script = ExtResource("1_b5vp4")

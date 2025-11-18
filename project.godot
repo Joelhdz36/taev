@@ -19,14 +19,23 @@ config/icon="res://icon.svg"
 
 CameraManager="*res://data/camera_manager.gd"
 GUIDE="*res://addons/guide/guide.gd"
+InventoryManager="*res://data/globals/inventory_manager.gd"
 
 [display]
 
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="C:/Users/DICIS/Videos/video_inventario.avi"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/guide/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_resource_groups/plugin.cfg", "res://addons/guide/plugin.cfg")
+
+[godot_resource_groups]
+
+auto_rebuild=true
 
 [rendering]
 
