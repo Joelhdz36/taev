@@ -1,7 +1,10 @@
-[gd_resource type="Resource" script_class="Note" load_steps=2 format=3 uid="uid://bxmj8pfsxcxaa"]
+[gd_resource type="Resource" script_class="Note" load_steps=3 format=3 uid="uid://bxmj8pfsxcxaa"]
 
+[ext_resource type="Texture2D" uid="uid://rvfpb44ueskx" path="res://icon.svg" id="1_2nvks"]
 [ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/note.gd" id="1_spa4b"]
 
 [resource]
 script = ExtResource("1_spa4b")
+inventory_icon = ExtResource("1_2nvks")
+color_test = Color(2.8878452e-07, 0.6320414, 0.44553554, 1)
 metadata/_custom_type_script = "uid://cxujipwv6hp7y"

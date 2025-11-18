@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=13 format=3 uid="uid://bas2hiqp4lqkd"]
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=18 format=3 uid="uid://bas2hiqp4lqkd"]
 
 [ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_46dab"]
 [ext_resource type="Resource" uid="uid://cn2pd0oga6t16" path="res://data/input/pause/actions/pause.tres" id="2_u77sg"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://x74mnwgr08a7" path="res://addons/guide/triggers/guide_trigger.gd" id="6_uyayu"]
 [ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="7_8rqg5"]
 [ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="8_nbowb"]
+[ext_resource type="Resource" uid="uid://cnp3rs8pb2o7a" path="res://data/input/pause/actions/inventory_menu.tres" id="8_u77sg"]
 
 [sub_resource type="Resource" id="Resource_46lo0"]
 script = ExtResource("4_leswc")
@@ -27,7 +28,24 @@ script = ExtResource("1_46dab")
 action = ExtResource("2_u77sg")
 input_mappings = Array[ExtResource("3_w61wq")]([SubResource("Resource_ex5ti")])
 
+[sub_resource type="Resource" id="Resource_w61wq"]
+script = ExtResource("4_leswc")
+key = 81
+
+[sub_resource type="Resource" id="Resource_leswc"]
+script = ExtResource("7_8rqg5")
+
+[sub_resource type="Resource" id="Resource_ajxh4"]
+script = ExtResource("3_w61wq")
+input = SubResource("Resource_w61wq")
+triggers = Array[ExtResource("6_uyayu")]([SubResource("Resource_leswc")])
+
+[sub_resource type="Resource" id="Resource_uyayu"]
+script = ExtResource("1_46dab")
+action = ExtResource("8_u77sg")
+input_mappings = Array[ExtResource("3_w61wq")]([SubResource("Resource_ajxh4")])
+
 [resource]
 script = ExtResource("8_nbowb")
-mappings = Array[ExtResource("1_46dab")]([SubResource("Resource_c3v0s")])
+mappings = Array[ExtResource("1_46dab")]([SubResource("Resource_c3v0s"), SubResource("Resource_uyayu")])
 metadata/_custom_type_script = "uid://dsa1dnifd6w32"

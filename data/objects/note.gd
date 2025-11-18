@@ -7,3 +7,7 @@ extends Resource
 @export var inventory_icon:Texture2D
 ##Texto que tendra la nota
 @export var note_text:String
+
+
+@export_group("Testeo")
+@export var color_test:Color 
