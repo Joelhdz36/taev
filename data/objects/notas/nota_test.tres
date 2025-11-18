@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Note" load_steps=3 format=3 uid="uid://bxmj8pfsxcxaa"]
 
-[ext_resource type="Texture2D" uid="uid://rvfpb44ueskx" path="res://icon.svg" id="1_2nvks"]
+[ext_resource type="Texture2D" uid="uid://cdsjjlhwljs0d" path="res://joel/trash/itemTest.png" id="1_2nvks"]
 [ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/note.gd" id="1_spa4b"]
 
 [resource]

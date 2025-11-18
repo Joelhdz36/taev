@@ -14,12 +14,57 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.08235294, 0.08235294, 0.5058824, 0.73333335)
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
-unique_name_in_owner = true
+[node name="InventoryLayout" type="HBoxContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="LeftSide" type="VBoxContainer" parent="InventoryLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Title" type="Label" parent="InventoryLayout/LeftSide"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="InventoryLayout/LeftSide"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 90
+theme_override_constants/margin_top = 90
+theme_override_constants/margin_right = 90
+theme_override_constants/margin_bottom = 90
+
+[node name="HBoxContainer" type="HBoxContainer" parent="InventoryLayout/LeftSide/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/separation = 30
 alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="LeftBtn" type="Button" parent="InventoryLayout/LeftSide/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = "<"
+
+[node name="ImageVisualizer" type="PanelContainer" parent="InventoryLayout/LeftSide/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightBtn" type="Button" parent="InventoryLayout/LeftSide/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+text = ">"
+
+[node name="RightSide" type="VBoxContainer" parent="InventoryLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[connection signal="pressed" from="InventoryLayout/LeftSide/MarginContainer/HBoxContainer/LeftBtn" to="." method="_on_left_btn_pressed"]
+[connection signal="pressed" from="InventoryLayout/LeftSide/MarginContainer/HBoxContainer/RightBtn" to="." method="_on_right_btn_pressed"]
