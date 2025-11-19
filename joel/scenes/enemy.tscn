@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7b164mon1k65"]
+
+[ext_resource type="Script" uid="uid://b4qmu5a7kwjs3" path="res://ch_enemy.gd" id="1_dtbt8"]
+[ext_resource type="Resource" uid="uid://btrdxih4f1jrt" path="res://data/enemies/enemy_test.tres" id="2_yb87n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yb87n"]
+radius = 15.0
+
+[node name="Enemy" type="Node2D"]
+script = ExtResource("1_dtbt8")
+enemy_resource = ExtResource("2_yb87n")
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_yb87n")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

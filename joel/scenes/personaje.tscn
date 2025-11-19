@@ -1,11 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cm5xa8wyhrdn1"]
+[gd_scene load_steps=4 format=3 uid="uid://cm5xa8wyhrdn1"]
 
 [ext_resource type="Script" uid="uid://cjri4qklw0gvo" path="res://joel/scenes/personaje.gd" id="1_2kcgv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j4d1"]
 size = Vector2(28, 37)
 
-[node name="Personaje" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kusw5"]
+size = Vector2(20, 28)
+
+[node name="Personaje" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2kcgv")
 SPEED = 4500.0
 
@@ -42,3 +45,11 @@ shape = SubResource("RectangleShape2D_1j4d1")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 centered = false
 offset = Vector2(0, -16)
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+position = Vector2(0, -15)
+shape = SubResource("RectangleShape2D_kusw5")
+
+[connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]

@@ -13,10 +13,11 @@ func _ready() -> void:
 #resore version
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	if _player.velocity.x != 0.0:
-		follow_player(delta)
-	else:
-		go_back_to_player(delta)
+	if _player != null:
+		if _player.velocity.x != 0.0:
+			follow_player(delta)
+		else:
+			go_back_to_player(delta)
 
 func set_camera_values():
 	screen_size = get_viewport_rect().size
