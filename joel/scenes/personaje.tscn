@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm5xa8wyhrdn1"]
+[gd_scene load_steps=9 format=3 uid="uid://cm5xa8wyhrdn1"]
 
 [ext_resource type="Script" uid="uid://cjri4qklw0gvo" path="res://joel/scenes/personaje.gd" id="1_2kcgv"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_rjtcc"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_eumi8"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_2q4fn"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="5_t6aad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j4d1"]
 size = Vector2(28, 37)
@@ -67,8 +71,55 @@ debug_color = Color(0.9822014, 0, 0.3684829, 0.41960785)
 
 [node name="DmgCollider" type="CollisionPolygon2D" parent="DamageArea"]
 unique_name_in_owner = true
+visible = false
 polygon = PackedVector2Array(10, 0, 32, -2, 39, -17, 32, -32, 12, -35, 3, -26, 2, -13)
 disabled = true
 
+[node name="StateChart" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_rjtcc")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="CompoundState" type="Node" parent="StateChart"]
+script = ExtResource("3_eumi8")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("4_2q4fn")
+
+[node name="toWalk" type="Node" parent="StateChart/CompoundState/Idle"]
+script = ExtResource("5_t6aad")
+to = NodePath("../../Walking")
+event = &"toWalk"
+delay_in_seconds = "0.0"
+
+[node name="Walking" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("4_2q4fn")
+
+[node name="toIdle" type="Node" parent="StateChart/CompoundState/Walking"]
+script = ExtResource("5_t6aad")
+to = NodePath("../../Idle")
+event = &"toIdle"
+delay_in_seconds = "0.0"
+
+[node name="toDamaged" type="Node" parent="StateChart/CompoundState/Walking"]
+script = ExtResource("5_t6aad")
+to = NodePath("../../Damaged")
+event = &"toDamaged"
+delay_in_seconds = "0.0"
+
+[node name="Damaged" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("4_2q4fn")
+
+[node name="toIdle" type="Node" parent="StateChart/CompoundState/Damaged"]
+script = ExtResource("5_t6aad")
+to = NodePath("../../Idle")
+event = &"toIdle"
+delay_in_seconds = "0.0"
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
+[connection signal="state_processing" from="StateChart/CompoundState/Idle" to="." method="_on_idle_state_processing"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Walking" to="." method="_on_walking_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Damaged" to="." method="_on_damaged_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Damaged" to="." method="_on_damaged_state_physics_processing"]
