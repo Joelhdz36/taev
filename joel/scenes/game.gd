@@ -33,15 +33,19 @@ func create_player():
 	if player != null:
 		return
 	else:
+		HealthManager.restore_full_health()
 		var current_spawn = world_2d.get_child(0).spawn
 		var new_player = _player.instantiate()
-		world_2d.add_child(new_player)
+		world_2d.call_deferred("add_child", new_player)
 		new_player.global_position = current_spawn.global_position
 		new_camera_creation(new_player)
 		
 
 func new_camera_creation(player_in_cam:CharacterBody2D):
-	var new_camera = _camera.instantiate()
+	var new_camera
+	if CameraManager.current_camera != null:
+		CameraManager.current_camera.queue_free()
+	new_camera = _camera.instantiate()
 	new_camera._player = player_in_cam
 	world_2d.add_child(new_camera)
 	CameraManager.current_camera = new_camera

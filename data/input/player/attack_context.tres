@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=13 format=3 uid="uid://cp8okplon72p5"]
+
+[ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_is3fm"]
+[ext_resource type="Resource" uid="uid://dvv5kqyv4tl8" path="res://data/input/player/actions/attacking/attack.tres" id="2_t7a8x"]
+[ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="2_vv5xt"]
+[ext_resource type="Script" uid="uid://mtx1unc2aqn7" path="res://addons/guide/guide_input_mapping.gd" id="3_kmbgy"]
+[ext_resource type="Script" uid="uid://vgjlx6p007lp" path="res://addons/guide/inputs/guide_input_mouse_button.gd" id="4_x0n1d"]
+[ext_resource type="Script" uid="uid://bl8rjl4oaldje" path="res://addons/guide/modifiers/guide_modifier.gd" id="5_4yvkt"]
+[ext_resource type="Script" uid="uid://x74mnwgr08a7" path="res://addons/guide/triggers/guide_trigger.gd" id="6_geu45"]
+[ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="7_14rpt"]
+
+[sub_resource type="Resource" id="Resource_wo6qr"]
+script = ExtResource("4_x0n1d")
+
+[sub_resource type="Resource" id="Resource_scool"]
+script = ExtResource("7_14rpt")
+
+[sub_resource type="Resource" id="Resource_im6l2"]
+script = ExtResource("3_kmbgy")
+input = SubResource("Resource_wo6qr")
+triggers = Array[ExtResource("6_geu45")]([SubResource("Resource_scool")])
+
+[sub_resource type="Resource" id="Resource_04dx6"]
+script = ExtResource("1_is3fm")
+action = ExtResource("2_t7a8x")
+input_mappings = Array[ExtResource("3_kmbgy")]([SubResource("Resource_im6l2")])
+
+[resource]
+script = ExtResource("2_vv5xt")
+mappings = Array[ExtResource("1_is3fm")]([SubResource("Resource_04dx6")])
+metadata/_custom_type_script = "uid://dsa1dnifd6w32"
