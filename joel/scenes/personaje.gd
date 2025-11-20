@@ -25,6 +25,7 @@ var _atk_cooldown:float = 0.2
 
 #Health
 var player_health:float
+var enemy_pos:Vector2
 
 func _ready() -> void:
 	GUIDE.enable_mapping_context(player_context)
@@ -60,11 +61,14 @@ func attack(_delta:float):
 		attacking = false
 		dmg_collider.disabled = true
 
-func take_damage(received_damage:float,enemy_pos:Vector2):
+func take_damage(received_damage:float, _enemy_pos:Vector2):
+	enemy_pos = to_local(_enemy_pos).normalized()
+	print(enemy_pos)
 	state_chart.send_event("toDamaged")
 	#player_health -= received_damage
 	#HealthManager.health = player_health
-	die()
+	#die()
+	
 
 func die():
 	if player_health > 0:
@@ -107,17 +111,21 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 	move_and_slide()
 
 func _on_damaged_state_entered() -> void:
+	print(enemy_pos)
 	var dir = movement_action.value_axis_2d.x
 	var impulse:float = 450.0
-	var dp = Vector2(dir,0).normalized().dot(get_global_mouse_position().normalized())
+	var dp = Vector2(dir,0).normalized().dot(enemy_pos)
 	var impulse_dir = Vector2(dp,0.0).normalized()  * -last_direction
 	velocity.x = impulse * impulse_dir.x
 	
 
 func _on_damaged_state_physics_processing(delta: float) -> void:
-
 	velocity.x = move_toward(velocity.x,0, 3800* delta)
 	if velocity.x == 0:
 		state_chart.send_event("toIdle")
 
 	move_and_slide()
+
+
+func _on_damaged_state_exited() -> void:
+	enemy_pos = Vector2.ZERO

@@ -24,4 +24,4 @@ func die():
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		body.take_damage(_damage,global_position.normalized())
+		body.take_damage(_damage,global_position)

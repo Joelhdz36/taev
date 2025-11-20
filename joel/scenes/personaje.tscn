@@ -93,6 +93,12 @@ to = NodePath("../../Walking")
 event = &"toWalk"
 delay_in_seconds = "0.0"
 
+[node name="toDamaged" type="Node" parent="StateChart/CompoundState/Idle"]
+script = ExtResource("5_t6aad")
+to = NodePath("../../Damaged")
+event = &"toDamaged"
+delay_in_seconds = "0.0"
+
 [node name="Walking" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("4_2q4fn")
 
@@ -122,4 +128,5 @@ delay_in_seconds = "0.0"
 [connection signal="state_processing" from="StateChart/CompoundState/Idle" to="." method="_on_idle_state_processing"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Walking" to="." method="_on_walking_state_physics_processing"]
 [connection signal="state_entered" from="StateChart/CompoundState/Damaged" to="." method="_on_damaged_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Damaged" to="." method="_on_damaged_state_exited"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Damaged" to="." method="_on_damaged_state_physics_processing"]
