@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb87n"]
 radius = 15.0
 
-[node name="Enemy" type="Node2D"]
+[node name="Enemy" type="Node2D" groups=["Enemigo"]]
 script = ExtResource("1_dtbt8")
 enemy_resource = ExtResource("2_yb87n")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm5xa8wyhrdn1"]
+[gd_scene load_steps=5 format=3 uid="uid://cm5xa8wyhrdn1"]
 
 [ext_resource type="Script" uid="uid://cjri4qklw0gvo" path="res://joel/scenes/personaje.gd" id="1_2kcgv"]
 
@@ -7,6 +7,9 @@ size = Vector2(28, 37)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kusw5"]
 size = Vector2(20, 28)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kusw5"]
+radius = 6.0
 
 [node name="Personaje" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2kcgv")
@@ -52,4 +55,20 @@ offset = Vector2(0, -16)
 position = Vector2(0, -15)
 shape = SubResource("RectangleShape2D_kusw5")
 
+[node name="LookingAt" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(32, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LookingAt"]
+shape = SubResource("CircleShape2D_kusw5")
+debug_color = Color(0.9822014, 0, 0.3684829, 0.41960785)
+
+[node name="DamageArea" type="Area2D" parent="."]
+
+[node name="DmgCollider" type="CollisionPolygon2D" parent="DamageArea"]
+unique_name_in_owner = true
+polygon = PackedVector2Array(10, 0, 32, -2, 39, -17, 32, -32, 12, -35, 3, -26, 2, -13)
+disabled = true
+
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
+[connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]
