@@ -29,7 +29,7 @@ var enemy_pos:Vector2
 
 func _ready() -> void:
 	GUIDE.enable_mapping_context(player_context)
-	GUIDE.enable_mapping_context(player_attack_context)
+	#GUIDE.enable_mapping_context(player_attack_context)
 	player_health = HealthManager.health
 
 func _draw() -> void:
@@ -81,7 +81,7 @@ func die():
 
 func _on_damage_area_area_entered(area: Area2D) -> void:
 	if area.get_parent().is_in_group("Enemigo"):
-		area.get_parent().take_damage(damage)
+		area.get_parent().take_damage(damage,global_position)
 
 
 func _on_idle_state_processing(_delta: float) -> void:
@@ -96,9 +96,9 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 	if run_action.is_triggered():
 		speed = SPEED * 2.5
 	var direction := movement_action._value_axis_2d
-	
+	print(direction)
 	if direction:
-		
+
 		velocity.x = direction.x * speed * delta
 		if last_direction != direction.x:
 			looking_at.position.x *= -1.0
@@ -111,13 +111,13 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 	move_and_slide()
 
 func _on_damaged_state_entered() -> void:
-	print(enemy_pos)
+	
 	var dir = movement_action.value_axis_2d.x
 	var impulse:float = 450.0
 	var dp = Vector2(dir,0).normalized().dot(enemy_pos)
 	var impulse_dir = Vector2(dp,0.0).normalized()  * -last_direction
 	velocity.x = impulse * impulse_dir.x
-	
+	GUIDE.disable_mapping_context(player_context)
 
 func _on_damaged_state_physics_processing(delta: float) -> void:
 	velocity.x = move_toward(velocity.x,0, 3800* delta)
@@ -129,3 +129,4 @@ func _on_damaged_state_physics_processing(delta: float) -> void:
 
 func _on_damaged_state_exited() -> void:
 	enemy_pos = Vector2.ZERO
+	GUIDE.enable_mapping_context(player_context)

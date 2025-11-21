@@ -18,6 +18,7 @@ radius = 6.0
 [node name="Personaje" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2kcgv")
 SPEED = 4500.0
+damage = 1.0
 
 [node name="ChSize2" type="ColorRect" parent="."]
 anchors_preset = 7
@@ -62,12 +63,18 @@ shape = SubResource("RectangleShape2D_kusw5")
 [node name="LookingAt" type="Area2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(32, -16)
+collision_layer = 128
+collision_mask = 128
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LookingAt"]
 shape = SubResource("CircleShape2D_kusw5")
 debug_color = Color(0.9822014, 0, 0.3684829, 0.41960785)
 
 [node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="DmgCollider" type="CollisionPolygon2D" parent="DamageArea"]
 unique_name_in_owner = true

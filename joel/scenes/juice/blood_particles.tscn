@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://btixd41gt8an5"]
+
+[ext_resource type="Script" uid="uid://dnp6op28p3tfo" path="res://joel/scenes/juice/blood_particles.gd" id="1_jhnfr"]
+
+[sub_resource type="Curve" id="Curve_xn8el"]
+_data = [Vector2(0, 1), 0.0, -0.08475118, 0, 0, Vector2(1, 0), 0.06266812, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_4recx"]
+curve = SubResource("Curve_xn8el")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2xxvm"]
+particle_flag_disable_z = true
+direction = Vector3(1, -0.7, 0)
+initial_velocity_min = 88.24
+initial_velocity_max = 135.3
+gravity = Vector3(0, 250, 0)
+linear_accel_min = -2.2351742e-06
+linear_accel_max = -2.2351742e-06
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_4recx")
+color = Color(0.8156863, 0.11764706, 0.24313726, 1)
+collision_mode = 1
+collision_friction = 0.35
+collision_bounce = 0.05
+
+[node name="BloodParticles" type="GPUParticles2D"]
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_2xxvm")
+script = ExtResource("1_jhnfr")

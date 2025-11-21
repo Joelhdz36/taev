@@ -1,18 +1,54 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7b164mon1k65"]
+[gd_scene load_steps=9 format=3 uid="uid://b7b164mon1k65"]
 
 [ext_resource type="Script" uid="uid://b4qmu5a7kwjs3" path="res://ch_enemy.gd" id="1_dtbt8"]
 [ext_resource type="Resource" uid="uid://btrdxih4f1jrt" path="res://data/enemies/enemy_test.tres" id="2_yb87n"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_xn8el"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_4recx"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_2xxvm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb87n"]
-radius = 15.0
+radius = 20.0
 
-[node name="Enemy" type="Node2D" groups=["Enemigo"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocf5i"]
+size = Vector2(80, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xn8el"]
+size = Vector2(32, 32)
+
+[node name="Enemy" type="CharacterBody2D" groups=["Enemigo"]]
 script = ExtResource("1_dtbt8")
 enemy_resource = ExtResource("2_yb87n")
 
 [node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
 shape = SubResource("CircleShape2D_yb87n")
+debug_color = Color(0.9664281, 0, 0.48356438, 0.41960785)
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("3_xn8el")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="CompoundState" type="Node" parent="StateChart"]
+script = ExtResource("4_4recx")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("5_2xxvm")
+
+[node name="Follow" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("5_2xxvm")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ocf5i")
+debug_color = Color(0.37541825, 0.59503603, 0.44172, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xn8el")
 
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

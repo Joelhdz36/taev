@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://dqe78tl78j53t"]
+[gd_scene load_steps=11 format=4 uid="uid://dqe78tl78j53t"]
 
 [ext_resource type="Script" uid="uid://buvg8yopj8qjg" path="res://joel/scenes/test_scene.gd" id="1_g7g4h"]
 [ext_resource type="Texture2D" uid="uid://bums6fcrvwn47" path="res://joel/trash/tiles.png" id="2_j8ivh"]
@@ -52,6 +52,9 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_nd71p")
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_eea5n"]
+polygon = PackedVector2Array(448, 0, -321, -1, -320, 52, 448, 52)
+
 [node name="testScene" type="Node2D"]
 script = ExtResource("1_g7g4h")
 
@@ -85,7 +88,10 @@ position = Vector2(-195, -46)
 obj_resource = ExtResource("5_j20uc")
 
 [node name="Enemy" parent="." instance=ExtResource("6_eea5n")]
-position = Vector2(-49, -30)
+position = Vector2(-118, -16)
 
 [node name="Enemy2" parent="." instance=ExtResource("6_eea5n")]
-position = Vector2(54, -30)
+position = Vector2(54, -16)
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_eea5n")
