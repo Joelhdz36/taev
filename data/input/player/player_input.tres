@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=41 format=3 uid="uid://bcnkmasrse8hk"]
+[gd_resource type="Resource" script_class="GUIDEMappingContext" load_steps=44 format=3 uid="uid://bcnkmasrse8hk"]
 
 [ext_resource type="Script" uid="uid://cpplm41b5bt6m" path="res://addons/guide/guide_action_mapping.gd" id="1_7h5oi"]
 [ext_resource type="Script" uid="uid://dsa1dnifd6w32" path="res://addons/guide/guide_mapping_context.gd" id="2_biy5v"]
@@ -16,6 +16,7 @@
 [ext_resource type="Resource" uid="uid://dvv5kqyv4tl8" path="res://data/input/player/actions/attacking/attack.tres" id="13_ajjqu"]
 [ext_resource type="Script" uid="uid://vgjlx6p007lp" path="res://addons/guide/inputs/guide_input_mouse_button.gd" id="14_wjwrf"]
 [ext_resource type="Script" uid="uid://b52rqq28tuqpg" path="res://addons/guide/triggers/guide_trigger_pressed.gd" id="15_2rkmy"]
+[ext_resource type="Script" uid="uid://rvttn472ix6v" path="res://addons/guide/inputs/guide_input_joy_button.gd" id="16_wjwrf"]
 
 [sub_resource type="Resource" id="Resource_ajjqu"]
 script = ExtResource("4_37w3b")
@@ -111,10 +112,19 @@ script = ExtResource("3_4mea6")
 input = SubResource("Resource_udke4")
 triggers = Array[ExtResource("6_6kev2")]([SubResource("Resource_g73di")])
 
+[sub_resource type="Resource" id="Resource_dmnrr"]
+script = ExtResource("16_wjwrf")
+button = 2
+
+[sub_resource type="Resource" id="Resource_ew144"]
+script = ExtResource("3_4mea6")
+input = SubResource("Resource_dmnrr")
+
 [sub_resource type="Resource" id="Resource_rrr86"]
 script = ExtResource("1_7h5oi")
 action = ExtResource("13_ajjqu")
-input_mappings = Array[ExtResource("3_4mea6")]([SubResource("Resource_vgos6")])
+input_mappings = Array[ExtResource("3_4mea6")]([SubResource("Resource_vgos6"), SubResource("Resource_ew144")])
+metadata/_guide_input_mappings_collapsed = false
 
 [resource]
 script = ExtResource("2_biy5v")
