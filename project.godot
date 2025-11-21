@@ -21,6 +21,7 @@ CameraManager="*res://data/camera_manager.gd"
 GUIDE="*res://addons/guide/guide.gd"
 InventoryManager="*res://data/globals/inventory_manager.gd"
 HealthManager="*res://data/globals/health_manager.gd"
+SceneManager="*res://data/globals/scene_manager.gd"
 
 [display]
 

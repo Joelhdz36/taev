@@ -15,6 +15,10 @@ var run_action:GUIDEAction = preload("uid://iydbahyoh7tg")
 var player_attack_context:GUIDEMappingContext = preload("uid://cp8okplon72p5")
 var attack_action:GUIDEAction = preload("uid://dvv5kqyv4tl8")
 
+#GUIDE interaction
+var interaction:GUIDEAction = preload("uid://drombgc2fxd20")
+var can_interact:bool = false
+var current_obj
 @export var damage:float = 5.0
 
 var atk_timer:float = 0.2
@@ -45,6 +49,8 @@ func _process(delta: float) -> void:
 	if attacking:
 		attack(delta)
 	queue_redraw()
+	if can_interact and interaction.is_triggered():
+		current_obj.interaction()
 
 #func _physics_process(delta: float) -> void:
 

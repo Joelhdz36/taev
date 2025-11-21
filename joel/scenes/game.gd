@@ -18,8 +18,11 @@ var _player:PackedScene = preload("uid://cm5xa8wyhrdn1")
 var player:CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SceneManager.world_2d = $World2D/Rooms
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GUIDE.enable_mapping_context(menus_context)
 	create_player()
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -34,7 +37,7 @@ func create_player():
 		return
 	else:
 		HealthManager.restore_full_health()
-		var current_spawn = world_2d.get_child(0).spawn
+		var current_spawn = $World2D/Rooms.get_child(0).spawn
 		var new_player = _player.instantiate()
 		world_2d.call_deferred("add_child", new_player)
 		new_player.global_position = current_spawn.global_position
