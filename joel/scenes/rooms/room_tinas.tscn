@@ -39,12 +39,16 @@ unique_name_in_owner = true
 [node name="PasIzqUno" parent="Puertas" instance=ExtResource("2_mkksx")]
 offset_left = -109.0
 offset_right = -77.0
+next_scene = "uid://ba12nl6ckr4nm"
 in_front = false
 
 [node name="Lobotomia" parent="Puertas" instance=ExtResource("2_mkksx")]
 offset_left = 158.0
 offset_right = 190.0
-next_scene = "uid://bob80e5tnry8w"
+next_scene = "uid://5bys8r1khs47"
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-159, 0)
+
+[node name="Enemigos" type="Node2D" parent="."]
+position = Vector2(500, 0)

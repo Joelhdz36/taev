@@ -9,3 +9,14 @@ func _ready() -> void:
 	camera_limits = CameraManager.set_camera_limits(camera_limits)
 	SceneManager.current_scene = self
 	$RoomName.text = name
+	spawn_enemies()
+	
+
+func spawn_enemies():
+	if DataManager.spawn_enemies:
+		for enemy in $Enemigos.get_children():
+			if DataManager.defeated_enemies.has(enemy.enemy_resource):
+				enemy.queue_free()
+	else:
+		for enemy in $Enemigos.get_children():
+			enemy.queue_free()

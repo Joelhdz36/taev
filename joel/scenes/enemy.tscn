@@ -1,10 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://b7b164mon1k65"]
+[gd_scene load_steps=10 format=3 uid="uid://b7b164mon1k65"]
 
 [ext_resource type="Script" uid="uid://b4qmu5a7kwjs3" path="res://ch_enemy.gd" id="1_dtbt8"]
-[ext_resource type="Resource" uid="uid://btrdxih4f1jrt" path="res://data/enemies/enemy_test.tres" id="2_yb87n"]
+[ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="2_xn8el"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_xn8el"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_4recx"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_2xxvm"]
+
+[sub_resource type="Resource" id="Resource_4recx"]
+script = ExtResource("2_xn8el")
+name = "Prueba"
+health = 10.0
+damage = 25.0
+metadata/_custom_type_script = "uid://bxuaimm6pl5op"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb87n"]
 radius = 20.0
@@ -17,7 +24,7 @@ size = Vector2(32, 32)
 
 [node name="Enemy" type="CharacterBody2D" groups=["Enemigo"]]
 script = ExtResource("1_dtbt8")
-enemy_resource = ExtResource("2_yb87n")
+enemy_resource = SubResource("Resource_4recx")
 
 [node name="DamageArea" type="Area2D" parent="."]
 collision_layer = 5

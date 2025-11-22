@@ -22,6 +22,7 @@ GUIDE="*res://addons/guide/guide.gd"
 InventoryManager="*res://data/globals/inventory_manager.gd"
 HealthManager="*res://data/globals/health_manager.gd"
 SceneManager="*res://data/globals/scene_manager.gd"
+DataManager="*res://data/globals/data_manager.gd"
 
 [display]
 

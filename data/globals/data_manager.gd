@@ -3,4 +3,5 @@ class_name dataManager
 extends Node
 
 
-@export var enemies:Dictionary = {}
+var defeated_enemies:Array[Resource]
+var spawn_enemies:bool = false

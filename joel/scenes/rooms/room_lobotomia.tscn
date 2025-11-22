@@ -36,11 +36,11 @@ unique_name_in_owner = true
 
 [node name="Puertas" type="Node2D" parent="."]
 
-[node name="Lobotomia" parent="Puertas" instance=ExtResource("2_7sown")]
+[node name="Tinas" parent="Puertas" instance=ExtResource("2_7sown")]
 offset_left = 158.0
 offset_right = 190.0
-next_scene = "uid://bob80e5tnry8w"
+next_scene = "uid://w7nwrjlhskbc"
 in_front = false
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Enemigos" type="Node2D" parent="."]
 position = Vector2(500, 0)

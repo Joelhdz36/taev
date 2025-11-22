@@ -48,3 +48,6 @@ next_scene = "uid://bob80e5tnry8w"
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-350, 0)
+
+[node name="Enemigos" type="Node2D" parent="."]
+position = Vector2(500, 0)

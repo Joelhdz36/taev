@@ -1,12 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://cudpxv06ihx1n"]
+[gd_scene load_steps=9 format=3 uid="uid://cudpxv06ihx1n"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_0y6mp"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_ju0ve"]
+[ext_resource type="PackedScene" uid="uid://b7b164mon1k65" path="res://joel/scenes/enemy.tscn" id="3_ju0ve"]
+[ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="4_0agv1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n1h7m"]
 font_size = 40
+
+[sub_resource type="Resource" id="Resource_0agv1"]
+script = ExtResource("4_0agv1")
+name = "Prueba"
+health = 10.0
+damage = 25.0
+metadata/_custom_type_script = "uid://bxuaimm6pl5op"
+
+[sub_resource type="Resource" id="Resource_jl43k"]
+script = ExtResource("4_0agv1")
+name = "Prueba"
+health = 10.0
+damage = 25.0
+metadata/_custom_type_script = "uid://bxuaimm6pl5op"
 
 [node name="PasDerecha" type="Node2D"]
 script = ExtResource("1_0y6mp")
@@ -48,3 +64,13 @@ in_front = false
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(-290, 0)
+
+[node name="Enemigos" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemigos" instance=ExtResource("3_ju0ve")]
+position = Vector2(-41, -16)
+enemy_resource = SubResource("Resource_0agv1")
+
+[node name="Enemy2" parent="Enemigos" instance=ExtResource("3_ju0ve")]
+position = Vector2(223, -16)
+enemy_resource = SubResource("Resource_jl43k")

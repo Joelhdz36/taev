@@ -60,3 +60,6 @@ in_front = false
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(261, 0)
+
+[node name="Enemigos" type="Node2D" parent="."]
+position = Vector2(500, 0)

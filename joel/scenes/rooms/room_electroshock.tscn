@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfsv0hngbrr2w"]
+[gd_scene load_steps=6 format=3 uid="uid://dfsv0hngbrr2w"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_acuit"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_n1h7m"]
+[ext_resource type="PackedScene" uid="uid://b7b164mon1k65" path="res://joel/scenes/enemy.tscn" id="3_ehhow"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -41,3 +42,8 @@ next_scene = "uid://cudpxv06ihx1n"
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(240, 0)
+
+[node name="Enemigos" type="Node2D" parent="."]
+
+[node name="Enemy" parent="Enemigos" instance=ExtResource("3_ehhow")]
+position = Vector2(-97, -16)
