@@ -22,7 +22,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GUIDE.enable_mapping_context(menus_context)
 	create_player()
-
+	SceneManager.create_fisrt_scene()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -42,7 +42,6 @@ func create_player():
 		world_2d.call_deferred("add_child", new_player)
 		new_player.global_position = current_spawn
 		new_camera_creation(new_player)
-		
 
 func new_camera_creation(player_in_cam:CharacterBody2D):
 	var new_camera
@@ -52,6 +51,8 @@ func new_camera_creation(player_in_cam:CharacterBody2D):
 	new_camera._player = player_in_cam
 	world_2d.add_child(new_camera)
 	CameraManager.current_camera = new_camera
+
+
 
 
 func pause_game():

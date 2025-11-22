@@ -1,16 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfsv0hngbrr2w"]
+[gd_scene load_steps=5 format=3 uid="uid://bdbgmah14ctni"]
 
-[ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_acuit"]
-[ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_n1h7m"]
+[ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_2vnly"]
+[ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_u3c5w"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n1h7m"]
 font_size = 40
 
-[node name="RoomElectroshock" type="Node2D"]
-script = ExtResource("1_acuit")
-camera_limits = Vector2(-200, 240)
+[node name="Camaras" type="Node2D"]
+script = ExtResource("1_2vnly")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -34,10 +33,14 @@ vertical_alignment = 1
 [node name="Spawn" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Puerta" parent="." instance=ExtResource("2_n1h7m")]
-offset_left = 136.0
-offset_right = 168.0
-next_scene = "uid://cudpxv06ihx1n"
+[node name="Puertas" type="Node2D" parent="."]
 
-[node name="Node2D" type="Node2D" parent="."]
-position = Vector2(240, 0)
+[node name="Juegos" parent="Puertas" instance=ExtResource("2_u3c5w")]
+offset_left = -250.0
+offset_right = -218.0
+next_scene = "uid://ba12nl6ckr4nm"
+
+[node name="PasCentral" parent="Puertas" instance=ExtResource("2_u3c5w")]
+offset_left = -109.0
+offset_right = -77.0
+next_scene = "uid://bob80e5tnry8w"

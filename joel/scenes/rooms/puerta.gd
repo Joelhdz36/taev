@@ -19,6 +19,7 @@ func interaction():
 		SceneManager.change_scene(next_scene)
 	else:
 		print("puerta bloqueada")
+
 func _on_door_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		$InteractionIcon.show()

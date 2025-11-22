@@ -50,6 +50,8 @@ func _process(delta: float) -> void:
 		attack(delta)
 	queue_redraw()
 	if can_interact and interaction.is_triggered():
+		if current_obj.is_in_group("Puerta") and !current_obj.blocked:
+			global_position.x = current_obj.global_position.x + 16
 		current_obj.interaction()
 
 #func _physics_process(delta: float) -> void:

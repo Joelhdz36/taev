@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pqsq"]
 size = Vector2(28, 46)
 
-[node name="Puerta" type="ColorRect"]
+[node name="Puerta" type="ColorRect" groups=["Puerta"]]
 y_sort_enabled = true
 custom_minimum_size = Vector2(32, 48)
 offset_left = -16.0
