@@ -1,15 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://cudpxv06ihx1n"]
+[gd_scene load_steps=5 format=3 uid="uid://bft4bopajvn3m"]
 
-[ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_0y6mp"]
-[ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_ju0ve"]
+[ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_nq6is"]
+[ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_1mo5u"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n1h7m"]
 font_size = 40
 
-[node name="PasilloAlaDerecha" type="Node2D"]
-script = ExtResource("1_0y6mp")
+[node name="PasIzqDos" type="Node2D"]
+script = ExtResource("1_nq6is")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -35,12 +35,12 @@ unique_name_in_owner = true
 
 [node name="Puertas" type="Node2D" parent="."]
 
-[node name="PasCentral" parent="Puertas" instance=ExtResource("2_ju0ve")]
+[node name="PasIzqUno" parent="Puertas" instance=ExtResource("2_1mo5u")]
 offset_left = -250.0
 offset_right = -218.0
-next_scene = "uid://bob80e5tnry8w"
+next_scene = "uid://ba12nl6ckr4nm"
 
-[node name="PasIzq" parent="Puertas" instance=ExtResource("2_ju0ve")]
-offset_left = 136.0
-offset_right = 168.0
+[node name="Camaras" parent="Puertas" instance=ExtResource("2_1mo5u")]
+offset_left = -504.0
+offset_right = -472.0
 in_front = false

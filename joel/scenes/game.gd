@@ -37,10 +37,10 @@ func create_player():
 		return
 	else:
 		HealthManager.restore_full_health()
-		var current_spawn = $World2D/Rooms.get_child(0).spawn
+		var current_spawn = SceneManager.spawn_pos
 		var new_player = _player.instantiate()
 		world_2d.call_deferred("add_child", new_player)
-		new_player.global_position = current_spawn.global_position
+		new_player.global_position = current_spawn
 		new_camera_creation(new_player)
 		
 

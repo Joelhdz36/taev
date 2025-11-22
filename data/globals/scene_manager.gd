@@ -3,6 +3,7 @@ extends Node
 
 var current_scene
 var world_2d:Node2D
+var spawn_pos:Vector2
 
 func change_scene(uid:String):
 	if current_scene != null:

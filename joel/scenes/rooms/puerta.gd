@@ -2,6 +2,7 @@ extends ColorRect
 
 @export var next_scene:String
 @export var in_front:bool
+@export var blocked:bool
 
 var can_actuate = false
 # Called when the node enters the scene tree for the first time.
@@ -14,8 +15,10 @@ func _process(delta: float) -> void:
 	pass
 
 func interaction():
-	SceneManager.change_scene(next_scene)
-
+	if !blocked:
+		SceneManager.change_scene(next_scene)
+	else:
+		print("puerta bloqueada")
 func _on_door_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		$InteractionIcon.show()
