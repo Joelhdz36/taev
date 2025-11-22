@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	CameraManager.set_camera_limits(camera_limits)
+	camera_limits = CameraManager.set_camera_limits(camera_limits)
 	SceneManager.current_scene = self
 	$RoomName.text = name
 

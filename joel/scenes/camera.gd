@@ -51,11 +51,11 @@ func follow_player(_delta:float):
 func go_back_to_player(_delta:float):
 	var camera_offset:Vector2 = Vector2(0,-player_offset.y)
 	if _player.global_position.x < limit_right and _player.global_position.x > limit_left:
-		global_position = lerp(global_position, _player.global_position + camera_offset, damping_speed - 0.05)
+		global_position = lerp(global_position, _player.global_position + camera_offset, damping_speed - 0.02)
 		return
-	elif global_position.x >= limit_right:
+	elif _player.global_position.x >= limit_right:
 		global_position.x = limit_right
 		
-	elif global_position.x <= limit_left:
+	elif _player.global_position.x <= limit_left:
 		global_position.x = limit_left
-	global_position.y = lerpf(global_position.y, _player.global_position.y + camera_offset.y, damping_speed - 0.05)
+	global_position.y = lerpf(global_position.y, _player.global_position.y + camera_offset.y, damping_speed -  0.02)
