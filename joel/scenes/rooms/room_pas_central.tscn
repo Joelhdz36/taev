@@ -10,6 +10,7 @@ font_size = 40
 
 [node name="PasilloCentral" type="Node2D"]
 script = ExtResource("1_o6jua")
+camera_limits = Vector2(-348, 260)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -56,3 +57,6 @@ offset_left = 169.0
 offset_right = 201.0
 next_scene = "uid://djj82msmsvtyi"
 in_front = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(261, 0)

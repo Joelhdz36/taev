@@ -9,7 +9,3 @@ func _ready() -> void:
 	camera_limits = CameraManager.set_camera_limits(camera_limits)
 	SceneManager.current_scene = self
 	$RoomName.text = name
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

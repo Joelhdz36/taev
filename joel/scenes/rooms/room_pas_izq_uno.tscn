@@ -10,6 +10,7 @@ font_size = 40
 
 [node name="PasIzqUno" type="Node2D"]
 script = ExtResource("1_2qtev")
+camera_limits = Vector2(-332, 230)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -44,9 +45,13 @@ in_front = false
 [node name="Tinas" parent="Puertas" instance=ExtResource("2_eli5e")]
 offset_left = -109.0
 offset_right = -77.0
+next_scene = "uid://w7nwrjlhskbc"
 
 [node name="PasCentral" parent="Puertas" instance=ExtResource("2_eli5e")]
 offset_left = 49.0
 offset_right = 81.0
 next_scene = "uid://bob80e5tnry8w"
 in_front = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(121, 0)

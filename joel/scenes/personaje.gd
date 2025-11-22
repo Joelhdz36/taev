@@ -54,9 +54,6 @@ func _process(delta: float) -> void:
 			global_position.x = current_obj.global_position.x + 16
 		current_obj.interaction()
 
-#func _physics_process(delta: float) -> void:
-
-
 
 func attack(_delta:float):
 	dmg_collider.show()
@@ -71,11 +68,10 @@ func attack(_delta:float):
 
 func take_damage(received_damage:float, _enemy_pos:Vector2):
 	enemy_pos = to_local(_enemy_pos).normalized()
-	print(enemy_pos)
 	state_chart.send_event("toDamaged")
-	#player_health -= received_damage
-	#HealthManager.health = player_health
-	#die()
+	player_health -= received_damage
+	HealthManager.health = player_health
+	die()
 	
 
 func die():
@@ -104,7 +100,6 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 	if run_action.is_triggered():
 		speed = SPEED * 2.5
 	var direction := movement_action._value_axis_2d
-	print(direction)
 	if direction:
 
 		velocity.x = direction.x * speed * delta
@@ -131,7 +126,6 @@ func _on_damaged_state_physics_processing(delta: float) -> void:
 	velocity.x = move_toward(velocity.x,0, 3800* delta)
 	if velocity.x == 0:
 		state_chart.send_event("toIdle")
-
 	move_and_slide()
 
 

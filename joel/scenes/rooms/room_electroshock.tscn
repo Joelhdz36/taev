@@ -10,7 +10,7 @@ font_size = 40
 
 [node name="RoomElectroshock" type="Node2D"]
 script = ExtResource("1_acuit")
-camera_limits = Vector2(-200, 240)
+camera_limits = Vector2(-200, 360)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -34,7 +34,7 @@ vertical_alignment = 1
 [node name="Spawn" type="Node2D" parent="."]
 unique_name_in_owner = true
 
-[node name="Puerta" parent="." instance=ExtResource("2_n1h7m")]
+[node name="PasDerecha" parent="." instance=ExtResource("2_n1h7m")]
 offset_left = 136.0
 offset_right = 168.0
 next_scene = "uid://cudpxv06ihx1n"

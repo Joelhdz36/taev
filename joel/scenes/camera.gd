@@ -9,6 +9,7 @@ const damping_speed:float = 0.05
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_camera_values()
+	
 
 #resore version
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,6 +47,7 @@ func follow_player(_delta:float):
 	elif _player.global_position.x <= limit_left:
 		global_position.x = lerpf(global_position.x, limit_left, .02)  
 	global_position.y = lerpf(global_position.y, _player.global_position.y + camera_offset.y, damping_speed)
+	CameraManager.cam_pos = _player.global_position - camera_offset
 
 
 func go_back_to_player(_delta:float):

@@ -8,9 +8,9 @@
 [sub_resource type="LabelSettings" id="LabelSettings_n1h7m"]
 font_size = 40
 
-[node name="PasilloAlaDerecha" type="Node2D"]
+[node name="PasDerecha" type="Node2D"]
 script = ExtResource("1_0y6mp")
-camera_limits = Vector2(-290, 350)
+camera_limits = Vector2(-348, 350)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -41,7 +41,7 @@ offset_left = -250.0
 offset_right = -218.0
 next_scene = "uid://bob80e5tnry8w"
 
-[node name="PasIzq" parent="Puertas" instance=ExtResource("2_ju0ve")]
+[node name="Electroshock" parent="Puertas" instance=ExtResource("2_ju0ve")]
 offset_left = 136.0
 offset_right = 168.0
 in_front = false

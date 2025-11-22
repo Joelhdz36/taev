@@ -1,12 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://c4bhfe7m48b3h"]
+[gd_scene load_steps=5 format=3 uid="uid://c4bhfe7m48b3h"]
 
 [ext_resource type="Script" uid="uid://ciogtnb56tnmb" path="res://joel/scenes/rooms/puerta.gd" id="1_6pqsq"]
+[ext_resource type="Shader" uid="uid://b4koxnlu2ks5p" path="res://joel/shaders/see_through.gdshader" id="1_7weh3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_u1mue"]
+shader = ExtResource("1_7weh3")
+shader_parameter/player_pos = Vector2(576, 324)
+shader_parameter/circle = Vector2(576, 324)
+shader_parameter/max_distance = 80.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pqsq"]
 size = Vector2(28, 46)
 
 [node name="Puerta" type="ColorRect" groups=["Puerta"]]
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_u1mue")
 custom_minimum_size = Vector2(32, 48)
 offset_left = -16.0
 offset_top = -48.0
@@ -23,14 +31,24 @@ in_front = true
 position = Vector2(16, 25)
 shape = SubResource("RectangleShape2D_6pqsq")
 
-[node name="InteractionIcon" type="ColorRect" parent="."]
+[node name="InteractionIcon" type="Label" parent="."]
 visible = false
-layout_mode = 0
-anchor_left = 0.40625
-anchor_top = -0.1875
-anchor_right = 0.59375
-anchor_bottom = -0.0625
-metadata/_edit_use_anchors_ = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -46.0
+offset_top = -48.0
+offset_right = 46.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 12
+text = "PasDerecha"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="DoorArea" to="." method="_on_door_area_body_entered"]
 [connection signal="body_exited" from="DoorArea" to="." method="_on_door_area_body_exited"]

@@ -10,6 +10,7 @@ font_size = 40
 
 [node name="Camaras" type="Node2D"]
 script = ExtResource("1_u2lkr")
+camera_limits = Vector2(-560, -120)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -38,10 +39,13 @@ unique_name_in_owner = true
 [node name="Juegos" parent="Puertas" instance=ExtResource("2_a0h5n")]
 offset_left = -250.0
 offset_right = -218.0
-next_scene = "uid://ba12nl6ckr4nm"
+next_scene = "uid://bdbgmah14ctni"
+in_front = false
 
 [node name="PasIzqDos" parent="Puertas" instance=ExtResource("2_a0h5n")]
 offset_left = -504.0
 offset_right = -472.0
 next_scene = "uid://bft4bopajvn3m"
-in_front = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-560, 0)

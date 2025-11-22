@@ -2,6 +2,7 @@ class_name cameraManager
 extends Node
 
 var current_camera:Camera2D
+var cam_pos:Vector2
 
 func set_camera_limits(limits:Vector2):
 	var screen_size = get_viewport().get_visible_rect().size.x

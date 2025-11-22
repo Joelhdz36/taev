@@ -10,6 +10,7 @@ font_size = 40
 
 [node name="Mads" type="Node2D"]
 script = ExtResource("1_p8fp1")
+camera_limits = Vector2(-300, 260)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -40,3 +41,6 @@ offset_left = 169.0
 offset_right = 201.0
 next_scene = "uid://bob80e5tnry8w"
 in_front = false
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(-317, 0)
