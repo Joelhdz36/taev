@@ -114,9 +114,9 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 	move_and_slide()
 
 func _on_damaged_state_entered() -> void:
-	
-	var dir = movement_action.value_axis_2d.x
-	var impulse:float = 450.0
+	#var dir = movement_action.value_axis_2d.x
+	var dir = last_direction
+	var impulse:float = 450
 	var dp = Vector2(dir,0).normalized().dot(enemy_pos)
 	var impulse_dir = Vector2(dp,0.0).normalized()  * -last_direction
 	velocity.x = impulse * impulse_dir.x

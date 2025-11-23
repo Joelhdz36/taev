@@ -8,10 +8,15 @@ var _health:float
 var _damage:float
 var _wonder_speed:float
 
+#Wonder variables
 var wonder_max_pos:float
 var wonder_min_pos:float
 var dir:float = 1.0
 
+#Follow variables
+var player:CharacterBody2D
+var origin_pos:float
+var _follow_speed:float
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_initial_values()
@@ -20,13 +25,15 @@ func set_initial_values():
 	_health = enemy_resource.health
 	_damage = enemy_resource.damage
 	_wonder_speed = enemy_resource.wonder_speed
+	_follow_speed = enemy_resource.follow_speed
 	
+	origin_pos = global_position.x
 	wonder_max_pos = global_position.x + 30
 	wonder_min_pos = global_position.x - 30
 
-func take_damage(damage:float,player_pos:Vector2):
+func take_damage(damage:float,_player_pos:Vector2):
 	_health -= damage
-	var dp = -((Vector2(1,0).dot(to_local(player_pos).normalized())))
+	var dp = -((Vector2(1,0).dot(to_local(_player_pos).normalized())))
 	var ndp:Vector2 = Vector2(dp,0).normalized()
 	create_blood(ndp.x)
 	die()
@@ -49,9 +56,33 @@ func _on_damage_area_body_entered(body: Node2D) -> void:
 		
 
 
+func _on_detection_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Player"):
+		player = body
+		$StateChart.send_event("toFollow")
+
+
 func _on_wonder_state_physics_processing(delta: float) -> void:
 	if global_position.x > wonder_max_pos or global_position.x < wonder_min_pos:
 		dir *= -1.0
 	velocity.x = (_wonder_speed * delta) * dir
 	
 	move_and_slide()
+
+func _on_follow_state_physics_processing(delta: float) -> void:
+	if player != null:
+		var player_dp = Vector2(dir,0).normalized().dot(to_local(player.global_position).normalized())
+		var player_dir:Vector2 = Vector2(player_dp,0).normalized()
+		print(player_dir.x)
+		velocity.x = (_follow_speed * delta) * -player_dir.x
+	else:
+		$StateChart.send_event("toOrigin")
+	move_and_slide()
+
+
+
+
+func _on_origin_state_physics_processing(delta: float) -> void:
+	global_position.x = move_toward(global_position.x,origin_pos,30.0 * delta)
+	if global_position.x == origin_pos:
+		$StateChart.send_event("toWonder")

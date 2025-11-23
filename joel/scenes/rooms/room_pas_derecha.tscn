@@ -3,26 +3,30 @@
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_0y6mp"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_ju0ve"]
 [ext_resource type="PackedScene" uid="uid://b7b164mon1k65" path="res://joel/scenes/enemy.tscn" id="3_ju0ve"]
-[ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="4_0agv1"]
+[ext_resource type="Script" uid="uid://c3lkqinma6fcn" path="res://data/paciente.gd" id="4_jl43k"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n1h7m"]
 font_size = 40
 
-[sub_resource type="Resource" id="Resource_0agv1"]
-script = ExtResource("4_0agv1")
-name = "Prueba"
+[sub_resource type="Resource" id="Resource_jr353"]
+script = ExtResource("4_jl43k")
+name = "Pas01"
 health = 10.0
-damage = 25.0
-metadata/_custom_type_script = "uid://bxuaimm6pl5op"
+damage = 10.0
+wonder_speed = 600.0
+follow_speed = 2500.0
+metadata/_custom_type_script = "uid://c3lkqinma6fcn"
 
-[sub_resource type="Resource" id="Resource_jl43k"]
-script = ExtResource("4_0agv1")
-name = "Prueba"
+[sub_resource type="Resource" id="Resource_0agv1"]
+script = ExtResource("4_jl43k")
+name = "Pas01"
 health = 10.0
-damage = 25.0
-metadata/_custom_type_script = "uid://bxuaimm6pl5op"
+damage = 10.0
+wonder_speed = 600.0
+follow_speed = 2500.0
+metadata/_custom_type_script = "uid://c3lkqinma6fcn"
 
 [node name="PasDerecha" type="Node2D"]
 script = ExtResource("1_0y6mp")
@@ -69,8 +73,8 @@ position = Vector2(-290, 0)
 
 [node name="Enemy" parent="Enemigos" instance=ExtResource("3_ju0ve")]
 position = Vector2(-41, -16)
-enemy_resource = SubResource("Resource_0agv1")
+enemy_resource = SubResource("Resource_jr353")
 
 [node name="Enemy2" parent="Enemigos" instance=ExtResource("3_ju0ve")]
 position = Vector2(223, -16)
-enemy_resource = SubResource("Resource_jl43k")
+enemy_resource = SubResource("Resource_0agv1")

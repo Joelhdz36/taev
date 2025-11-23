@@ -6,6 +6,7 @@
 script = ExtResource("1_balqx")
 name = "Pas01"
 health = 10.0
-damage = 3.0
+damage = 10.0
 wonder_speed = 600.0
+follow_speed = 2500.0
 metadata/_custom_type_script = "uid://c3lkqinma6fcn"
