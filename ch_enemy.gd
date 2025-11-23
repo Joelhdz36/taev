@@ -32,11 +32,16 @@ func set_initial_values():
 	wonder_min_pos = global_position.x - 30
 
 func take_damage(damage:float,_player_pos:Vector2):
+	var _dir:Vector2 = Vector2(_player_pos - global_position).normalized()
+	var impulse = 90 * -_dir.x
+	velocity.x = impulse
+	$StateChart.send_event("toHurt")
 	_health -= damage
 	var dp = -((Vector2(1,0).dot(to_local(_player_pos).normalized())))
 	var ndp:Vector2 = Vector2(dp,0).normalized()
 	create_blood(ndp.x)
 	die()
+	move_and_slide()
 
 func create_blood(blod_dir:float):
 	var new_blood = blood_particles_scene.instantiate() as GPUParticles2D
@@ -71,12 +76,16 @@ func _on_wonder_state_physics_processing(delta: float) -> void:
 
 func _on_follow_state_physics_processing(delta: float) -> void:
 	if player != null:
-		var player_dp = Vector2(dir,0).normalized().dot(to_local(player.global_position).normalized())
-		var player_dir:Vector2 = Vector2(player_dp,0).normalized()
-		print(player_dir.x)
-		velocity.x = (_follow_speed * delta) * -player_dir.x
-	else:
-		$StateChart.send_event("toOrigin")
+		velocity = Vector2.ZERO
+		global_position.x = move_toward(global_position.x, player.global_position.x,50 * delta)
+	#if player != null:
+		#var player_dp = Vector2(dir,0).normalized().dot(to_local(player.global_position).normalized())
+		#print("playerDP: ", player_dp)
+		#var player_dir:Vector2 = Vector2(player_dp,0).normalized()
+		#print(player_dir.x)
+		#velocity.x = (_follow_speed * delta) * player_dir.x
+	#else:
+		#$StateChart.send_event("toOrigin")
 	move_and_slide()
 
 
@@ -86,3 +95,12 @@ func _on_origin_state_physics_processing(delta: float) -> void:
 	global_position.x = move_toward(global_position.x,origin_pos,30.0 * delta)
 	if global_position.x == origin_pos:
 		$StateChart.send_event("toWonder")
+
+
+
+func _on_hurt_state_physics_processing(delta: float) -> void:
+	
+	velocity.x = move_toward(velocity.x,0,350 * delta)
+	if velocity.x == 0.0:
+		$StateChart.send_event("toFollow")
+	move_and_slide()

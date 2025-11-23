@@ -84,7 +84,7 @@ func die():
 
 
 func _on_damage_area_area_entered(area: Area2D) -> void:
-	if area.get_parent().is_in_group("Enemigo"):
+	if area.is_in_group("Enemigo"):
 		area.get_parent().take_damage(damage,global_position)
 
 
