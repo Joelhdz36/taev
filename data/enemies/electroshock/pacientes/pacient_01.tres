@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Pacient" load_steps=2 format=3 uid="uid://1flukga1ngl4"]
+
+[ext_resource type="Script" uid="uid://c3lkqinma6fcn" path="res://data/paciente.gd" id="1_balqx"]
+
+[resource]
+script = ExtResource("1_balqx")
+name = "Pas01"
+health = 10.0
+damage = 3.0
+wonder_speed = 600.0
+metadata/_custom_type_script = "uid://c3lkqinma6fcn"

@@ -39,9 +39,9 @@ metadata/_custom_type_script = "uid://couw105c3bde4"
 
 [node name="CompoundState" type="Node" parent="StateChart"]
 script = ExtResource("4_4recx")
-initial_state = NodePath("Idle")
+initial_state = NodePath("Wonder")
 
-[node name="Idle" type="Node" parent="StateChart/CompoundState"]
+[node name="Wonder" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("5_2xxvm")
 
 [node name="Follow" type="Node" parent="StateChart/CompoundState"]
@@ -59,3 +59,4 @@ debug_color = Color(0.37541825, 0.59503603, 0.44172, 0.41960785)
 shape = SubResource("RectangleShape2D_xn8el")
 
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Wonder" to="." method="_on_wonder_state_physics_processing"]
