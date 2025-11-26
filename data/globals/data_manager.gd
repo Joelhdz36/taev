@@ -4,4 +4,4 @@ extends Node
 
 
 var defeated_enemies:Array[Resource]
-var spawn_enemies:bool = true
+var spawn_enemies:bool = false

@@ -78,14 +78,7 @@ func _on_follow_state_physics_processing(delta: float) -> void:
 	if player != null:
 		velocity = Vector2.ZERO
 		global_position.x = move_toward(global_position.x, player.global_position.x,50 * delta)
-	#if player != null:
-		#var player_dp = Vector2(dir,0).normalized().dot(to_local(player.global_position).normalized())
-		#print("playerDP: ", player_dp)
-		#var player_dir:Vector2 = Vector2(player_dp,0).normalized()
-		#print(player_dir.x)
-		#velocity.x = (_follow_speed * delta) * player_dir.x
-	#else:
-		#$StateChart.send_event("toOrigin")
+
 	move_and_slide()
 
 

@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4mqr7824uavn"]
+[gd_scene load_steps=4 format=3 uid="uid://c4mqr7824uavn"]
 
 [ext_resource type="Script" uid="uid://b0rs7usj4cyn5" path="res://joel/scenes/UI/options.gd" id="1_u46ye"]
+[ext_resource type="AudioStream" uid="uid://re2beni76aj8" path="res://joel/trash/school-ambient.mp3" id="2_467ti"]
+[ext_resource type="AudioStream" uid="uid://bverrktol5q7s" path="res://joel/trash/tlazohcamati yoliztli.wav" id="3_phlbu"]
 
 [node name="Options" type="CanvasLayer"]
 layer = 2
@@ -14,14 +16,32 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.19793725, 0.19793722, 0.19793722, 1)
 
-[node name="CenterContainer" type="CenterContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 300
 
-[node name="ItemList" type="OptionButton" parent="CenterContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ScreenResolution" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="ResolutionTxt" type="Label" parent="MarginContainer/VBoxContainer/ScreenResolution"]
+layout_mode = 2
+text = "Tamaño de pantalla "
+
+[node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer/ScreenResolution"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResolutionSize" type="OptionButton" parent="MarginContainer/VBoxContainer/ScreenResolution"]
 custom_minimum_size = Vector2(200, 30)
 layout_mode = 2
 item_count = 2
@@ -30,4 +50,77 @@ popup/item_0/id = 0
 popup/item_1/text = "1240x720"
 popup/item_1/id = 1
 
-[connection signal="item_selected" from="CenterContainer/ItemList" to="." method="_on_item_list_item_selected"]
+[node name="SonidoGeneral" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="GeneralTxt" type="Label" parent="MarginContainer/VBoxContainer/SonidoGeneral"]
+layout_mode = 2
+text = "Sonido General"
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="MarginContainer/VBoxContainer/SonidoGeneral"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GeneralSound" type="HSlider" parent="MarginContainer/VBoxContainer/SonidoGeneral"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+min_value = -50.0
+max_value = 0.0
+step = 0.2
+
+[node name="SFX" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="FXTxt" type="Label" parent="MarginContainer/VBoxContainer/SFX"]
+layout_mode = 2
+text = "Volumen de efectos"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="MarginContainer/VBoxContainer/SFX"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SFX" type="HSlider" parent="MarginContainer/VBoxContainer/SFX"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+min_value = -50.0
+max_value = 0.0
+step = 0.2
+
+[node name="Music" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MusicTxt" type="Label" parent="MarginContainer/VBoxContainer/Music"]
+layout_mode = 2
+text = "Volumen de musica"
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="MarginContainer/VBoxContainer/Music"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Music" type="HSlider" parent="MarginContainer/VBoxContainer/Music"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 30)
+layout_mode = 2
+min_value = -50.0
+max_value = 0.0
+step = 0.2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_467ti")
+autoplay = true
+bus = &"SFX"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_phlbu")
+autoplay = true
+bus = &"Music"
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/ScreenResolution/ResolutionSize" to="." method="_on_resolution_size_item_selected"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SonidoGeneral/GeneralSound" to="." method="_on_general_sound_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/SFX/SFX" to="." method="_on_sfx_value_changed"]
+[connection signal="value_changed" from="MarginContainer/VBoxContainer/Music/Music" to="." method="_on_music_value_changed"]

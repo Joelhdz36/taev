@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bverrktol5q7s"
+path="res://.godot/imported/tlazohcamati yoliztli.wav-a8e7228c43fc97776164d055cbad4ac9.sample"
+
+[deps]
+
+source_file="res://joel/trash/tlazohcamati yoliztli.wav"
+dest_files=["res://.godot/imported/tlazohcamati yoliztli.wav-a8e7228c43fc97776164d055cbad4ac9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

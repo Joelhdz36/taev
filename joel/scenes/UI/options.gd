@@ -1,17 +1,14 @@
 extends CanvasLayer
 
 var game_resolutions:Array[Vector2] = [Vector2(1920,1080),Vector2(1240,720)]
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	%GeneralSound.value = AudioServer.get_bus_volume_db(0)
+	%SFX.value = AudioServer.get_bus_volume_db(1)
+	%Music.value = AudioServer.get_bus_volume_db(2)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-func _on_item_list_item_selected(index: int) -> void:
+func _on_resolution_size_item_selected(index: int) -> void:
 	DisplayServer.window_set_size(game_resolutions[index])
 	var screen_size:Vector2 = DisplayServer.screen_get_size()
 	var game_window:Vector2 = get_viewport().size
@@ -21,8 +18,29 @@ func _on_item_list_item_selected(index: int) -> void:
 	DisplayServer.window_set_position(screen_position)
 	CameraManager.change_cam_resolution()
 	hide()
-	#DisplayServer.window_set_size(game_resolutions[index])
-	#var monitor:int = DisplayServer.window_get_current_screen()
-	#var monitor_size = DisplayServer.window_get_size(monitor)
-	#DisplayServer.window_set_position(Vector2(monitor_size.x/2,0.0))
-	#CameraManager.change_cam_resolution()
+
+
+
+
+func _on_general_sound_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(0,value)
+	if value > %GeneralSound.min_value:
+		AudioServer.set_bus_mute(0,false)
+	else:
+		AudioServer.set_bus_mute(0,true)
+
+func _on_sfx_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(1,value)
+	if value > %SFX.min_value:
+		AudioServer.set_bus_mute(1,false)
+	else:
+		AudioServer.set_bus_mute(1,true)
+
+
+func _on_music_value_changed(value: float) -> void:
+	AudioServer.set_bus_volume_db(2,value)
+	if value > %Music.min_value:
+		AudioServer.set_bus_mute(2,false)
+	else:
+		AudioServer.set_bus_mute(2,true)
+	

@@ -16,16 +16,23 @@ grow_vertical = 2
 alignment = 1
 
 [node name="ContinueBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Continue
+text = "Continuar
 "
 
 [node name="OptionBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Options
-"
+text = "Opciones"
+
+[node name="ExitBtn" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Salir"
 
 [node name="Options" parent="." instance=ExtResource("1_qo2fb")]
 unique_name_in_owner = true
@@ -33,3 +40,4 @@ visible = false
 
 [connection signal="pressed" from="VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionBtn" to="." method="_on_option_btn_pressed"]
+[connection signal="pressed" from="VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

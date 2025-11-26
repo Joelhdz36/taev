@@ -23,3 +23,7 @@ func _on_continue_btn_pressed() -> void:
 	get_tree().paused = !get_tree().paused
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	queue_free()
+
+
+func _on_exit_btn_pressed() -> void:
+	get_tree().quit()
