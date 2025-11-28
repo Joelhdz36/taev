@@ -6,6 +6,10 @@ var current_scene
 var world_2d:Node2D
 var spawn_pos:Vector2
 
+func _ready():
+	Dialogic.signal_event.connect(pause_game)
+	Dialogic.timeline_ended.connect(pause_game.bind("pause_game"))
+
 func change_scene(uid:String):
 	if current_scene != null:
 		current_scene.queue_free()
@@ -17,3 +21,8 @@ func change_scene(uid:String):
 func create_fisrt_scene():
 	var new_first_scene = first_scene.instantiate()
 	world_2d.add_child(new_first_scene)
+
+
+func pause_game(paused:String):
+	if paused == "pause_game":
+		get_tree().paused = !get_tree().paused

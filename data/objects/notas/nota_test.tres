@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Note" load_steps=3 format=3 uid="uid://bxmj8pfsxcxaa"]
+[gd_resource type="Resource" script_class="Note" load_steps=4 format=3 uid="uid://bxmj8pfsxcxaa"]
 
 [ext_resource type="Texture2D" uid="uid://bn5i6qwmv70y" path="res://joel/trash/Nota_test_01.png" id="1_2nvks"]
+[ext_resource type="Resource" uid="uid://85yd0qa8gsqu" path="res://joel/trash/timeline_test.dtl" id="1_qlg37"]
 [ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/note.gd" id="1_spa4b"]
 
 [resource]
@@ -10,4 +11,5 @@ inventory_icon = ExtResource("1_2nvks")
 note_text = "Nota encontrada en la habitacion de Mads, la neta no se que pueda decir pero probablemente es importante."
 obj_type = "item"
 color_test = Color(2.8878452e-07, 0.6320414, 0.44553554, 1)
+dialogo = ExtResource("1_qlg37")
 metadata/_custom_type_script = "uid://cxujipwv6hp7y"
