@@ -1,4 +1,7 @@
-[gd_resource type="LabelSettings" format=3 uid="uid://cdek3rehd63k4"]
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://cdek3rehd63k4"]
+
+[ext_resource type="FontFile" uid="uid://cjmi8r38xyblg" path="res://assets/fuentes/upheavtt.ttf" id="1_7v6yq"]
 
 [resource]
+font = ExtResource("1_7v6yq")
 font_size = 50
