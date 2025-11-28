@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfsv0hngbrr2w"]
+[gd_scene load_steps=8 format=3 uid="uid://dfsv0hngbrr2w"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_acuit"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_n1h7m"]
 [ext_resource type="PackedScene" uid="uid://b7b164mon1k65" path="res://joel/scenes/enemy.tscn" id="3_ehhow"]
 [ext_resource type="Resource" uid="uid://1flukga1ngl4" path="res://data/enemies/electroshock/pacientes/pacient_01.tres" id="4_mctc5"]
+[ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="5_r2u5m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -49,3 +50,6 @@ position = Vector2(240, 0)
 [node name="Enemy" parent="Enemigos" instance=ExtResource("3_ehhow")]
 position = Vector2(-97, -16)
 enemy_resource = ExtResource("4_mctc5")
+
+[node name="InteractableObj" parent="." instance=ExtResource("5_r2u5m")]
+position = Vector2(85, -23)

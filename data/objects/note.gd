@@ -13,3 +13,6 @@ extends Resource
 
 @export_group("Testeo")
 @export var color_test:Color 
+
+##En caso de que el objeto tenga un dialogo que reproducir al interactuar con el
+@export var dialogo:DialogicTimeline
