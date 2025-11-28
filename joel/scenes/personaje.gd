@@ -101,12 +101,15 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 		speed = SPEED * 2.5
 	var direction := movement_action._value_axis_2d
 	if direction:
-
 		velocity.x = direction.x * speed * delta
 		if last_direction != direction.x:
 			looking_at.position.x *= -1.0
 			$DamageArea.scale.x *= -1.0
 			last_direction = direction.x
+		if direction.x > 0:
+			$Sprite2D.flip_h = false
+		else:
+			$Sprite2D.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, speed)
 		if velocity.x == 0:

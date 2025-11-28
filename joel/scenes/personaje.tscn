@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm5xa8wyhrdn1"]
+[gd_scene load_steps=10 format=3 uid="uid://cm5xa8wyhrdn1"]
 
 [ext_resource type="Script" uid="uid://cjri4qklw0gvo" path="res://joel/scenes/personaje.gd" id="1_2kcgv"]
+[ext_resource type="Texture2D" uid="uid://bltupldpl71fn" path="res://sprites/I_Mads_v01.png" id="2_eumi8"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_rjtcc"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_eumi8"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_2q4fn"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="5_t6aad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j4d1"]
-size = Vector2(28, 37)
+size = Vector2(10, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kusw5"]
-size = Vector2(20, 28)
+size = Vector2(10, 29)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kusw5"]
 radius = 6.0
@@ -20,48 +21,23 @@ script = ExtResource("1_2kcgv")
 SPEED = 4500.0
 damage = 4.0
 
-[node name="ChSize2" type="ColorRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -32.0
-offset_right = 16.0
-grow_horizontal = 2
-grow_vertical = 0
-color = Color(1, 0.3137255, 1, 0.49019608)
-
-[node name="ChSize" type="ColorRect" parent="."]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -11.0
-offset_top = -32.0
-offset_right = 11.18
-grow_horizontal = 2
-grow_vertical = 0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -18.5)
+position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_1j4d1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-centered = false
+texture = ExtResource("2_eumi8")
 offset = Vector2(0, -16)
 
 [node name="HitBox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-position = Vector2(0, -15)
+position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_kusw5")
 
 [node name="LookingAt" type="Area2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(32, -16)
 collision_layer = 128
 collision_mask = 128
