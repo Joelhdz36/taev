@@ -70,7 +70,7 @@ func clear_info():
 	key_title.text = ""
 	notes_title.text = ""
 	note_text.text = ""
-
+#update
 
 func _on_notes_btn_pressed() -> void:
 	window_name.text = "Notas"
