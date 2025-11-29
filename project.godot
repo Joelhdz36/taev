@@ -28,7 +28,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"character": "res://joel/trash/CustomBaseStyle/character.dch"
+"CustomBaseStyle/character": "res://joel/trash/CustomBaseStyle/character.dch",
+"character": "res://joel/trash/character.dch"
 }
 directories/dtl_directory={
 "timeline_test": "res://joel/trash/timeline_test.dtl"
@@ -37,6 +38,8 @@ layout/style_directory={}
 
 [display]
 
+window/size/viewport_width=1920
+window/size/viewport_height=1080
 window/stretch/mode="viewport"
 
 [editor]

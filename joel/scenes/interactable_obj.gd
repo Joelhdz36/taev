@@ -15,7 +15,7 @@ func _ready() -> void:
 
 
 func display_info():
-	$Background.color = obj_resource.color_test
+	%Icon.texture = obj_resource.game_icon
 
 func interaction():
 	if !obj_resource.dialogo == null:

@@ -21,12 +21,14 @@ var inventory_action:GUIDEAction = preload("uid://cnp3rs8pb2o7a")
 var actual_item:Resource
 
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	notes_title.text = ""
 	note_text.text = ""
 	_on_notes_btn_pressed()
 
 func _process(_delta: float) -> void:
 	if inventory_action.is_triggered():
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 		get_tree().paused = !get_tree().paused
 		queue_free()
 

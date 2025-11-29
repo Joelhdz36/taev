@@ -12,4 +12,5 @@ func add_to_inventory(resource_to_add:Resource):
 			keys_in_inventory.append(resource_to_add)
 
 func check(res:Resource) -> bool:
-	return objects_in_inventory.has(res)
+	if objects_in_inventory.has(res) or keys_in_inventory.has(res): return true
+	else: return false

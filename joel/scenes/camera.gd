@@ -26,19 +26,19 @@ func set_camera_values():
 	player_offset.y = roundi(screen_size.y * 0.085)
 	player_offset.x = roundi(screen_size.x * 0.04)
 
-	global_position.y = _player.global_position.y - player_offset.y
+	global_position.y = _player.global_position.y - (player_offset.y - roundi(player_offset.y * 0.35))
 	global_position.x = _player.global_position.x
 	
 	#camera zoom
 	var cam_zoom:Vector2 = Vector2((screen_size.y * 6)/1080,(screen_size.y * 6)/1080)
 	zoom = cam_zoom
-
+	print(player_offset.y)
 	
 
 func follow_player(_delta:float):
 	
 	var _player_direction = _player.velocity.normalized()
-	var camera_offset:Vector2 = Vector2(player_offset.x * _player_direction.x,-player_offset.y - roundi(player_offset.y * 0.35))
+	var camera_offset:Vector2 = Vector2(player_offset.x * _player_direction.x,-player_offset.y + roundi(player_offset.y * 0.35))
 	if _player.global_position.x <= limit_right and _player.global_position.x >= limit_left:
 		global_position = lerp(global_position, _player.global_position + camera_offset, damping_speed)
 		return
@@ -48,10 +48,10 @@ func follow_player(_delta:float):
 		global_position.x = lerpf(global_position.x, limit_left, .02)  
 	global_position.y = lerpf(global_position.y, _player.global_position.y + camera_offset.y, damping_speed)
 	CameraManager.cam_pos = _player.global_position - camera_offset
-
+	print("cam: ",camera_offset)
 
 func go_back_to_player(_delta:float):
-	var camera_offset:Vector2 = Vector2(0,-player_offset.y)
+	var camera_offset:Vector2 = Vector2(0,-player_offset.y + roundi(player_offset.y * 0.45))
 	if _player.global_position.x < limit_right and _player.global_position.x > limit_left:
 		global_position = lerp(global_position, _player.global_position + camera_offset, damping_speed - 0.02)
 		return

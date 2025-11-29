@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bums6fcrvwn47" path="res://joel/trash/tiles.png" id="2_j8ivh"]
 [ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="3_slgip"]
 [ext_resource type="Resource" uid="uid://dhn202dtrjtef" path="res://data/objects/keys/key_test_02.tres" id="4_j20uc"]
-[ext_resource type="Resource" uid="uid://67i4ag423h52" path="res://data/objects/keys/key_test_01.tres" id="5_j20uc"]
+[ext_resource type="Resource" uid="uid://67i4ag423h52" path="res://data/objects/keys/key_tubo.tres" id="5_j20uc"]
 [ext_resource type="PackedScene" uid="uid://b7b164mon1k65" path="res://joel/scenes/enemy.tscn" id="6_eea5n"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_a5oyu"]

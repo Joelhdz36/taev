@@ -19,7 +19,7 @@ var player:CharacterBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SceneManager.world_2d = $World2D/Rooms
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GUIDE.enable_mapping_context(menus_context)
 	create_player()
 	SceneManager.create_fisrt_scene()

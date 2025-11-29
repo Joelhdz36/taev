@@ -6,7 +6,8 @@ func _ready() -> void:
 	%GeneralSound.value = AudioServer.get_bus_volume_db(0)
 	%SFX.value = AudioServer.get_bus_volume_db(1)
 	%Music.value = AudioServer.get_bus_volume_db(2)
-
+	if DisplayServer.window_get_mode(0) == 3:
+		%FullscreenBtn.toggle_mode = true
 
 func _on_resolution_size_item_selected(index: int) -> void:
 	DisplayServer.window_set_size(game_resolutions[index])
@@ -44,3 +45,15 @@ func _on_music_value_changed(value: float) -> void:
 	else:
 		AudioServer.set_bus_mute(2,true)
 	
+
+
+func _on_fullscreen_btn_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+		#CameraManager.change_cam_resolution()
+	else:
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		#
+	CameraManager.change_cam_resolution()
+	var index: = game_resolutions.find(DisplayServer.window_get_size(0))
+	_on_resolution_size_item_selected(index)
