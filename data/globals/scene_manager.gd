@@ -18,6 +18,9 @@ func change_scene(uid:String):
 	world_2d.add_child(new_scene)
 	#current_scene = new_scene
 
+func cambio_escena(uid:String):
+	get_tree().call_deferred("change_scene_to_file", uid)
+
 func create_fisrt_scene():
 	var new_first_scene = first_scene.instantiate()
 	world_2d.add_child(new_first_scene)
