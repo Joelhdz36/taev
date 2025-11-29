@@ -10,3 +10,6 @@ func add_to_inventory(resource_to_add:Resource):
 			objects_in_inventory.append(resource_to_add)
 		"key":
 			keys_in_inventory.append(resource_to_add)
+
+func check(res:Resource) -> bool:
+	return objects_in_inventory.has(res)

@@ -9,6 +9,8 @@ var dialogo:DialogicTimeline
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if InventoryManager.check(obj_resource):
+		queue_free()
 	display_info()
 
 
