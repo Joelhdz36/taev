@@ -27,6 +27,9 @@ size = Vector2(32, 32)
 script = ExtResource("1_dtbt8")
 enemy_resource = SubResource("Resource_4recx")
 
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+
 [node name="DamageArea" type="Area2D" parent="." groups=["Enemigo"]]
 collision_layer = 5
 

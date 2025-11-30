@@ -1,4 +1,4 @@
-extends ColorRect
+extends Sprite2D
 
 @export var next_scene:String
 @export var in_front:bool
@@ -14,7 +14,6 @@ func _ready() -> void:
 		
 	if !in_front:
 		material = null
-	$InteractionIcon.text = self.name
 	if in_front:
 		z_index = 5
 
@@ -40,13 +39,11 @@ func interaction():
 
 func _on_door_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		$InteractionIcon.show()
 		body.current_obj = self
 		body.can_interact = true
 
 
 func _on_door_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		$InteractionIcon.hide()
 		body.current_obj = null
 		body.can_interact = false

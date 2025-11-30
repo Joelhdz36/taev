@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var anim: AnimatedSprite2D = %Anim
+
 @export var enemy_resource:Resource
 
 var blood_particles_scene:PackedScene = preload("uid://btixd41gt8an5")
@@ -7,6 +9,7 @@ var blood_particles_scene:PackedScene = preload("uid://btixd41gt8an5")
 var _health:float
 var _damage:float
 var _wonder_speed:float
+var _sprite_frames:SpriteFrames
 
 #Wonder variables
 var wonder_max_pos:float
@@ -26,6 +29,8 @@ func set_initial_values():
 	_damage = enemy_resource.damage
 	_wonder_speed = enemy_resource.wonder_speed
 	_follow_speed = enemy_resource.follow_speed
+	_sprite_frames = enemy_resource.sprite_frames
+	anim.sprite_frames = _sprite_frames
 	
 	origin_pos = global_position.x
 	wonder_max_pos = global_position.x + 30
@@ -68,10 +73,12 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 
 
 func _on_wonder_state_physics_processing(delta: float) -> void:
+	anim.play("wonder_state")
 	if global_position.x > wonder_max_pos or global_position.x < wonder_min_pos:
 		dir *= -1.0
 	velocity.x = (_wonder_speed * delta) * dir
-	
+	var look_dir:bool = dir > 0
+	anim.flip_h = !look_dir
 	move_and_slide()
 
 func _on_follow_state_physics_processing(delta: float) -> void:
