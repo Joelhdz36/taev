@@ -28,8 +28,7 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"CustomBaseStyle/character": "res://joel/trash/CustomBaseStyle/character.dch",
-"character": "res://joel/trash/character.dch"
+"CustomBaseStyle/character": "res://joel/trash/CustomBaseStyle/character.dch"
 }
 directories/dtl_directory={
 "timeline_test": "res://joel/trash/timeline_test.dtl"
@@ -56,6 +55,7 @@ auto_rebuild=true
 
 [gui]
 
+fonts/dynamic_fonts/use_oversampling=false
 theme/custom_font="uid://bsnrxhuiv7h1w"
 
 [input]
@@ -73,3 +73,4 @@ dialogic_default_action={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

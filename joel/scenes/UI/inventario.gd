@@ -61,7 +61,7 @@ func create_key():
 
 func clear_visualizer(obj_to_clean:PanelContainer):
 	if obj_to_clean.get_child_count() > 0:
-		for child in image_visualizer.get_children():
+		for child in obj_to_clean.get_children():
 			child.queue_free()
 
 

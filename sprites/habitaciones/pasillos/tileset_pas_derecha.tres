@@ -1,0 +1,28 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://c2sabtjvvdaf5"]
+
+[ext_resource type="Texture2D" uid="uid://2lrm7vvh3q8c" path="res://sprites/habitaciones/pasillos/I_TileSet_Pasillos.png" id="1_qdv7w"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p04un"]
+texture = ExtResource("1_qdv7w")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+2:1/0 = 0
+1:1/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:0/size_in_atlas = Vector2i(1, 2)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -8)
+4:0/size_in_atlas = Vector2i(1, 2)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, 8)
+0:3/size_in_atlas = Vector2i(2, 1)
+0:3/0 = 0
+2:3/size_in_atlas = Vector2i(2, 1)
+2:3/0 = 0
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_p04un")

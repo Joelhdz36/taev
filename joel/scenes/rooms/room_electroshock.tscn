@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfsv0hngbrr2w"]
+[gd_scene load_steps=9 format=3 uid="uid://dfsv0hngbrr2w"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_acuit"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_n1h7m"]
 [ext_resource type="PackedScene" uid="uid://b7b164mon1k65" path="res://joel/scenes/enemy.tscn" id="3_ehhow"]
+[ext_resource type="Resource" uid="uid://67i4ag423h52" path="res://data/objects/keys/key_tubo.tres" id="3_r2u5m"]
 [ext_resource type="Resource" uid="uid://1flukga1ngl4" path="res://data/enemies/electroshock/pacientes/pacient_01.tres" id="4_mctc5"]
 [ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="5_r2u5m"]
 
@@ -41,6 +42,7 @@ unique_name_in_owner = true
 offset_left = 136.0
 offset_right = 168.0
 next_scene = "uid://cudpxv06ihx1n"
+key_needed = ExtResource("3_r2u5m")
 
 [node name="Node2D" type="Node2D" parent="."]
 position = Vector2(240, 0)
@@ -51,5 +53,5 @@ position = Vector2(240, 0)
 position = Vector2(-97, -16)
 enemy_resource = ExtResource("4_mctc5")
 
-[node name="InteractableObj" parent="." instance=ExtResource("5_r2u5m")]
-position = Vector2(85, -23)
+[node name="InteractableObj3" parent="." instance=ExtResource("5_r2u5m")]
+position = Vector2(59, -33)

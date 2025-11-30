@@ -4,9 +4,14 @@ extends ColorRect
 @export var in_front:bool
 @export var blocked:bool
 
+@export var key_needed:Resource
+
 var can_actuate = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if key_needed != null:
+		blocked = !InventoryManager.check(key_needed)
+		
 	if !in_front:
 		material = null
 	$InteractionIcon.text = self.name
@@ -26,6 +31,8 @@ func _process(delta: float) -> void:
 
 
 func interaction():
+	if key_needed != null:
+		blocked = !InventoryManager.check(key_needed)
 	if !blocked:
 		SceneManager.change_scene(next_scene)
 	else:

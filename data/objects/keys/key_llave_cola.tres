@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://cgkokp8pvrouu"]
+
+[ext_resource type="Texture2D" uid="uid://b1las276kr0te" path="res://sprites/props/Props_16x16/I_Llave_Cola_16px.png" id="1_qbyeu"]
+[ext_resource type="Texture2D" uid="uid://bex18ois4537n" path="res://sprites/props/Props_Inventario/I_Llave_Cola_v01.png" id="2_8p17h"]
+[ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/item.gd" id="3_6r1nh"]
+
+[resource]
+script = ExtResource("3_6r1nh")
+title = "Llave \"Cola\""
+game_icon = ExtResource("1_qbyeu")
+inventory_icon = ExtResource("2_8p17h")
+obj_type = "key"
+metadata/_custom_type_script = "uid://cxujipwv6hp7y"

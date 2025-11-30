@@ -7,37 +7,51 @@
 process_mode = 3
 script = ExtResource("1_bl585")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 700
+theme_override_constants/margin_right = 700
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 62
 alignment = 1
 
-[node name="ContinueBtn" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
+[node name="ContinueBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 170)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 45
 text = "Continuar
 "
+autowrap_mode = 3
 
-[node name="OptionBtn" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
+[node name="OptionBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 170)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 45
 text = "Opciones"
 
-[node name="ExitBtn" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(120, 0)
+[node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 170)
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 45
 text = "Salir"
 
 [node name="Options" parent="." instance=ExtResource("1_qo2fb")]
 unique_name_in_owner = true
 visible = false
 
-[connection signal="pressed" from="VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionBtn" to="." method="_on_option_btn_pressed"]
-[connection signal="pressed" from="VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/OptionBtn" to="." method="_on_option_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitBtn" to="." method="_on_exit_btn_pressed"]

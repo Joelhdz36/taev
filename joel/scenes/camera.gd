@@ -32,22 +32,21 @@ func set_camera_values():
 	#camera zoom
 	var cam_zoom:Vector2 = Vector2((screen_size.y * 6)/1080,(screen_size.y * 6)/1080)
 	zoom = cam_zoom
-	print(player_offset.y)
-	
+
 
 func follow_player(_delta:float):
 	
 	var _player_direction = _player.velocity.normalized()
 	var camera_offset:Vector2 = Vector2(player_offset.x * _player_direction.x,-player_offset.y + roundi(player_offset.y * 0.35))
-	if _player.global_position.x <= limit_right and _player.global_position.x >= limit_left:
+	if (_player.global_position.x + camera_offset.x < limit_right  and _player.global_position.x + camera_offset.x > limit_left):
 		global_position = lerp(global_position, _player.global_position + camera_offset, damping_speed)
-		return
-	elif _player.global_position.x >= limit_right:
+	elif _player.global_position.x + camera_offset.x >= limit_right:
 		global_position.x = lerpf(global_position.x, limit_right, damping_speed) 
-	elif _player.global_position.x <= limit_left:
-		global_position.x = lerpf(global_position.x, limit_left, .02)  
+	elif _player.global_position.x + camera_offset.x <= limit_left:
+		global_position.x = lerpf(global_position.x, limit_left, damping_speed)  
 	global_position.y = lerpf(global_position.y, _player.global_position.y + camera_offset.y, damping_speed)
-	CameraManager.cam_pos = _player.global_position - camera_offset
+
+	#print("PP: " ,_player.global_position.x - camera_offset.x, "CP: ", global_position.x + camera_offset.x)
 	print("cam: ",camera_offset)
 
 func go_back_to_player(_delta:float):
@@ -56,8 +55,8 @@ func go_back_to_player(_delta:float):
 		global_position = lerp(global_position, _player.global_position + camera_offset, damping_speed - 0.02)
 		return
 	elif _player.global_position.x >= limit_right:
-		global_position.x = limit_right
+		global_position.x = lerpf(global_position.x, limit_right, damping_speed)
 		
 	elif _player.global_position.x <= limit_left:
-		global_position.x = limit_left
+		global_position.x = lerpf(global_position.x, limit_left, damping_speed)
 	global_position.y = lerpf(global_position.y, _player.global_position.y + camera_offset.y, damping_speed -  0.02)

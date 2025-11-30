@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://5dp2u101alq"]
+
+[ext_resource type="Texture2D" uid="uid://df63ninvtfryn" path="res://sprites/props/Props_16x16/I_Periodico_16px.png" id="1_o5hl5"]
+[ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/item.gd" id="1_tqd4u"]
+[ext_resource type="Texture2D" uid="uid://cy2eowr7leppx" path="res://sprites/props/Props_Inventario/I_Periodico_v01.png" id="2_8u0av"]
+
+[resource]
+script = ExtResource("1_tqd4u")
+title = "Periodico"
+game_icon = ExtResource("1_o5hl5")
+inventory_icon = ExtResource("2_8u0av")
+obj_type = "item"
+metadata/_custom_type_script = "uid://cxujipwv6hp7y"

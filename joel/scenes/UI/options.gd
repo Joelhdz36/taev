@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-var game_resolutions:Array[Vector2] = [Vector2(1920,1080),Vector2(1240,720)]
+var game_resolutions:Array[Vector2i] = [Vector2(1920,1080),Vector2(1240,720)]
 
 func _ready() -> void:
 	%GeneralSound.value = AudioServer.get_bus_volume_db(0)
@@ -50,10 +50,8 @@ func _on_music_value_changed(value: float) -> void:
 func _on_fullscreen_btn_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-		#CameraManager.change_cam_resolution()
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-		#
 	CameraManager.change_cam_resolution()
 	var index: = game_resolutions.find(DisplayServer.window_get_size(0))
 	_on_resolution_size_item_selected(index)

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://defxgw4lpbns1"]
+
+[ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/item.gd" id="1_3uunq"]
+[ext_resource type="Texture2D" uid="uid://cm5rxotb4pngg" path="res://sprites/props/Props_16x16/I_Llave_Cabeza_16px.png" id="1_6uhsb"]
+[ext_resource type="Texture2D" uid="uid://bub3ii278q0k2" path="res://sprites/props/Props_Inventario/I_Llave_Cabeza_v01.png" id="2_l06ea"]
+
+[resource]
+script = ExtResource("1_3uunq")
+title = "Llave \"Cabeza\""
+game_icon = ExtResource("1_6uhsb")
+inventory_icon = ExtResource("2_l06ea")
+obj_type = "key"
+metadata/_custom_type_script = "uid://cxujipwv6hp7y"
