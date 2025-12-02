@@ -7,6 +7,8 @@ extends Sprite2D
 @export var key_needed:Resource
 
 var can_actuate = false
+
+var door_player:CharacterBody2D 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	if key_needed != null:
@@ -16,9 +18,10 @@ func _ready() -> void:
 		material = null
 	if in_front:
 		z_index = 5
+		self_modulate = Color(0.498, 0.498, 0.498, 1.0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if material != null:
 		var local_player_pos = CameraManager.current_camera.to_local(CameraManager.current_camera._player.global_position)
 		#var player_pos = CameraManager.cam_pos
@@ -33,17 +36,24 @@ func interaction():
 	if key_needed != null:
 		blocked = !InventoryManager.check(key_needed)
 	if !blocked:
+		$AudioStreamPlayer2D.play()
+		var fade_out = preload("res://joel/scenes/juice/fade_in.tscn").instantiate()
+		get_parent().add_child(fade_out)
+		fade_out.fade_out()
+		door_player.disable_context()
+		await  $AudioStreamPlayer2D.finished
+		door_player.global_position = global_position
 		SceneManager.change_scene(next_scene)
-	else:
-		print("puerta bloqueada")
 
 func _on_door_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.current_obj = self
 		body.can_interact = true
+		door_player = body
 
 
 func _on_door_area_body_exited(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		body.current_obj = null
 		body.can_interact = false
+		door_player = null

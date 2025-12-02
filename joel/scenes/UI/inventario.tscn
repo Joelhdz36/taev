@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://chiow8h7m2so7"]
+[gd_scene load_steps=5 format=3 uid="uid://chiow8h7m2so7"]
 
 [ext_resource type="Script" uid="uid://c2i6c8c451j83" path="res://joel/scenes/UI/inventario.gd" id="1_13d1u"]
+[ext_resource type="Texture2D" uid="uid://bcv0iv40c42vm" path="res://sprites/UI/inventario/Inventario_background.png" id="2_855sf"]
 [ext_resource type="LabelSettings" uid="uid://cdek3rehd63k4" path="res://joel/assets/labels/Inventory_window_label.tres" id="2_nu5i1"]
 [ext_resource type="LabelSettings" uid="uid://coget2fvi5cbf" path="res://joel/assets/labels/Inventory_title_label.tres" id="3_855sf"]
 
@@ -9,13 +10,15 @@ process_mode = 3
 script = ExtResource("1_13d1u")
 inventory_displayers = [NodePath("MarginContainer/InventoryLayout/LeftSide/NotesInv"), NodePath("MarginContainer/InventoryLayout/LeftSide/KeyInv")]
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.08235294, 0.08235294, 0.5058824, 0.73333335)
+texture = ExtResource("2_855sf")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15

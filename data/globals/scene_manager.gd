@@ -24,6 +24,7 @@ func cambio_escena(uid:String):
 func create_fisrt_scene():
 	var new_first_scene = first_scene.instantiate()
 	world_2d.add_child(new_first_scene)
+	
 
 
 func pause_game(paused:String):

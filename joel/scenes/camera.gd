@@ -24,7 +24,7 @@ func set_camera_values():
 	screen_size = get_viewport_rect().size
 	#camera position and offset
 	player_offset.y = roundi(screen_size.y * 0.045)
-	player_offset.x = roundi(screen_size.x * 0.04)
+	player_offset.x = roundi(screen_size.x * 0.02)
 
 	global_position.y = _player.global_position.y - (player_offset.y - roundi(player_offset.y * 0.35))
 	global_position.x = _player.global_position.x
@@ -46,8 +46,7 @@ func follow_player(_delta:float):
 		global_position.x = lerpf(global_position.x, limit_left, damping_speed)  
 	global_position.y = lerpf(global_position.y, _player.global_position.y + camera_offset.y, damping_speed)
 
-	#print("PP: " ,_player.global_position.x - camera_offset.x, "CP: ", global_position.x + camera_offset.x)
-	print("cam: ",camera_offset)
+
 
 func go_back_to_player(_delta:float):
 	var camera_offset:Vector2 = Vector2(0,-player_offset.y + roundi(player_offset.y * 0.45))

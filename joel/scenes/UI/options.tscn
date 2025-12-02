@@ -1,8 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4mqr7824uavn"]
+[gd_scene load_steps=10 format=3 uid="uid://c4mqr7824uavn"]
 
 [ext_resource type="Script" uid="uid://b0rs7usj4cyn5" path="res://joel/scenes/UI/options.gd" id="1_u46ye"]
 [ext_resource type="AudioStream" uid="uid://re2beni76aj8" path="res://joel/trash/school-ambient.mp3" id="2_467ti"]
+[ext_resource type="LabelSettings" uid="uid://cdek3rehd63k4" path="res://joel/assets/labels/Inventory_window_label.tres" id="2_gm6ak"]
+[ext_resource type="Theme" uid="uid://cxf5srv6w14yh" path="res://joel/scenes/UI/slider_theme.tres" id="3_3q1fd"]
 [ext_resource type="AudioStream" uid="uid://bverrktol5q7s" path="res://joel/trash/tlazohcamati yoliztli.wav" id="3_phlbu"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5jdb0"]
+size = Vector2(50, 50)
+
+[sub_resource type="Theme" id="Theme_gm6ak"]
+OptionButton/constants/arrow_margin = 10
+OptionButton/font_sizes/font_size = 30
+OptionButton/icons/arrow = SubResource("PlaceholderTexture2D_5jdb0")
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3q1fd"]
+size = Vector2(90, 45)
+
+[sub_resource type="Theme" id="Theme_5jdb0"]
+CheckButton/icons/unchecked = SubResource("PlaceholderTexture2D_3q1fd")
 
 [node name="Options" type="CanvasLayer"]
 layer = 2
@@ -36,14 +52,18 @@ alignment = 1
 [node name="ResolutionTxt" type="Label" parent="MarginContainer/VBoxContainer/ScreenResolution"]
 layout_mode = 2
 text = "Tamaño de pantalla "
+label_settings = ExtResource("2_gm6ak")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer/ScreenResolution"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="ResolutionSize" type="OptionButton" parent="MarginContainer/VBoxContainer/ScreenResolution"]
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
+theme = SubResource("Theme_gm6ak")
+alignment = 1
+selected = 0
 item_count = 2
 popup/item_0/text = "1920x1080"
 popup/item_0/id = 0
@@ -54,19 +74,16 @@ popup/item_1/id = 1
 layout_mode = 2
 alignment = 1
 
-[node name="ResolutionTxt" type="Label" parent="MarginContainer/VBoxContainer/Fullscreen"]
-visible = false
-layout_mode = 2
-text = "Pantalla completa"
-
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/VBoxContainer/Fullscreen"]
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="FullscreenBtn" type="CheckButton" parent="MarginContainer/VBoxContainer/Fullscreen"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(300, 30)
 layout_mode = 2
+theme = SubResource("Theme_5jdb0")
+theme_override_font_sizes/font_size = 30
 text = "Pantalla completa"
 
 [node name="SonidoGeneral" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
@@ -76,6 +93,7 @@ alignment = 1
 [node name="GeneralTxt" type="Label" parent="MarginContainer/VBoxContainer/SonidoGeneral"]
 layout_mode = 2
 text = "Sonido General"
+label_settings = ExtResource("2_gm6ak")
 
 [node name="ReferenceRect2" type="ReferenceRect" parent="MarginContainer/VBoxContainer/SonidoGeneral"]
 layout_mode = 2
@@ -83,8 +101,9 @@ size_flags_horizontal = 3
 
 [node name="GeneralSound" type="HSlider" parent="MarginContainer/VBoxContainer/SonidoGeneral"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme = ExtResource("3_3q1fd")
 min_value = -50.0
 max_value = 0.0
 step = 0.2
@@ -96,6 +115,7 @@ alignment = 1
 [node name="FXTxt" type="Label" parent="MarginContainer/VBoxContainer/SFX"]
 layout_mode = 2
 text = "Volumen de efectos"
+label_settings = ExtResource("2_gm6ak")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="MarginContainer/VBoxContainer/SFX"]
 layout_mode = 2
@@ -103,8 +123,9 @@ size_flags_horizontal = 3
 
 [node name="SFX" type="HSlider" parent="MarginContainer/VBoxContainer/SFX"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme = ExtResource("3_3q1fd")
 min_value = -50.0
 max_value = 0.0
 step = 0.2
@@ -116,6 +137,7 @@ alignment = 1
 [node name="MusicTxt" type="Label" parent="MarginContainer/VBoxContainer/Music"]
 layout_mode = 2
 text = "Volumen de musica"
+label_settings = ExtResource("2_gm6ak")
 
 [node name="ReferenceRect3" type="ReferenceRect" parent="MarginContainer/VBoxContainer/Music"]
 layout_mode = 2
@@ -123,8 +145,9 @@ size_flags_horizontal = 3
 
 [node name="Music" type="HSlider" parent="MarginContainer/VBoxContainer/Music"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(200, 30)
+custom_minimum_size = Vector2(300, 50)
 layout_mode = 2
+theme = ExtResource("3_3q1fd")
 min_value = -50.0
 max_value = 0.0
 step = 0.2

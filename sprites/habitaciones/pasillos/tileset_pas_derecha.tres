@@ -1,42 +1,41 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://c2sabtjvvdaf5"]
+[gd_resource type="TileSet" load_steps=4 format=3 uid="uid://c2sabtjvvdaf5"]
 
-[ext_resource type="Texture2D" uid="uid://bupx2hblae6s2" path="res://sprites/habitaciones/pasillos/I_TileSet_Pasillos_v02.png" id="1_qdv7w"]
+[ext_resource type="Texture2D" uid="uid://csvliodpjxfu3" path="res://sprites/habitaciones/pasillos/I_TileSet_Pasillos_v03.png" id="1_qdv7w"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_qdv7w"]
-polygon = PackedVector2Array(-2, -8, 2, -8, 2, 14, 8, 24, 4, 20, -4, 20, -8, 24, -2, 14)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_p04un"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p04un"]
 texture = ExtResource("1_qdv7w")
 0:0/0 = 0
+0:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+1:1/0 = 0
 1:0/0 = 0
 2:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 2:1/0 = 0
 2:2/0 = 0
-1:2/0 = 0
-0:2/0 = 0
-4:3/0 = 0
 3:0/size_in_atlas = Vector2i(1, 2)
 3:0/0 = 0
 3:0/0/texture_origin = Vector2i(0, -8)
-3:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qdv7w")
 4:0/size_in_atlas = Vector2i(1, 2)
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(0, 8)
-0:3/size_in_atlas = Vector2i(2, 1)
-0:3/0 = 0
-0:3/0/texture_origin = Vector2i(-8, 0)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:3/0 = 0
 2:3/size_in_atlas = Vector2i(2, 1)
 2:3/0 = 0
 2:3/0/texture_origin = Vector2i(-8, 0)
+0:3/size_in_atlas = Vector2i(2, 1)
+0:3/0 = 0
+0:3/0/texture_origin = Vector2i(-8, 0)
 3:2/0 = 0
-3:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_p04un")
+3:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qdv7w")
 
 [resource]
-occlusion_layer_0/light_mask = 1
+occlusion_layer_0/light_mask = 2
+occlusion_layer_0/sdf_collision = true
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_p04un")

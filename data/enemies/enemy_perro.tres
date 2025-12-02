@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://bqgsvpbea47gr"]
+
+[ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="1_cxwhc"]
+
+[resource]
+script = ExtResource("1_cxwhc")
+name = "Perro"
+health = 50.0
+damage = 10.0
+follow_speed = 80.0
+metadata/_custom_type_script = "uid://bxuaimm6pl5op"

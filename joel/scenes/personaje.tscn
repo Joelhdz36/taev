@@ -1,14 +1,52 @@
-[gd_scene load_steps=10 format=3 uid="uid://cm5xa8wyhrdn1"]
+[gd_scene load_steps=19 format=3 uid="uid://cm5xa8wyhrdn1"]
 
 [ext_resource type="Script" uid="uid://cjri4qklw0gvo" path="res://joel/scenes/personaje.gd" id="1_2kcgv"]
-[ext_resource type="Texture2D" uid="uid://bltupldpl71fn" path="res://sprites/I_Mads_v01.png" id="2_eumi8"]
+[ext_resource type="Texture2D" uid="uid://cmfm685sdstcg" path="res://sprites/mads/RIGHTWALK_MADS.png" id="2_2q4fn"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_rjtcc"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_eumi8"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_2q4fn"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="5_t6aad"]
+[ext_resource type="AudioStream" uid="uid://bw6sfc7unkwll" path="res://assets/sonidos/mads/step.mp3" id="7_t6aad"]
+[ext_resource type="AudioStream" uid="uid://brit6uoqbwgt" path="res://assets/sonidos/mads/step_01.mp3" id="8_t6aad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j4d1"]
 size = Vector2(10, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2q4fn"]
+atlas = ExtResource("2_2q4fn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t6aad"]
+atlas = ExtResource("2_2q4fn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xyilc"]
+atlas = ExtResource("2_2q4fn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dk4oh"]
+atlas = ExtResource("2_2q4fn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vbhap"]
+animations = [{
+"frames": [{
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_2q4fn")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_t6aad")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_xyilc")
+}, {
+"duration": 1.25,
+"texture": SubResource("AtlasTexture_dk4oh")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kusw5"]
 size = Vector2(10, 29)
@@ -16,20 +54,36 @@ size = Vector2(10, 29)
 [sub_resource type="CircleShape2D" id="CircleShape2D_kusw5"]
 radius = 6.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_2q4fn"]
+streams_count = 2
+stream_0/stream = ExtResource("7_t6aad")
+stream_1/stream = ExtResource("8_t6aad")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_2q4fn"]
+closed = false
+polygon = PackedVector2Array(4, 0, -4, 0)
+
 [node name="Personaje" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_2kcgv")
-SPEED = 4500.0
+step_sound = ExtResource("7_t6aad")
+SPEED = 2000.0
 damage = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -14.5)
 shape = SubResource("RectangleShape2D_1j4d1")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_eumi8")
+[node name="AnimSprite" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = SubResource("SpriteFrames_vbhap")
+animation = &"Walking"
+autoplay = "Walking"
+frame_progress = 0.99861664
 offset = Vector2(0, -16)
 
 [node name="HitBox" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 position = Vector2(0, -14.5)
@@ -105,6 +159,16 @@ script = ExtResource("5_t6aad")
 to = NodePath("../../Idle")
 event = &"toIdle"
 delay_in_seconds = "0.0"
+
+[node name="PlayerSFX" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_2q4fn")
+max_polyphony = 10
+bus = &"SFX"
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+visible = false
+occluder = SubResource("OccluderPolygon2D_2q4fn")
 
 [connection signal="area_entered" from="HitBox" to="." method="_on_hit_box_area_entered"]
 [connection signal="area_entered" from="DamageArea" to="." method="_on_damage_area_area_entered"]

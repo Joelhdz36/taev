@@ -24,6 +24,12 @@ var _follow_speed:float
 func _ready() -> void:
 	set_initial_values()
 
+func _physics_process(delta: float) -> void:
+	if not is_on_floor():
+		velocity += get_gravity() * delta
+	move_and_slide()
+
+
 func set_initial_values():
 	_health = enemy_resource.health
 	_damage = enemy_resource.damage
@@ -81,11 +87,15 @@ func _on_wonder_state_physics_processing(delta: float) -> void:
 	anim.flip_h = !look_dir
 	move_and_slide()
 
-func _on_follow_state_physics_processing(delta: float) -> void:
+func _on_follow_state_physics_processing(_delta: float) -> void:
 	if player != null:
-		velocity = Vector2.ZERO
-		global_position.x = move_toward(global_position.x, player.global_position.x,50 * delta)
-
+		var dp = Vector2.ONE.normalized().dot(to_local(player.global_position).normalized())
+		var direction:Vector2 = Vector2(dp,0).normalized()
+		print(direction.x)
+		velocity.x = _follow_speed * direction.x
+		#global_position.x = move_toward(global_position.x, player.global_position.x,50 * delta)
+		var look_dir:bool = direction.x > 0
+		anim.flip_h = !look_dir
 	move_and_slide()
 
 

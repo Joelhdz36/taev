@@ -1,0 +1,47 @@
+[gd_resource type="SpriteFrames" load_steps=8 format=3 uid="uid://qptjada1rmfo"]
+
+[ext_resource type="Texture2D" uid="uid://bm6x3q56r1ilt" path="res://sprites/enemigos/paciente/I_Paciente_32.png" id="1_tir22"]
+[ext_resource type="Texture2D" uid="uid://bhvbopq007djj" path="res://sprites/enemigos/paciente/Paciente_DerechaCaminata.png" id="2_tl66m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymkow"]
+atlas = ExtResource("1_tir22")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qkiw"]
+atlas = ExtResource("2_tl66m")
+region = Rect2(0, 0, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0l2u2"]
+atlas = ExtResource("2_tl66m")
+region = Rect2(22, 0, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46hs5"]
+atlas = ExtResource("2_tl66m")
+region = Rect2(44, 0, 22, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52j1b"]
+atlas = ExtResource("2_tl66m")
+region = Rect2(66, 0, 22, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.71,
+"texture": SubResource("AtlasTexture_ymkow")
+}, {
+"duration": 0.71,
+"texture": SubResource("AtlasTexture_4qkiw")
+}, {
+"duration": 0.71,
+"texture": SubResource("AtlasTexture_0l2u2")
+}, {
+"duration": 0.71,
+"texture": SubResource("AtlasTexture_46hs5")
+}, {
+"duration": 0.71,
+"texture": SubResource("AtlasTexture_52j1b")
+}],
+"loop": true,
+"name": &"wonder_state",
+"speed": 5.0
+}]

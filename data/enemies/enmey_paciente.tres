@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://csnaxfr5voh35"]
 
 [ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="1_55ah8"]
-[ext_resource type="SpriteFrames" uid="uid://qptjada1rmfo" path="res://data/enemies/paciente.tres" id="2_e8s05"]
+[ext_resource type="SpriteFrames" uid="uid://qptjada1rmfo" path="res://sprites/enemigos/paciente/paciente.tres" id="2_e8s05"]
 
 [resource]
 script = ExtResource("1_55ah8")
@@ -9,5 +9,6 @@ name = "Paciente"
 health = 50.0
 damage = 3.0
 wonder_speed = 600.0
+follow_speed = 15.0
 sprite_frames = ExtResource("2_e8s05")
 metadata/_custom_type_script = "uid://bxuaimm6pl5op"

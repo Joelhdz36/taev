@@ -1,11 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://dhfa6pg30wute"]
+[gd_scene load_steps=13 format=3 uid="uid://dhfa6pg30wute"]
 
 [ext_resource type="Script" uid="uid://b4degph1emd72" path="res://joel/scenes/UI/pause_menu.gd" id="1_bl585"]
 [ext_resource type="PackedScene" uid="uid://c4mqr7824uavn" path="res://joel/scenes/UI/options.tscn" id="1_qo2fb"]
+[ext_resource type="Texture2D" uid="uid://h4wu3hh3d4md" path="res://sprites/UI/Menu Pausa/FondoPausa.png" id="2_njrrl"]
+[ext_resource type="Texture2D" uid="uid://dh7nff0p52cds" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Continuar_normal.png" id="3_lyrd1"]
+[ext_resource type="Texture2D" uid="uid://botjubkdks78x" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Continuar_pressed.png" id="4_r74fi"]
+[ext_resource type="Texture2D" uid="uid://d3ovi6tnf1ejq" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Continuar_hover.png" id="5_d7nm8"]
+[ext_resource type="Texture2D" uid="uid://brxj85qgjgi5e" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Salir_normal.png" id="6_msor0"]
+[ext_resource type="Texture2D" uid="uid://cy48laplxo26" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Reiniciar_normal.png" id="6_vhujl"]
+[ext_resource type="Texture2D" uid="uid://cvbc6wtnyie2e" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Salir_pressed.png" id="7_3i3pg"]
+[ext_resource type="Texture2D" uid="uid://dfk3j1kkxhare" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Reiniciar_pressed.png" id="7_i6mnm"]
+[ext_resource type="Texture2D" uid="uid://dapqtxfpcconl" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Salir_hover.png" id="8_ap3sl"]
+[ext_resource type="Texture2D" uid="uid://c6yysfn8g2yw2" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Reiniciar_hover.png" id="8_u7348"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_bl585")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_njrrl")
+expand_mode = 2
+stretch_mode = 5
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -25,28 +45,32 @@ size_flags_vertical = 3
 theme_override_constants/separation = 62
 alignment = 1
 
-[node name="ContinueBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ContinueBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 170)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 45
-text = "Continuar
-"
-autowrap_mode = 3
+texture_normal = ExtResource("3_lyrd1")
+texture_pressed = ExtResource("4_r74fi")
+texture_hover = ExtResource("5_d7nm8")
+stretch_mode = 5
 
-[node name="OptionBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="OptionBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 170)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 45
-text = "Opciones"
+texture_normal = ExtResource("6_vhujl")
+texture_pressed = ExtResource("7_i6mnm")
+texture_hover = ExtResource("8_u7348")
+stretch_mode = 5
 
-[node name="ExitBtn" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ExitBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 170)
 layout_mode = 2
 size_flags_horizontal = 4
-theme_override_font_sizes/font_size = 45
-text = "Salir"
+texture_normal = ExtResource("6_msor0")
+texture_pressed = ExtResource("7_3i3pg")
+texture_hover = ExtResource("8_ap3sl")
+stretch_mode = 5
 
 [node name="Options" parent="." instance=ExtResource("1_qo2fb")]
 unique_name_in_owner = true

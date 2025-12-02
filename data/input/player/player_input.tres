@@ -125,7 +125,7 @@ input = SubResource("Resource_dmnrr")
 script = ExtResource("1_7h5oi")
 action = ExtResource("13_ajjqu")
 input_mappings = Array[ExtResource("3_4mea6")]([SubResource("Resource_vgos6"), SubResource("Resource_ew144")])
-metadata/_guide_input_mappings_collapsed = true
+metadata/_guide_input_mappings_collapsed = false
 
 [sub_resource type="Resource" id="Resource_l5ct0"]
 script = ExtResource("4_37w3b")

@@ -7,7 +7,7 @@ func _ready() -> void:
 	%GeneralSound.value = AudioServer.get_bus_volume_db(0)
 	%SFX.value = AudioServer.get_bus_volume_db(1)
 	%Music.value = AudioServer.get_bus_volume_db(2)
-	print(DisplayServer.window_get_mode())
+
 	if DisplayServer.window_get_mode(0) == 3:
 		%FullscreenBtn.toggle_mode = true
 

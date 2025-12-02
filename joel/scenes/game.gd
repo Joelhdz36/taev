@@ -23,6 +23,9 @@ func _ready() -> void:
 	GUIDE.enable_mapping_context(menus_context)
 	create_player()
 	SceneManager.create_fisrt_scene()
+	player.global_position = SceneManager.spawn_pos
+	CameraManager.current_camera.global_position = player.global_position 
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -38,9 +41,11 @@ func create_player():
 	else:
 		HealthManager.restore_full_health()
 		var current_spawn = SceneManager.spawn_pos
+		print(current_spawn)
 		var new_player = _player.instantiate()
 		world_2d.call_deferred("add_child", new_player)
-		new_player.global_position = current_spawn
+		new_player.global_position = SceneManager.spawn_pos
+		player = new_player
 		new_camera_creation(new_player)
 
 func new_camera_creation(player_in_cam:CharacterBody2D):
@@ -50,6 +55,7 @@ func new_camera_creation(player_in_cam:CharacterBody2D):
 	new_camera = _camera.instantiate()
 	new_camera._player = player_in_cam
 	world_2d.add_child(new_camera)
+	new_camera.global_position = new_camera._player.global_position
 	CameraManager.current_camera = new_camera
 
 

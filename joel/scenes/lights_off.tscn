@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://dd1j0twgu6fac"]
+
+[node name="LightsOff" type="CanvasModulate"]
+color = Color(0.5, 0.5, 0.5, 1)

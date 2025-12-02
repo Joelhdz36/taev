@@ -9,6 +9,8 @@ func add_to_inventory(resource_to_add:Resource):
 		"item":
 			objects_in_inventory.append(resource_to_add)
 		"key":
+			if resource_to_add == preload("res://data/objects/keys/key_tubo.tres"):
+				DataManager.spawn_enemies = true
 			keys_in_inventory.append(resource_to_add)
 
 func check(res:Resource) -> bool:
