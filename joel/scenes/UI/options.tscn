@@ -1,10 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4mqr7824uavn"]
+[gd_scene load_steps=8 format=3 uid="uid://c4mqr7824uavn"]
 
 [ext_resource type="Script" uid="uid://b0rs7usj4cyn5" path="res://joel/scenes/UI/options.gd" id="1_u46ye"]
-[ext_resource type="AudioStream" uid="uid://re2beni76aj8" path="res://joel/trash/school-ambient.mp3" id="2_467ti"]
 [ext_resource type="LabelSettings" uid="uid://cdek3rehd63k4" path="res://joel/assets/labels/Inventory_window_label.tres" id="2_gm6ak"]
 [ext_resource type="Theme" uid="uid://cxf5srv6w14yh" path="res://joel/scenes/UI/slider_theme.tres" id="3_3q1fd"]
-[ext_resource type="AudioStream" uid="uid://bverrktol5q7s" path="res://joel/trash/tlazohcamati yoliztli.wav" id="3_phlbu"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5jdb0"]
 size = Vector2(50, 50)
@@ -151,16 +149,6 @@ theme = ExtResource("3_3q1fd")
 min_value = -50.0
 max_value = 0.0
 step = 0.2
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_467ti")
-autoplay = true
-bus = &"SFX"
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_phlbu")
-autoplay = true
-bus = &"Music"
 
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/ScreenResolution/ResolutionSize" to="." method="_on_resolution_size_item_selected"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Fullscreen/FullscreenBtn" to="." method="_on_fullscreen_btn_toggled"]

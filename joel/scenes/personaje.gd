@@ -22,6 +22,7 @@ var run_action:GUIDEAction = preload("uid://iydbahyoh7tg")
 var player_attack_context:GUIDEMappingContext = preload("uid://cp8okplon72p5")
 var attack_action:GUIDEAction = preload("uid://dvv5kqyv4tl8")
 
+
 var atk_timer:float = 0.2
 var _atk_timer:float = 0.2
 var attacking:bool = false
@@ -60,6 +61,8 @@ func _physics_process(delta: float) -> void:
 
 
 func attack(_delta:float):
+	if !%SFX.playing:
+		%SFX.play()
 	dmg_collider.show()
 	dmg_collider.disabled = false
 	atk_cooldown -= _delta
@@ -71,12 +74,17 @@ func attack(_delta:float):
 		dmg_collider.disabled = true
 
 func take_damage(received_damage:float, _enemy_pos:Vector2):
+	
+	if !%SFX.playing:
+		var hit_sound = preload("res://assets/sonidos/mads/hitHurt.wav")
+		%SFX.stream = hit_sound
+		%SFX.play()
 	enemy_pos = to_local(_enemy_pos).normalized()
-	state_chart.send_event("toDamaged")
+
 	player_health -= received_damage
 	HealthManager.health = player_health
 	die()
-	
+	state_chart.send_event("toDamaged")
 
 func die():
 	if player_health > 0:

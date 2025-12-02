@@ -20,6 +20,7 @@ var dir:float = 1.0
 var player:CharacterBody2D
 var origin_pos:float
 var _follow_speed:float
+var direction:Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_initial_values()
@@ -67,6 +68,7 @@ func die():
 		queue_free()
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
+	print(body.name)
 	if body.is_in_group("Player"):
 		body.take_damage(_damage,global_position)
 		
@@ -76,6 +78,7 @@ func _on_detection_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		player = body
 		$StateChart.send_event("toFollow")
+		
 
 
 func _on_wonder_state_physics_processing(delta: float) -> void:
@@ -87,25 +90,28 @@ func _on_wonder_state_physics_processing(delta: float) -> void:
 	anim.flip_h = !look_dir
 	move_and_slide()
 
+func _on_follow_state_entered() -> void:
+	var dp = Vector2.ONE.dot(to_local(player.global_position).normalized())
+	direction = Vector2(dp,0).normalized()
+
+
 func _on_follow_state_physics_processing(_delta: float) -> void:
 	if player != null:
-		var dp = Vector2.ONE.normalized().dot(to_local(player.global_position).normalized())
-		var direction:Vector2 = Vector2(dp,0).normalized()
-		print(direction.x)
-		velocity.x = _follow_speed * direction.x
-		#global_position.x = move_toward(global_position.x, player.global_position.x,50 * delta)
-		var look_dir:bool = direction.x > 0
+
+		velocity.x = _follow_speed *direction.x
+		var look_dir:bool = velocity.x > 0
 		anim.flip_h = !look_dir
 	move_and_slide()
 
 
 
 
-func _on_origin_state_physics_processing(delta: float) -> void:
-	global_position.x = move_toward(global_position.x,origin_pos,30.0 * delta)
-	if global_position.x == origin_pos:
-		$StateChart.send_event("toWonder")
-
+#func _on_origin_state_physics_processing(delta: float) -> void:
+	#velocity.x = 0
+	#global_position.x = move_toward(global_position.x,origin_pos,30.0 * delta)
+	#if global_position.x == origin_pos:
+		#$StateChart.send_event("toWonder")
+#
 
 
 func _on_hurt_state_physics_processing(delta: float) -> void:

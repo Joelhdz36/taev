@@ -1,22 +1,14 @@
-[gd_scene load_steps=7 format=3 uid="uid://c4bhfe7m48b3h"]
+[gd_scene load_steps=5 format=3 uid="uid://c4bhfe7m48b3h"]
 
 [ext_resource type="Script" uid="uid://ciogtnb56tnmb" path="res://joel/scenes/rooms/puerta.gd" id="1_6pqsq"]
-[ext_resource type="Shader" uid="uid://b4koxnlu2ks5p" path="res://joel/shaders/see_through.gdshader" id="1_7weh3"]
 [ext_resource type="Texture2D" uid="uid://ccdpgaa5k1r2a" path="res://sprites/habitaciones/I_Puerta_v01.png" id="2_u1mue"]
 [ext_resource type="AudioStream" uid="uid://b1lqwgafmcwxt" path="res://assets/sonidos/enviroment/puerta_01.mp3" id="4_gl5nc"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_u1mue"]
-shader = ExtResource("1_7weh3")
-shader_parameter/player_pos = Vector2(576, 324)
-shader_parameter/circle = Vector2(576, 324)
-shader_parameter/max_distance = 200.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6pqsq"]
 size = Vector2(28, 46)
 
 [node name="Puerta" type="Sprite2D" groups=["Puerta"]]
 y_sort_enabled = true
-material = SubResource("ShaderMaterial_u1mue")
 texture = ExtResource("2_u1mue")
 offset = Vector2(0, -24)
 script = ExtResource("1_6pqsq")

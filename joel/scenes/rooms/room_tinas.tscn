@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://w7nwrjlhskbc"]
+[gd_scene load_steps=6 format=3 uid="uid://w7nwrjlhskbc"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_1cqbu"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_mkksx"]
+[ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="3_mkksx"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -37,14 +38,10 @@ unique_name_in_owner = true
 [node name="Puertas" type="Node2D" parent="."]
 
 [node name="PasIzqUno" parent="Puertas" instance=ExtResource("2_mkksx")]
-offset_left = -109.0
-offset_right = -77.0
 next_scene = "uid://ba12nl6ckr4nm"
 in_front = false
 
 [node name="Lobotomia" parent="Puertas" instance=ExtResource("2_mkksx")]
-offset_left = 158.0
-offset_right = 190.0
 next_scene = "uid://5bys8r1khs47"
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -52,3 +49,5 @@ position = Vector2(-159, 0)
 
 [node name="Enemigos" type="Node2D" parent="."]
 position = Vector2(500, 0)
+
+[node name="FadeIn" parent="." instance=ExtResource("3_mkksx")]

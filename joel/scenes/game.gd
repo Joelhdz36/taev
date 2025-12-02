@@ -40,8 +40,7 @@ func create_player():
 		return
 	else:
 		HealthManager.restore_full_health()
-		var current_spawn = SceneManager.spawn_pos
-		print(current_spawn)
+
 		var new_player = _player.instantiate()
 		world_2d.call_deferred("add_child", new_player)
 		new_player.global_position = SceneManager.spawn_pos
