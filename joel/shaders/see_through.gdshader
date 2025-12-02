@@ -6,7 +6,7 @@ uniform float max_distance = 75.0;
 
 void fragment() {
 	if (COLOR.a!=0.0){
-		float distance_to_player = distance(FRAGCOORD.xy - vec2(player_pos.x*8.5,player_pos.y),circle + player_pos);
-		COLOR.a = clamp(((distance_to_player-max_distance)/max_distance*5.0),0.3,1);
+		float distance_to_player = distance(FRAGCOORD.xy - vec2(player_pos.x*7.5,player_pos.y),circle + player_pos);
+		COLOR.a = clamp(((distance_to_player-max_distance)/max_distance*5.0),0.8,1);
 	};
 }

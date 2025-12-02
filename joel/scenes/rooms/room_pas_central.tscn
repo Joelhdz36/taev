@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://bob80e5tnry8w"]
+[gd_scene load_steps=9 format=4 uid="uid://bob80e5tnry8w"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_o6jua"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_bkpvb"]
 [ext_resource type="TileSet" uid="uid://c2sabtjvvdaf5" path="res://sprites/habitaciones/pasillos/tileset_pas_derecha.tres" id="2_r7oti"]
+[ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="4_1ehay"]
 [ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="4_r7oti"]
+[ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="5_ck7pm"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -12,7 +14,7 @@ font_size = 40
 
 [node name="PasilloCentral" type="Node2D"]
 script = ExtResource("1_o6jua")
-camera_limits = Vector2(-348, 260)
+camera_limits = Vector2(-304, 336)
 
 [node name="Tilemaps" type="Node2D" parent="."]
 
@@ -29,7 +31,7 @@ tile_set = ExtResource("2_r7oti")
 [node name="Props" type="Node2D" parent="Tilemaps"]
 
 [node name="PropsDetails" type="TileMapLayer" parent="Tilemaps/Props"]
-tile_map_data = PackedByteArray("AAD1////AAAAAAMAAAABAPv/AAADAAAAAAAEAP//AAAEAAAAAAD/////AAACAAMAAAASAPv/AAADAAAAAADt//v/AAADAAAAAAAWAP//AAACAAMAAADo////AAAAAAMAABAaAP//AAAEAAAAAADs////AAAEAAAAAAA=")
+tile_map_data = PackedByteArray("AAD1////AAAAAAMAAAABAPv/AAADAAAAAAAEAP//AAAEAAAAAAD/////AAACAAMAAAAWAP//AAACAAMAAAAaAP//AAAEAAAAAADs////AAAEAAAAAADv//v/AAADAAAAAAAUAPv/AAADAAAAAAA=")
 tile_set = ExtResource("2_r7oti")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
@@ -53,6 +55,7 @@ vertical_alignment = 1
 
 [node name="Spawn" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(272, 0)
 
 [node name="Puertas" type="Node2D" parent="."]
 
@@ -66,7 +69,7 @@ position = Vector2(-152, 0)
 blocked = true
 
 [node name="PasIzqUno" parent="Puertas" instance=ExtResource("2_bkpvb")]
-position = Vector2(8, 0)
+position = Vector2(104, 0)
 next_scene = "uid://ba12nl6ckr4nm"
 
 [node name="Mads" parent="Puertas" instance=ExtResource("2_bkpvb")]
@@ -74,10 +77,36 @@ position = Vector2(288, 0)
 next_scene = "uid://djj82msmsvtyi"
 in_front = false
 
-[node name="Node2D" type="Node2D" parent="."]
+[node name="Lights" type="Node2D" parent="."]
 position = Vector2(261, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights"]
+position = Vector2(-237, -50)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+texture = ExtResource("4_1ehay")
+offset = Vector2(0, 30)
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
+position = Vector2(-525, -50)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+texture = ExtResource("4_1ehay")
+offset = Vector2(0, 30)
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lights"]
+position = Vector2(67, -50)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+texture = ExtResource("4_1ehay")
+offset = Vector2(0, 30)
 
 [node name="Enemigos" type="Node2D" parent="."]
 position = Vector2(500, 0)
 
 [node name="FadeIn" parent="." instance=ExtResource("4_r7oti")]
+
+[node name="LightsOff" parent="." instance=ExtResource("5_ck7pm")]

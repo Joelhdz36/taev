@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://ba12nl6ckr4nm"]
+[gd_scene load_steps=6 format=3 uid="uid://ba12nl6ckr4nm"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_2qtev"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_eli5e"]
+[ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="3_eli5e"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -37,19 +38,13 @@ unique_name_in_owner = true
 [node name="Puertas" type="Node2D" parent="."]
 
 [node name="PasIzqDos" parent="Puertas" instance=ExtResource("2_eli5e")]
-offset_left = -250.0
-offset_right = -218.0
 next_scene = "uid://bft4bopajvn3m"
 in_front = false
 
 [node name="Tinas" parent="Puertas" instance=ExtResource("2_eli5e")]
-offset_left = -109.0
-offset_right = -77.0
 next_scene = "uid://w7nwrjlhskbc"
 
 [node name="PasCentral" parent="Puertas" instance=ExtResource("2_eli5e")]
-offset_left = 49.0
-offset_right = 81.0
 next_scene = "uid://bob80e5tnry8w"
 in_front = false
 
@@ -58,3 +53,5 @@ position = Vector2(121, 0)
 
 [node name="Enemigos" type="Node2D" parent="."]
 position = Vector2(500, 0)
+
+[node name="FadeIn" parent="." instance=ExtResource("3_eli5e")]

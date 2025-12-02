@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://67i4ag423h52"]
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3 uid="uid://67i4ag423h52"]
 
+[ext_resource type="Resource" uid="uid://bem24enjcunjp" path="res://assets/dialogos/timelines/mads/tubo.dtl" id="1_nny61"]
 [ext_resource type="Texture2D" uid="uid://bewvm7g8nuhh0" path="res://sprites/props/Props_16x16/I_Tubo_16px.png" id="1_rwg5x"]
 [ext_resource type="Texture2D" uid="uid://c2wlo3w12ceim" path="res://sprites/props/Props_Inventario/I_Tubo_v01.png" id="2_rwg5x"]
 [ext_resource type="Script" uid="uid://cxujipwv6hp7y" path="res://data/objects/item.gd" id="3_nny61"]
@@ -11,5 +12,6 @@ game_icon = ExtResource("1_rwg5x")
 inventory_icon = ExtResource("2_rwg5x")
 note_text = "Un tubo que encontre en mi habitacion. Tiene marcado \"MK\""
 obj_type = "key"
+dialogo = ExtResource("1_nny61")
 color_test = Color(1.92523e-07, 0.50387585, 0.47180933, 1)
 metadata/_custom_type_script = "uid://cxujipwv6hp7y"

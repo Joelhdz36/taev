@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://dfsv0hngbrr2w"]
+[gd_scene load_steps=11 format=4 uid="uid://dfsv0hngbrr2w"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_acuit"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_n1h7m"]
 [ext_resource type="TileSet" uid="uid://cv0pkiabytgpm" path="res://sprites/habitaciones/electroshock/tileset_electroshock.tres" id="2_r2u5m"]
 [ext_resource type="PackedScene" uid="uid://muoslj4dfx15" path="res://sprites/enemigos/paciente/paciente.tscn" id="3_mctc5"]
+[ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="5_r2u5m"]
 [ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="6_xxp3n"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="7_poos1"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="8_f5or5"]
@@ -15,7 +16,7 @@ font_size = 40
 
 [node name="RoomElectroshock" type="Node2D"]
 script = ExtResource("1_acuit")
-camera_limits = Vector2(-160, 352)
+camera_limits = Vector2(-144, 336)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 
@@ -60,6 +61,7 @@ unique_name_in_owner = true
 position = Vector2(-160, 0)
 
 [node name="PasDerecha" parent="." instance=ExtResource("2_n1h7m")]
+light_mask = 0
 position = Vector2(143, 0)
 next_scene = "uid://cudpxv06ihx1n"
 
@@ -90,3 +92,6 @@ scale = Vector2(2, 1.5511246)
 color = Color(1, 1, 0.9019608, 1)
 energy = 0.65
 texture = ExtResource("8_f5or5")
+
+[node name="InteractableObj" parent="." instance=ExtResource("5_r2u5m")]
+position = Vector2(-88, -12)

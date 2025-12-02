@@ -23,14 +23,14 @@ func _physics_process(delta: float) -> void:
 func set_camera_values():
 	screen_size = get_viewport_rect().size
 	#camera position and offset
-	player_offset.y = roundi(screen_size.y * 0.045)
+	player_offset.y = roundi(screen_size.y * 0.055)
 	player_offset.x = roundi(screen_size.x * 0.02)
 
 	global_position.y = _player.global_position.y - (player_offset.y - roundi(player_offset.y * 0.35))
 	global_position.x = _player.global_position.x
 	
 	#camera zoom
-	var cam_zoom:Vector2 = Vector2((screen_size.y * 12)/1080,(screen_size.y * 12)/1080)
+	var cam_zoom:Vector2 = Vector2((screen_size.y * 10.5)/1080,(screen_size.y * 10.5)/1080)
 	zoom = cam_zoom
 
 
