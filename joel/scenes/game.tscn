@@ -1,6 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsiu560phtwcg"]
+[gd_scene load_steps=15 format=3 uid="uid://dsiu560phtwcg"]
 
 [ext_resource type="Script" uid="uid://cu4q028m7evic" path="res://joel/scenes/game.gd" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://1jc7jewm6nfc" path="res://Juliette/Menu 1/FondoPausa.png" id="2_yr3qm"]
+[ext_resource type="Texture2D" uid="uid://cdtnn53tko1sj" path="res://Juliette/Menu 1/BotonesNuevos/Continuar_normal.png" id="3_rd51f"]
+[ext_resource type="Texture2D" uid="uid://d2ijfxlfedyjc" path="res://Juliette/Menu 1/BotonesNuevos/Continuar_pressed.png" id="4_6jcdh"]
+[ext_resource type="Texture2D" uid="uid://d2jds8tb4yggj" path="res://Juliette/Menu 1/BotonesNuevos/Continuar_hover.png" id="5_0dlds"]
+[ext_resource type="Texture2D" uid="uid://dmufsivg6gmr" path="res://Juliette/Menu 1/BotonesNuevos/Opciones_normal.png" id="6_7wjg6"]
+[ext_resource type="Texture2D" uid="uid://dggkxeacw4uon" path="res://Juliette/Menu 1/BotonesNuevos/Opciones_pressed.png" id="7_midbu"]
+[ext_resource type="Texture2D" uid="uid://bs401iu8poca" path="res://Juliette/Menu 1/BotonesNuevos/Opciones_hover.png" id="8_ajkyk"]
+[ext_resource type="Texture2D" uid="uid://doiaqjrxy0udj" path="res://Juliette/Menu 1/BotonesNuevos/Reiniciar_normal.png" id="9_xdbt4"]
+[ext_resource type="Texture2D" uid="uid://cmc6ns0u0bevh" path="res://Juliette/Menu 1/BotonesNuevos/Reiniciar_pressed.png" id="10_gvhog"]
+[ext_resource type="Texture2D" uid="uid://okfe5p424rwt" path="res://Juliette/Menu 1/BotonesNuevos/Reiniciar_hover.png" id="11_rjobp"]
+[ext_resource type="Texture2D" uid="uid://bsj0cdy8qgoa5" path="res://Juliette/Menu 1/BotonesNuevos/Salir_normal.png" id="12_e436t"]
+[ext_resource type="Texture2D" uid="uid://fc4pxdu3w8q6" path="res://Juliette/Menu 1/BotonesNuevos/Salir_pressed.png" id="13_gtkh3"]
+[ext_resource type="Texture2D" uid="uid://bofu1yhsr34lv" path="res://Juliette/Menu 1/BotonesNuevos/Salir_hover.png" id="14_nc354"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_uwrxv")
@@ -10,13 +23,16 @@ unique_name_in_owner = true
 
 [node name="Rooms" type="Node2D" parent="World2D"]
 
-[node name="Menu" type="Control" parent="."]
+[node name="Menu pausa" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Menu"]
+[node name="MarginContainer" type="MarginContainer" parent="Menu pausa"]
+custom_minimum_size = Vector2(1920, 1080)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,11 +40,67 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu pausa/MarginContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Menu/MarginContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="Menu pausa/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_yr3qm")
+
+[node name="Continuar" type="Button" parent="Menu pausa/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="Menu pausa/MarginContainer/VBoxContainer/Continuar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("3_rd51f")
+texture_pressed = ExtResource("4_6jcdh")
+texture_hover = ExtResource("5_0dlds")
+
+[node name="Opciones" type="Button" parent="Menu pausa/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureButton" type="TextureButton" parent="Menu pausa/MarginContainer/VBoxContainer/Opciones"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("6_7wjg6")
+texture_pressed = ExtResource("7_midbu")
+texture_hover = ExtResource("8_ajkyk")
+
+[node name="Reinciar" type="Button" parent="Menu pausa/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Reiniciar" type="TextureButton" parent="Menu pausa/MarginContainer/VBoxContainer/Reinciar"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("9_xdbt4")
+texture_pressed = ExtResource("10_gvhog")
+texture_hover = ExtResource("11_rjobp")
+
+[node name="Salir" type="Button" parent="Menu pausa/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="Menu pausa/MarginContainer/VBoxContainer/Salir"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture_normal = ExtResource("12_e436t")
+texture_pressed = ExtResource("13_gtkh3")
+texture_hover = ExtResource("14_nc354")
 
 [node name="UI" type="Node" parent="."]
 unique_name_in_owner = true
