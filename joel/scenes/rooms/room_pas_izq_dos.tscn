@@ -109,6 +109,7 @@ offset = Vector2(0, 30)
 
 [node name="Caja" parent="Lights" instance=ExtResource("7_shoy6")]
 position = Vector2(-765, -15)
+IDnumber = 913514
 
 [node name="InteractableObj" parent="." instance=ExtResource("8_y8oo1")]
 position = Vector2(-384, -16)

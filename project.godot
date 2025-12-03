@@ -33,6 +33,7 @@ directories/dch_directory={
 "character": "res://joel/trash/CustomBaseStyle/character.dch"
 }
 directories/dtl_directory={
+"room_blocked": "res://assets/dialogos/timelines/puertas_bloqueadas/room_blocked.dtl",
 "room_lobotomia": "res://assets/dialogos/timelines/puertas_bloqueadas/room_lobotomia.dtl",
 "room_mads": "res://assets/dialogos/timelines/puertas_bloqueadas/room_mads.dtl",
 "simbolo": "res://assets/dialogos/timelines/simbolo.dtl",

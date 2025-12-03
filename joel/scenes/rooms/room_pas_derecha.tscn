@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cudpxv06ihx1n"]
+[gd_scene load_steps=16 format=4 uid="uid://cudpxv06ihx1n"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_0y6mp"]
 [ext_resource type="TileSet" uid="uid://c2sabtjvvdaf5" path="res://sprites/habitaciones/pasillos/tileset_pas_derecha.tres" id="2_jl43k"]
@@ -9,6 +9,9 @@
 [ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="7_plof1"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="8_2r7ft"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="8_qhkmv"]
+[ext_resource type="PackedScene" uid="uid://dckd2ojkpblyu" path="res://joel/scenes/caja_obstacle.tscn" id="10_nhcht"]
+[ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="11_vh2rt"]
+[ext_resource type="Resource" uid="uid://defxgw4lpbns1" path="res://data/objects/keys/key_llave_cabeza.tres" id="12_r0gf5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -16,16 +19,6 @@
 font_size = 40
 
 [sub_resource type="Resource" id="Resource_jr353"]
-script = ExtResource("5_jr353")
-name = "Paciente"
-health = 50.0
-damage = 3.0
-wonder_speed = 600.0
-follow_speed = 15.0
-sprite_frames = ExtResource("6_plof1")
-metadata/_custom_type_script = "uid://bxuaimm6pl5op"
-
-[sub_resource type="Resource" id="Resource_plof1"]
 script = ExtResource("5_jr353")
 name = "Paciente"
 health = 50.0
@@ -99,10 +92,6 @@ position = Vector2(-290, 0)
 position = Vector2(-95, -16)
 enemy_resource = SubResource("Resource_jr353")
 
-[node name="Paciente2" parent="Enemigos" instance=ExtResource("4_0agv1")]
-position = Vector2(120, -16)
-enemy_resource = SubResource("Resource_plof1")
-
 [node name="FadeIn" parent="." instance=ExtResource("7_plof1")]
 
 [node name="LightsOff" parent="." instance=ExtResource("8_qhkmv")]
@@ -130,3 +119,11 @@ energy = 0.65
 shadow_enabled = true
 texture = ExtResource("8_2r7ft")
 offset = Vector2(0, 30)
+
+[node name="Anim" parent="." instance=ExtResource("10_nhcht")]
+position = Vector2(176, -15)
+IDnumber = 646
+
+[node name="InteractableObj" parent="." instance=ExtResource("11_vh2rt")]
+position = Vector2(206, -8)
+obj_resource = ExtResource("12_r0gf5")

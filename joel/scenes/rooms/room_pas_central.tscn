@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://bob80e5tnry8w"]
+[gd_scene load_steps=10 format=4 uid="uid://bob80e5tnry8w"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_o6jua"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_bkpvb"]
 [ext_resource type="TileSet" uid="uid://c2sabtjvvdaf5" path="res://sprites/habitaciones/pasillos/tileset_pas_derecha.tres" id="2_r7oti"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="4_1ehay"]
+[ext_resource type="Resource" uid="uid://dauyeqpwhe8n4" path="res://assets/dialogos/timelines/puertas_bloqueadas/room_blocked.dtl" id="4_qqfrg"]
 [ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="4_r7oti"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="5_ck7pm"]
 
@@ -68,6 +69,7 @@ in_front = false
 [node name="Blocked" parent="Puertas" instance=ExtResource("2_bkpvb")]
 position = Vector2(-144, 0)
 blocked = true
+blocked_dialogue = ExtResource("4_qqfrg")
 
 [node name="PasIzqUno" parent="Puertas" instance=ExtResource("2_bkpvb")]
 position = Vector2(104, 0)
