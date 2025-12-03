@@ -14,11 +14,10 @@ var dialogo:DialogicTimeline
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$GPUParticles2D.emitting = animate_sprite
 	if InventoryManager.check(obj_resource):
 		queue_free()
 	display_info()
-
+	$GPUParticles2D.emitting = animate_sprite
 
 func _process(delta: float) -> void:
 	time += delta
@@ -29,11 +28,13 @@ func display_info():
 	%Icon.texture = obj_resource.game_icon
 
 func interaction():
+	$AudioStreamPlayer2D.play()
+	hide()
+	await $AudioStreamPlayer2D.finished
 	if !obj_resource.dialogo == null:
 		var dialogue:DialogicTimeline = obj_resource.dialogo
 		Dialogic.process_mode = Node.PROCESS_MODE_ALWAYS
 		Dialogic.start(dialogue).process_mode = Node.PROCESS_MODE_ALWAYS
-
 	InventoryManager.add_to_inventory(obj_resource)
 	queue_free()
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bft4bopajvn3m"]
+[gd_scene load_steps=11 format=4 uid="uid://bft4bopajvn3m"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_nq6is"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_1mo5u"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="5_ibs4x"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="6_shoy6"]
 [ext_resource type="PackedScene" uid="uid://dckd2ojkpblyu" path="res://joel/scenes/caja_obstacle.tscn" id="7_shoy6"]
+[ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="8_y8oo1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -107,4 +108,7 @@ texture = ExtResource("6_shoy6")
 offset = Vector2(0, 30)
 
 [node name="Caja" parent="Lights" instance=ExtResource("7_shoy6")]
-position = Vector2(-765, -16)
+position = Vector2(-765, -15)
+
+[node name="InteractableObj" parent="." instance=ExtResource("8_y8oo1")]
+position = Vector2(-384, -16)

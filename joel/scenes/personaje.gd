@@ -60,20 +60,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-#func attack(_delta:float):
-	#if !%SFX.playing:
-		#%SFX.play()
-	#dmg_collider.show()
-	#dmg_collider.disabled = false
-	#atk_cooldown -= _delta
-	#
-	#if atk_cooldown <= 0:
-		#atk_timer = _atk_timer
-		#atk_cooldown = _atk_cooldown
-		#dmg_collider.hide()
-		#attacking = false
-		#dmg_collider.disabled = true
-
 
 func take_damage(received_damage:float, _enemy_pos:Vector2):
 	
