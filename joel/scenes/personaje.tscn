@@ -1,11 +1,15 @@
-[gd_scene load_steps=20 format=3 uid="uid://cm5xa8wyhrdn1"]
+[gd_scene load_steps=35 format=3 uid="uid://cm5xa8wyhrdn1"]
 
 [ext_resource type="Script" uid="uid://cjri4qklw0gvo" path="res://joel/scenes/personaje.gd" id="1_2kcgv"]
-[ext_resource type="Texture2D" uid="uid://cmfm685sdstcg" path="res://sprites/mads/RIGHTWALK_MADS.png" id="2_2q4fn"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="2_rjtcc"]
+[ext_resource type="Texture2D" uid="uid://dwqm0ojwnrkdf" path="res://sprites/mads/DerechaAtaque_ConArma.png" id="3_axptx"]
+[ext_resource type="Texture2D" uid="uid://smu5q0wmxd1c" path="res://sprites/mads/idle_DerechaSinArma.png" id="3_dk4oh"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="3_eumi8"]
 [ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="4_2q4fn"]
+[ext_resource type="Texture2D" uid="uid://c85u70p5roudm" path="res://sprites/mads/idle_DerechaConArma.png" id="4_vbhap"]
 [ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="5_t6aad"]
+[ext_resource type="Texture2D" uid="uid://c3gtp8rb0hfjk" path="res://sprites/mads/DerechaCaminata_SinArma.png" id="5_yjpl2"]
+[ext_resource type="Texture2D" uid="uid://cvuokriufuw2n" path="res://sprites/mads/DerechaCaminata_ConArma.png" id="6_yjpl2"]
 [ext_resource type="AudioStream" uid="uid://bw6sfc7unkwll" path="res://assets/sonidos/mads/step.mp3" id="7_t6aad"]
 [ext_resource type="AudioStream" uid="uid://brit6uoqbwgt" path="res://assets/sonidos/mads/step_01.mp3" id="8_t6aad"]
 [ext_resource type="AudioStream" uid="uid://b8vxrrgcy6xun" path="res://assets/sonidos/mads/whoosh.wav" id="9_xyilc"]
@@ -13,39 +17,148 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1j4d1"]
 size = Vector2(10, 29)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2q4fn"]
-atlas = ExtResource("2_2q4fn")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t6aad"]
-atlas = ExtResource("2_2q4fn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gtik"]
+atlas = ExtResource("3_axptx")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_xyilc"]
-atlas = ExtResource("2_2q4fn")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gn6x"]
+atlas = ExtResource("3_axptx")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sg72c"]
+atlas = ExtResource("3_axptx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vbhap"]
+atlas = ExtResource("3_dk4oh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yjpl2"]
+atlas = ExtResource("3_dk4oh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axptx"]
+atlas = ExtResource("3_dk4oh")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_dk4oh"]
-atlas = ExtResource("2_2q4fn")
-region = Rect2(96, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_vy6bg"]
+atlas = ExtResource("4_vbhap")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikovg"]
+atlas = ExtResource("4_vbhap")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jm354"]
+atlas = ExtResource("4_vbhap")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idrx8"]
+atlas = ExtResource("5_yjpl2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21ncx"]
+atlas = ExtResource("5_yjpl2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_te3tn"]
+atlas = ExtResource("5_yjpl2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wa71a"]
+atlas = ExtResource("6_yjpl2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvcn6"]
+atlas = ExtResource("6_yjpl2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2j63e"]
+atlas = ExtResource("6_yjpl2")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_vbhap"]
 animations = [{
 "frames": [{
-"duration": 1.25,
-"texture": SubResource("AtlasTexture_2q4fn")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gtik")
 }, {
-"duration": 1.25,
-"texture": SubResource("AtlasTexture_t6aad")
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_4gn6x")
 }, {
-"duration": 1.25,
-"texture": SubResource("AtlasTexture_xyilc")
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sg72c")
+}],
+"loop": false,
+"name": &"Ataque",
+"speed": 8.0
 }, {
-"duration": 1.25,
-"texture": SubResource("AtlasTexture_dk4oh")
+"frames": [{
+"duration": 3.5,
+"texture": SubResource("AtlasTexture_vbhap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yjpl2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axptx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vbhap")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 3.5,
+"texture": SubResource("AtlasTexture_vy6bg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikovg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jm354")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vy6bg")
+}],
+"loop": true,
+"name": &"IdleArma",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idrx8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ncx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_te3tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21ncx")
 }],
 "loop": true,
 "name": &"Walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wa71a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvcn6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2j63e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvcn6")
+}],
+"loop": true,
+"name": &"WalkingArma",
 "speed": 5.0
 }]
 
@@ -77,9 +190,10 @@ shape = SubResource("RectangleShape2D_1j4d1")
 [node name="AnimSprite" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_vbhap")
-animation = &"Walking"
-autoplay = "Walking"
-frame_progress = 0.99861664
+animation = &"Ataque"
+autoplay = "Idle"
+frame = 2
+frame_progress = 1.0
 offset = Vector2(0, -16)
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -135,6 +249,12 @@ to = NodePath("../../Damaged")
 event = &"toDamaged"
 delay_in_seconds = "0.0"
 
+[node name="toAttack" type="Node" parent="StateChart/CompoundState/Idle"]
+script = ExtResource("5_t6aad")
+to = NodePath("../../Attack")
+event = &"toAttack"
+delay_in_seconds = "0.0"
+
 [node name="Walking" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("4_2q4fn")
 
@@ -150,10 +270,25 @@ to = NodePath("../../Damaged")
 event = &"toDamaged"
 delay_in_seconds = "0.0"
 
+[node name="toAttack2" type="Node" parent="StateChart/CompoundState/Walking"]
+script = ExtResource("5_t6aad")
+to = NodePath("../../Attack")
+event = &"toAttack"
+delay_in_seconds = "0.0"
+
 [node name="Damaged" type="Node" parent="StateChart/CompoundState"]
 script = ExtResource("4_2q4fn")
 
 [node name="toIdle" type="Node" parent="StateChart/CompoundState/Damaged"]
+script = ExtResource("5_t6aad")
+to = NodePath("../../Idle")
+event = &"toIdle"
+delay_in_seconds = "0.0"
+
+[node name="Attack" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("4_2q4fn")
+
+[node name="toIdle" type="Node" parent="StateChart/CompoundState/Attack"]
 script = ExtResource("5_t6aad")
 to = NodePath("../../Idle")
 event = &"toIdle"
@@ -181,3 +316,6 @@ occluder = SubResource("OccluderPolygon2D_2q4fn")
 [connection signal="state_entered" from="StateChart/CompoundState/Damaged" to="." method="_on_damaged_state_entered"]
 [connection signal="state_exited" from="StateChart/CompoundState/Damaged" to="." method="_on_damaged_state_exited"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Damaged" to="." method="_on_damaged_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Attack" to="." method="_on_attack_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Attack" to="." method="_on_attack_state_exited"]
+[connection signal="state_processing" from="StateChart/CompoundState/Attack" to="." method="_on_attack_state_processing"]

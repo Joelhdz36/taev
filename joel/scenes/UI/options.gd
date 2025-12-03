@@ -3,13 +3,13 @@ extends CanvasLayer
 var game_resolutions:Array[Vector2i] = [Vector2(1920,1080),Vector2(1240,720)]
 
 func _ready() -> void:
-	%FullscreenBtn.toggle_mode = true
+	#%FullscreenBtn.toggle_mode = true
 	%GeneralSound.value = AudioServer.get_bus_volume_db(0)
 	%SFX.value = AudioServer.get_bus_volume_db(1)
 	%Music.value = AudioServer.get_bus_volume_db(2)
 
-	if DisplayServer.window_get_mode(0) == 3:
-		%FullscreenBtn.toggle_mode = true
+	#if DisplayServer.window_get_mode(0) == 3:
+		#%FullscreenBtn.button_pressed = true
 
 func _on_resolution_size_item_selected(index: int) -> void:
 	DisplayServer.window_set_size(game_resolutions[index])
@@ -20,11 +20,11 @@ func _on_resolution_size_item_selected(index: int) -> void:
 	screen_position = Vector2(screen_size.x/2 - game_window.x/2,screen_size.y/2 - game_window.y/2)
 	DisplayServer.window_set_position(screen_position)
 	CameraManager.change_cam_resolution()
-	if DisplayServer.window_get_mode(0) == 3:
-		%FullscreenBtn.toggle_mode = true
-	else:
-		%FullscreenBtn.toggle_mode = false
-
+	#if DisplayServer.window_get_mode(0) == 3:
+		#%FullscreenBtn.toggle_mode = true
+	#else:
+		#%FullscreenBtn.toggle_mode = false
+#
 
 
 
@@ -58,5 +58,5 @@ func _on_fullscreen_btn_toggled(toggled_on: bool) -> void:
 	else:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 	CameraManager.change_cam_resolution()
-	var index: = game_resolutions.find(DisplayServer.window_get_size(0))
+	var index: = game_resolutions.find(get_viewport().size)
 	_on_resolution_size_item_selected(index)
