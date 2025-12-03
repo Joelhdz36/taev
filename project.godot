@@ -28,8 +28,8 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 [dialogic]
 
 directories/dch_directory={
-"Mads": "res://assets/dialogos/personajes/Mads.dch",
-"character": "res://joel/trash/CustomBaseStyle/character.dch"
+"CustomBaseStyle/character": "res://joel/trash/CustomBaseStyle/character.dch",
+"Mads": "res://assets/dialogos/personajes/Mads.dch"
 }
 directories/dtl_directory={
 "timeline_test": "res://joel/trash/timeline_test.dtl",
