@@ -1,136 +1,22 @@
-[gd_scene load_steps=16 format=3 uid="uid://dsiu560phtwcg"]
+[gd_scene load_steps=3 format=3 uid="uid://dsiu560phtwcg"]
 
 [ext_resource type="Script" uid="uid://cu4q028m7evic" path="res://joel/scenes/game.gd" id="1_uwrxv"]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-[ext_resource type="Texture2D" uid="uid://dpttdyxe2r4va" path="res://Juliette/Menu principal/MenúPrincipal.png" id="2_sbxfn"]
-[ext_resource type="Texture2D" uid="uid://h3abwelcxw6c" path="res://Juliette/Menu principal/Botones2/Ajustes_01.png" id="3_gvhog"]
-[ext_resource type="Texture2D" uid="uid://bbfmfi21a2a85" path="res://Juliette/Menu principal/ProLimbus_Titulo.png" id="3_mh6pd"]
-[ext_resource type="Texture2D" uid="uid://bdooyvebeh7e6" path="res://Juliette/Menu principal/Botones2/Ajustes_03.png" id="4_rjobp"]
-[ext_resource type="Texture2D" uid="uid://bty25ye3rigoq" path="res://Juliette/Menu principal/Botones2/Ajustes_02.png" id="5_e436t"]
-[ext_resource type="Texture2D" uid="uid://cupfvtymjghy5" path="res://Juliette/Menu principal/Botones2/Creditos_01.png" id="6_gtkh3"]
-[ext_resource type="Texture2D" uid="uid://dq2nk5bn30jfn" path="res://Juliette/Menu principal/Botones2/Creditos_03.png" id="7_nc354"]
-[ext_resource type="Texture2D" uid="uid://d0p7hwqohv17x" path="res://Juliette/Menu principal/Botones2/Creditos_02.png" id="8_ne7sy"]
-[ext_resource type="Texture2D" uid="uid://drpbca6aal0qc" path="res://Juliette/Menu principal/Botones2/Iniciar_01.png" id="9_y04bu"]
-[ext_resource type="Texture2D" uid="uid://bnetxogq5y28l" path="res://Juliette/Menu principal/Botones2/Iniciar_03.png" id="10_kd7ic"]
-[ext_resource type="Texture2D" uid="uid://c8ysw03lu85pn" path="res://Juliette/Menu principal/Botones2/Iniciar_02.png" id="11_knq1g"]
-[ext_resource type="Texture2D" uid="uid://due3dcahcma5g" path="res://Juliette/Menu principal/Botones2/Salir_01.png" id="12_ixdqp"]
-[ext_resource type="Texture2D" uid="uid://dmu117v3x50rf" path="res://Juliette/Menu principal/Botones2/Salir_03.png" id="13_a6bow"]
-[ext_resource type="Texture2D" uid="uid://b8prl3bcfh7i7" path="res://Juliette/Menu principal/Botones2/Salir_02.png" id="14_pt5a7"]
-=======
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-[ext_resource type="Texture2D" uid="uid://cdfp2q0k3omo" path="res://Juliette/Menú Principal/MenúPrincipal.png" id="2_gvhog"]
-[ext_resource type="Texture2D" uid="uid://1kn6n585pr1f" path="res://Juliette/Menú Principal/Botones2/Ajustes_01.png" id="3_rjobp"]
-[ext_resource type="Texture2D" uid="uid://b0uasmuvy4lym" path="res://Juliette/Menú Principal/Botones2/Ajustes_03.png" id="4_e436t"]
-[ext_resource type="Texture2D" uid="uid://cvltidc3dah20" path="res://Juliette/Menú Principal/Botones2/Ajustes_02.png" id="5_gtkh3"]
-[ext_resource type="Texture2D" uid="uid://4jvjrrckk36v" path="res://Juliette/Menú Principal/Botones2/Creditos_01.png" id="6_nc354"]
-[ext_resource type="Texture2D" uid="uid://twt76tpcecv" path="res://Juliette/Menú Principal/Botones2/Creditos_03.png" id="7_ne7sy"]
-[ext_resource type="Texture2D" uid="uid://ofi3gkqvj0f7" path="res://Juliette/Menú Principal/Botones2/Creditos_02.png" id="8_y04bu"]
-[ext_resource type="Texture2D" uid="uid://nbb6mou4ardq" path="res://Juliette/Menú Principal/Botones2/Iniciar_01.png" id="9_kd7ic"]
-[ext_resource type="Texture2D" uid="uid://cee3rhv6cvn4t" path="res://Juliette/Menú Principal/Botones2/Iniciar_03.png" id="10_knq1g"]
-[ext_resource type="Texture2D" uid="uid://ctp75lw71c3ht" path="res://Juliette/Menú Principal/Botones2/Iniciar_02.png" id="11_ixdqp"]
-[ext_resource type="Texture2D" uid="uid://cjnbic72ecxex" path="res://Juliette/Menú Principal/Botones2/Salir_01.png" id="12_a6bow"]
-[ext_resource type="Texture2D" uid="uid://gls2u2i8vil" path="res://Juliette/Menú Principal/Botones2/Salir_02.png" id="13_pt5a7"]
-[ext_resource type="Texture2D" uid="uid://c0fh0nc6ms6ig" path="res://Juliette/Menú Principal/Botones2/Salir_03.png" id="14_shg4m"]
-[ext_resource type="Texture2D" uid="uid://bbww2ht2k356y" path="res://Juliette/Menú Principal/ProLimbus_Titulo.png" id="15_s8hp1"]
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+[ext_resource type="PackedScene" uid="uid://bft4bopajvn3m" path="res://joel/scenes/rooms/room_pas_izq_dos.tscn" id="2_yr3qm"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_uwrxv")
+_first_scene = ExtResource("2_yr3qm")
 
 [node name="World2D" type="Node2D" parent="."]
 unique_name_in_owner = true
 
 [node name="Rooms" type="Node2D" parent="World2D"]
 
-[node name="Menu principal" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="Menu principal"]
-custom_minimum_size = Vector2(1920, 1080)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="Menu principal/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("2_gvhog")
-stretch_mode = 2
-
-[node name="Ajustes" type="TextureButton" parent="Menu principal/MarginContainer/TextureRect"]
-layout_mode = 0
-offset_left = 994.47943
-offset_top = 613.466
-offset_right = 1094.4795
-offset_bottom = 738.466
-rotation = -0.08726646
-texture_normal = ExtResource("3_rjobp")
-texture_pressed = ExtResource("4_e436t")
-texture_hover = ExtResource("5_gtkh3")
-stretch_mode = 4
-
-[node name="Creditos" type="TextureButton" parent="Menu principal/MarginContainer/TextureRect"]
-layout_mode = 0
-offset_left = 839.051
-offset_top = 733.0263
-offset_right = 939.051
-offset_bottom = 858.0263
-rotation = -0.08726646
-texture_normal = ExtResource("6_nc354")
-texture_pressed = ExtResource("7_ne7sy")
-texture_hover = ExtResource("8_y04bu")
-
-[node name="Iniciar" type="TextureButton" parent="Menu principal/MarginContainer/TextureRect"]
-layout_mode = 0
-offset_left = 812.14996
-offset_top = 536.17883
-offset_right = 912.14996
-offset_bottom = 661.17883
-rotation = -0.08726646
-texture_normal = ExtResource("9_kd7ic")
-texture_pressed = ExtResource("10_knq1g")
-texture_hover = ExtResource("11_ixdqp")
-
-[node name="Salir" type="TextureButton" parent="Menu principal/MarginContainer/TextureRect"]
-layout_mode = 0
-offset_left = 1012.84045
-offset_top = 807.75146
-offset_right = 1112.8405
-offset_bottom = 882.75146
-rotation = -0.08726646
-texture_normal = ExtResource("12_a6bow")
-texture_pressed = ExtResource("13_pt5a7")
-texture_hover = ExtResource("14_shg4m")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu principal/MarginContainer"]
-layout_mode = 2
-
-[node name="TextureRect2" type="TextureRect" parent="Menu principal/MarginContainer/VBoxContainer"]
-layout_direction = 4
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-localize_numeral_system = false
-texture = ExtResource("15_s8hp1")
-stretch_mode = 5
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="UI" type="Node" parent="."]
 unique_name_in_owner = true

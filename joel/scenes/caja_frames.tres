@@ -1,41 +1,40 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=12 format=3 uid="uid://cr1nc6s1yxbgo"]
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://br517xs0v4njs"]
 
-[ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="1_exbcf"]
-[ext_resource type="Texture2D" uid="uid://bf8gnsqn2wkfy" path="res://sprites/props/I_CajasApiladas_32px.png" id="2_iqd58"]
+[ext_resource type="Texture2D" uid="uid://bf8gnsqn2wkfy" path="res://sprites/props/I_CajasApiladas_32px.png" id="1_35q01"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pdaqe"]
-atlas = ExtResource("2_iqd58")
+atlas = ExtResource("1_35q01")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4o734"]
-atlas = ExtResource("2_iqd58")
+atlas = ExtResource("1_35q01")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1xar"]
-atlas = ExtResource("2_iqd58")
+atlas = ExtResource("1_35q01")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k74nw"]
-atlas = ExtResource("2_iqd58")
+atlas = ExtResource("1_35q01")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_81ck2"]
-atlas = ExtResource("2_iqd58")
+atlas = ExtResource("1_35q01")
 region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_355d2"]
-atlas = ExtResource("2_iqd58")
+atlas = ExtResource("1_35q01")
 region = Rect2(160, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ptfq"]
-atlas = ExtResource("2_iqd58")
+atlas = ExtResource("1_35q01")
 region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ftbe2"]
-atlas = ExtResource("2_iqd58")
+atlas = ExtResource("1_35q01")
 region = Rect2(224, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_iqd58"]
+[resource]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -66,10 +65,3 @@ animations = [{
 "name": &"Damage",
 "speed": 5.0
 }]
-
-[resource]
-script = ExtResource("1_exbcf")
-name = "Caja"
-health = 60.0
-sprite_frames = SubResource("SpriteFrames_iqd58")
-metadata/_custom_type_script = "uid://bxuaimm6pl5op"
