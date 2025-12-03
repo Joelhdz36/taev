@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bn1x5nn5h4k0k"]
+
+[ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="1_exbcf"]
+[ext_resource type="SpriteFrames" path="res://joel/scenes/caja_frames.tres" id="2_iqd58"]
+
+[resource]
+script = ExtResource("1_exbcf")
+name = "Caja"
+health = 60.0
+sprite_frames = ExtResource("2_iqd58")
+metadata/_custom_type_script = "uid://bxuaimm6pl5op"
