@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://w7nwrjlhskbc"]
+[gd_scene load_steps=12 format=4 uid="uid://w7nwrjlhskbc"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_1cqbu"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_mkksx"]
@@ -9,7 +9,6 @@
 [ext_resource type="Resource" uid="uid://d137njghuf4qh" path="res://assets/dialogos/timelines/puertas_bloqueadas/room_lobotomia.dtl" id="5_pae4k"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="8_ihrfl"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="9_2qhr7"]
-[ext_resource type="PackedScene" uid="uid://dckd2ojkpblyu" path="res://joel/scenes/caja_obstacle.tscn" id="10_nihft"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -104,20 +103,67 @@ texture = ExtResource("9_2qhr7")
 offset = Vector2(0, 30)
 
 [node name="PointLight2D2" type="PointLight2D" parent="Lights"]
-position = Vector2(-701, -50)
+position = Vector2(-429, -67)
+scale = Vector2(1, 2.09375)
 color = Color(1, 1, 0.9019608, 1)
 energy = 0.65
 shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 4.6
 texture = ExtResource("9_2qhr7")
 offset = Vector2(0, 30)
 
 [node name="PointLight2D3" type="PointLight2D" parent="Lights"]
-position = Vector2(-605, -50)
+position = Vector2(-364, -67)
+scale = Vector2(1, 2.09375)
 color = Color(1, 1, 0.9019608, 1)
 energy = 0.65
 shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 4.6
 texture = ExtResource("9_2qhr7")
 offset = Vector2(0, 30)
 
-[node name="Caja" parent="Lights" instance=ExtResource("10_nihft")]
-position = Vector2(-765, -15)
+[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
+position = Vector2(-301, -67)
+scale = Vector2(1, 2.09375)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 4.6
+texture = ExtResource("9_2qhr7")
+offset = Vector2(0, 30)
+
+[node name="PointLight2D5" type="PointLight2D" parent="Lights"]
+position = Vector2(-237, -67)
+scale = Vector2(1, 2.09375)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 4.6
+texture = ExtResource("9_2qhr7")
+offset = Vector2(0, 30)
+
+[node name="PointLight2D6" type="PointLight2D" parent="Lights"]
+position = Vector2(-173, -67)
+scale = Vector2(1, 2.09375)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 4.6
+texture = ExtResource("9_2qhr7")
+offset = Vector2(0, 30)
+
+[node name="PointLight2D7" type="PointLight2D" parent="Lights"]
+position = Vector2(-109, -67)
+scale = Vector2(1, 2.09375)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+shadow_filter = 2
+shadow_filter_smooth = 4.6
+texture = ExtResource("9_2qhr7")
+offset = Vector2(0, 30)
