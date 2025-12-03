@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dwooecmoxrpyg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mjhr5"]
+bg_color = Color(0, 0, 0, 1)
+
+[resource]
+OptionButton/constants/arrow_margin = 10
+OptionButton/font_sizes/font_size = 30
+OptionButton/icons/arrow = null
+OptionButton/styles/normal = SubResource("StyleBoxFlat_mjhr5")

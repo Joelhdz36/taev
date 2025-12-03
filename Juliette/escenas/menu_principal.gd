@@ -6,7 +6,7 @@ func _on_iniciar_pressed() -> void:
 
 
 func _on_ajustes_pressed() -> void:
-	SceneManager.cambio_escena("uid://c4mqr7824uavn")
+	SceneManager.cambio_escena("uid://wh1yt57sig52")
 
 
 func _on_salir_pressed() -> void:

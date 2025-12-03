@@ -23,8 +23,6 @@ var player_attack_context:GUIDEMappingContext = preload("uid://cp8okplon72p5")
 var attack_action:GUIDEAction = preload("uid://dvv5kqyv4tl8")
 
 
-var atk_timer:float = 0.2
-var _atk_timer:float = 0.2
 var attacking:bool = false
 var atk_cooldown:float = 0.2
 var _atk_cooldown:float = 0.2
@@ -44,7 +42,6 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	print(anim_sprite.animation)
 	if can_interact and interaction.is_triggered():
 		current_obj.interaction()
 	if atk_cooldown <= 0.0:
@@ -173,13 +170,3 @@ func _on_attack_state_exited() -> void:
 	dmg_collider.disabled = true
 	attacking = false
 	enable_context()
-
-#func _on_vigilant_state_processing(delta: float) -> void:
-
-	#print(atk_cooldown)
-	#if atk_cooldown <= 0:
-		#atk_timer = _atk_timer
-		#atk_cooldown = _atk_cooldown
-		#dmg_collider.hide()
-		#attacking = false
-		#dmg_collider.disabled = true

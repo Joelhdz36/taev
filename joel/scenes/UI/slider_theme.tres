@@ -1,4 +1,6 @@
-[gd_resource type="Theme" load_steps=3 format=3 uid="uid://cxf5srv6w14yh"]
+[gd_resource type="Theme" load_steps=4 format=3 uid="uid://cxf5srv6w14yh"]
+
+[ext_resource type="Texture2D" uid="uid://cioj5c6oe81p5" path="res://sprites/UI/opciones/Barras icono.png" id="1_jvbpq"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_admju"]
 bg_color = Color(0.78, 0.78, 0.78, 1)
@@ -6,9 +8,12 @@ border_color = Color(0.8, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jvbpq"]
 bg_color = Color(0, 0, 0, 1)
-border_width_top = 15
+border_width_top = 7
 border_color = Color(0, 0, 0, 1)
 
 [resource]
+HSlider/icons/grabber = ExtResource("1_jvbpq")
+HSlider/icons/grabber_disabled = ExtResource("1_jvbpq")
+HSlider/icons/grabber_highlight = ExtResource("1_jvbpq")
 HSlider/styles/grabber_area = SubResource("StyleBoxFlat_admju")
 HSlider/styles/slider = SubResource("StyleBoxFlat_jvbpq")

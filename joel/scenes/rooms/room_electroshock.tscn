@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://dfsv0hngbrr2w"]
+[gd_scene load_steps=12 format=4 uid="uid://dfsv0hngbrr2w"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_acuit"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_n1h7m"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="7_poos1"]
 [ext_resource type="PackedScene" uid="uid://c5wxma2m42f1k" path="res://joel/scenes/rooms/simbolo.tscn" id="8_1q43v"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="8_f5or5"]
+[ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="9_sedgh"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -95,3 +96,6 @@ texture = ExtResource("8_f5or5")
 
 [node name="ISimboloFullV01" parent="." instance=ExtResource("8_1q43v")]
 position = Vector2(62, -40.000004)
+
+[node name="InteractableObj" parent="." instance=ExtResource("9_sedgh")]
+position = Vector2(25, -14)
