@@ -10,7 +10,7 @@ var damping_speed:float
 func _ready() -> void:
 	set_camera_values()
 
-
+#
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
 	if _player.velocity.x != 0.0:
