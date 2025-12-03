@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var interact_icon: Label = %InteractIcon
+
 
 @export var obj_resource:Resource
 
@@ -41,11 +41,8 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.name == "Personaje":
 		body.can_interact = true
 		body.current_obj = self
-		interact_icon.show()
-
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body.name == "Personaje":
 		body.can_interact = false
 		body.current_obj = null
-		interact_icon.hide()

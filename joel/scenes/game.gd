@@ -3,6 +3,8 @@ extends Node
 @onready var world_2d: Node2D = %World2D
 @onready var ui: Node = %UI
 
+@export var _first_scene:PackedScene
+
 #PauseMenu
 var pause_menu_scene:PackedScene = preload("uid://dhfa6pg30wute")
 var pause_menu:GUIDEAction = preload("uid://cn2pd0oga6t16")
@@ -22,7 +24,7 @@ func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	GUIDE.enable_mapping_context(menus_context)
 	create_player()
-	SceneManager.create_fisrt_scene()
+	SceneManager.create_fisrt_scene(_first_scene)
 	player.global_position = SceneManager.spawn_pos
 	CameraManager.current_camera.global_position = player.global_position 
 

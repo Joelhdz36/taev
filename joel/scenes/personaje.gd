@@ -43,16 +43,16 @@ func _ready() -> void:
 	player_health = HealthManager.health
 
 
-func _process(delta: float) -> void:
-	if attack_action.is_triggered() and atk_timer <= 0.0:
-		attacking = true
-	else:
-		atk_timer -= delta
-	if attacking:
-		attack(delta)
-		
+func _process(_delta: float) -> void:
+	print(anim_sprite.animation)
 	if can_interact and interaction.is_triggered():
 		current_obj.interaction()
+	if atk_cooldown <= 0.0:
+		attacking = attack_action.is_triggered() 
+		if attacking and DataManager.spawn_enemies:
+			state_chart.send_event("toAttack")
+	else:
+		atk_cooldown -= _delta
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -60,18 +60,20 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-func attack(_delta:float):
-	if !%SFX.playing:
-		%SFX.play()
-	dmg_collider.show()
-	dmg_collider.disabled = false
-	atk_cooldown -= _delta
-	if atk_cooldown <= 0:
-		atk_timer = _atk_timer
-		atk_cooldown = _atk_cooldown
-		dmg_collider.hide()
-		attacking = false
-		dmg_collider.disabled = true
+#func attack(_delta:float):
+	#if !%SFX.playing:
+		#%SFX.play()
+	#dmg_collider.show()
+	#dmg_collider.disabled = false
+	#atk_cooldown -= _delta
+	#
+	#if atk_cooldown <= 0:
+		#atk_timer = _atk_timer
+		#atk_cooldown = _atk_cooldown
+		#dmg_collider.hide()
+		#attacking = false
+		#dmg_collider.disabled = true
+
 
 func take_damage(received_damage:float, _enemy_pos:Vector2):
 	
@@ -104,6 +106,11 @@ func _on_idle_state_processing(_delta: float) -> void:
 	if movement_action.is_triggered():
 		state_chart.send_event("toWalk")
 
+	if DataManager.spawn_enemies:
+		anim_sprite.play("IdleArma")
+	else:
+		anim_sprite.play("Idle")
+
 
 func _on_walking_state_physics_processing(delta: float) -> void:
 	if anim_sprite.frame == 3:
@@ -130,6 +137,10 @@ func _on_walking_state_physics_processing(delta: float) -> void:
 		if velocity.x == 0:
 			state_chart.send_event("toIdle")
 	move_and_slide()
+	if DataManager.spawn_enemies:
+		anim_sprite.play("WalkingArma")
+	else:
+		anim_sprite.play("Walking")
 
 func _on_damaged_state_entered() -> void:
 	var dir = last_direction
@@ -155,3 +166,34 @@ func disable_context():
 
 func enable_context():
 	GUIDE.enable_mapping_context(player_context)
+
+func _on_attack_state_entered() -> void:
+	disable_context()
+	if !%SFX.playing:
+		%SFX.play()
+	dmg_collider.show()
+	dmg_collider.disabled = false
+	velocity.x = 0
+
+
+func _on_attack_state_processing(_delta: float) -> void:
+	anim_sprite.play("Ataque")
+	await anim_sprite.animation_finished
+	state_chart.send_event("toIdle")
+
+func _on_attack_state_exited() -> void:
+	atk_cooldown = _atk_cooldown
+	dmg_collider.hide()
+	dmg_collider.disabled = true
+	attacking = false
+	enable_context()
+
+#func _on_vigilant_state_processing(delta: float) -> void:
+
+	#print(atk_cooldown)
+	#if atk_cooldown <= 0:
+		#atk_timer = _atk_timer
+		#atk_cooldown = _atk_cooldown
+		#dmg_collider.hide()
+		#attacking = false
+		#dmg_collider.disabled = true

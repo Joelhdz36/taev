@@ -1,12 +1,13 @@
 class_name sceneManager
 extends Node
 
-var first_scene:PackedScene = preload("uid://dfsv0hngbrr2w")
+#var first_scene:PackedScene = preload("uid://dfsv0hngbrr2w")
 var current_scene
 var world_2d:Node2D
 var spawn_pos:Vector2
 
 func _ready():
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN) 
 	Dialogic.signal_event.connect(pause_game)
 	Dialogic.timeline_ended.connect(pause_game.bind("pause_game"))
 
@@ -21,7 +22,7 @@ func change_scene(uid:String):
 func cambio_escena(uid:String):
 	get_tree().call_deferred("change_scene_to_file", uid)
 
-func create_fisrt_scene():
+func create_fisrt_scene(first_scene:PackedScene):
 	var new_first_scene = first_scene.instantiate()
 	world_2d.add_child(new_first_scene)
 	

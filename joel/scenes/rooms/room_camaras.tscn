@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dd80a4740yvfn"]
+[gd_scene load_steps=9 format=4 uid="uid://dd80a4740yvfn"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_u2lkr"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_a0h5n"]
+[ext_resource type="TileSet" uid="uid://bqgymsja8adig" path="res://sprites/habitaciones/camaras/tileset_camaras.tres" id="2_in0va"]
 [ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="3_a0h5n"]
+[ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="5_374x1"]
+[ext_resource type="Texture2D" uid="uid://cdsjjlhwljs0d" path="res://joel/trash/itemTest.png" id="6_253sf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -11,7 +14,25 @@ font_size = 40
 
 [node name="Camaras" type="Node2D"]
 script = ExtResource("1_u2lkr")
-camera_limits = Vector2(-560, -120)
+camera_limits = Vector2(-564, -316)
+
+[node name="Tilemaps" type="Node2D" parent="."]
+
+[node name="Pared" type="Node2D" parent="Tilemaps"]
+
+[node name="Background" type="TileMapLayer" parent="Tilemaps/Pared"]
+tile_map_data = PackedByteArray("AADX//v/AAACAAUAAADX//z/AAACAAUAAADX//3/AAACAAUAAADX//7/AAACAAUAAADX////AAACAAYAAADY//v/AAACAAUAAADY//z/AAACAAUAAADY//3/AAACAAUAAADY//7/AAACAAUAAADY////AAADAAYAAADZ//v/AAACAAUAAADZ//z/AAACAAUAAADZ//3/AAACAAUAAADZ//7/AAACAAUAAADZ////AAAEAAYAAADa//v/AAACAAUAAADa//z/AAACAAUAAADa//3/AAACAAUAAADa//7/AAACAAUAAADa////AAACAAYAAADb//v/AAACAAUAAADb//z/AAACAAUAAADb//3/AAACAAUAAADb//7/AAACAAUAAADb////AAADAAYAAADc//v/AAACAAUAAADc//z/AAACAAUAAADc//3/AAACAAUAAADc//7/AAACAAUAAADc////AAAEAAYAAADd//v/AAACAAUAAADd//z/AAACAAUAAADd//3/AAACAAUAAADd//7/AAACAAUAAADd////AAACAAYAAADe//v/AAACAAUAAADe//z/AAACAAUAAADe//3/AAACAAUAAADe//7/AAACAAUAAADe////AAADAAYAAADf//v/AAACAAUAAADf//z/AAACAAUAAADf//3/AAACAAUAAADf//7/AAACAAUAAADf////AAAEAAYAAADg//v/AAACAAUAAADg//z/AAACAAUAAADg//3/AAACAAUAAADg//7/AAACAAUAAADg////AAACAAYAAADh//v/AAACAAUAAADh//z/AAACAAUAAADh//3/AAACAAUAAADh//7/AAACAAUAAADh////AAADAAYAAADi//v/AAACAAUAAADi//z/AAACAAUAAADi//3/AAACAAUAAADi//7/AAACAAUAAADi////AAAEAAYAAADj//v/AAACAAUAAADj//z/AAACAAUAAADj//3/AAACAAUAAADj//7/AAACAAUAAADj////AAACAAYAAADk//v/AAACAAUAAADk//z/AAACAAUAAADk//3/AAACAAUAAADk//7/AAACAAUAAADk////AAADAAYAAADl//v/AAACAAUAAADl//z/AAACAAUAAADl//3/AAACAAUAAADl//7/AAACAAUAAADl////AAAEAAYAAADm//v/AAACAAUAAADm//z/AAACAAUAAADm//3/AAACAAUAAADm//7/AAACAAUAAADm////AAACAAYAAADn//v/AAACAAUAAADn//z/AAACAAUAAADn//3/AAACAAUAAADn//7/AAACAAUAAADn////AAADAAYAAADo//v/AAACAAUAAADo//z/AAACAAUAAADo//3/AAACAAUAAADo//7/AAACAAUAAADo////AAAEAAYAAADp//v/AAACAAUAAADp//z/AAACAAUAAADp//3/AAACAAUAAADp//7/AAACAAUAAADp////AAACAAYAAADq//v/AAACAAUAAADq//z/AAACAAUAAADq//3/AAACAAUAAADq//7/AAACAAUAAADq////AAADAAYAAADr//v/AAACAAUAAADr//z/AAACAAUAAADr//3/AAACAAUAAADr//7/AAACAAUAAADr////AAAEAAYAAADs//v/AAACAAUAAADs//z/AAACAAUAAADs//3/AAACAAUAAADs//7/AAACAAUAAADs////AAACAAYAAADt//v/AAACAAUAAADt//z/AAACAAUAAADt//3/AAACAAUAAADt//7/AAACAAUAAADt////AAADAAYAAADu//v/AAACAAUAAADu//z/AAACAAUAAADu//3/AAACAAUAAADu//7/AAACAAUAAADu////AAAEAAYAAADv//v/AAACAAUAAADv//z/AAACAAUAAADv//3/AAACAAUAAADv//7/AAACAAUAAADv////AAACAAYAAADw//v/AAACAAUAAADw//z/AAACAAUAAADw//3/AAACAAUAAADw//7/AAACAAUAAADw////AAADAAYAAADx//v/AAACAAUAAADx//z/AAACAAUAAADx//3/AAACAAUAAADx//7/AAACAAUAAADx////AAAEAAYAAADW//v/AAAIAAAAAADW//z/AAAIAAAAAADW//3/AAAIAAAAAADW//7/AAAIAAAAAADW////AAAIAAAAAADy//v/AAAIAAAAAADy//z/AAAIAAAAAADy//3/AAAIAAAAAADy//7/AAAIAAAAAADy////AAAIAAAAAAA=")
+tile_set = ExtResource("2_in0va")
+
+[node name="Details" type="TileMapLayer" parent="Tilemaps/Pared"]
+tile_map_data = PackedByteArray("AADZ//3/AAABAAUAAADc//7/AAABAAUAAADo//7/AAABAAUAAADr//z/AAABAAUAAADx//3/AAABAAUAAADv//v/AAABAAUAAADX//7/AAABAAUAAAA=")
+tile_set = ExtResource("2_in0va")
+
+[node name="Props" type="Node2D" parent="Tilemaps"]
+
+[node name="PropsDetails" type="TileMapLayer" parent="Tilemaps/Props"]
+tile_map_data = PackedByteArray("AADX//z/AAAAAAYAAADv////AAAHAAEAAADj//7/AAAEAAAAAADh//7/AAACAAAAAADg//z/AAAAAAAAAADl//7/AAACAAAAAADn//z/AAAAAAAAABDj//z/AAACAAAAAADo//v/AAAGAAAAAADZ//v/AAAGAAAAAADd//v/AAAGAAAAAADh////AAABAAMAAADn//3/AAAGAAEAAADg//3/AAAGAAEAABDi//z/AAAGAAEAAEDl//z/AAAGAAEAAFDs////AAAHAAEAAADa////AAAHAAEAAAA=")
+tile_set = ExtResource("2_in0va")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -34,14 +55,17 @@ vertical_alignment = 1
 
 [node name="Spawn" type="Node2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(-460, 0)
 
 [node name="Puertas" type="Node2D" parent="."]
 
 [node name="Juegos" parent="Puertas" instance=ExtResource("2_a0h5n")]
+position = Vector2(-350, 0)
 next_scene = "uid://bdbgmah14ctni"
 in_front = false
 
 [node name="PasIzqDos" parent="Puertas" instance=ExtResource("2_a0h5n")]
+position = Vector2(-536, 0)
 next_scene = "uid://bft4bopajvn3m"
 
 [node name="Node2D" type="Node2D" parent="."]
@@ -51,3 +75,68 @@ position = Vector2(-560, 0)
 position = Vector2(500, 0)
 
 [node name="FadeIn" parent="." instance=ExtResource("3_a0h5n")]
+
+[node name="LightsOff" parent="." instance=ExtResource("5_374x1")]
+
+[node name="Lights" type="Node2D" parent="."]
+position = Vector2(261, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="Lights"]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(-676.76666, -46)
+scale = Vector2(0.4666666, 0.38333333)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+texture = ExtResource("6_253sf")
+offset = Vector2(-0.5, 30)
+texture_scale = 0.2
+
+[node name="PointLight2D5" type="PointLight2D" parent="Lights"]
+position = Vector2(-741, -46)
+scale = Vector2(0.4666666, 0.38333333)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+texture = ExtResource("6_253sf")
+offset = Vector2(-0.5, 30)
+texture_scale = 0.2
+
+[node name="PointLight2D6" type="PointLight2D" parent="Lights"]
+position = Vector2(-896, -77)
+scale = Vector2(0.3372215, 0.36666664)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+texture = ExtResource("6_253sf")
+offset = Vector2(-0.5, 30)
+texture_scale = 0.2
+
+[node name="PointLight2D2" type="PointLight2D" parent="Lights"]
+position = Vector2(-709, -78)
+scale = Vector2(0.4666666, 0.38333333)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+texture = ExtResource("6_253sf")
+offset = Vector2(-0.5, 30)
+texture_scale = 0.2
+
+[node name="PointLight2D3" type="PointLight2D" parent="Lights"]
+position = Vector2(-662.2585, -75.69694)
+rotation = -0.034906585
+scale = Vector2(0.45015043, 0.39775681)
+skew = 0.034906585
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+texture = ExtResource("6_253sf")
+offset = Vector2(-0.5, 30)
+texture_scale = 0.2
+
+[node name="PointLight2D4" type="PointLight2D" parent="Lights"]
+position = Vector2(-755, -76)
+scale = Vector2(0.44999972, 0.38426936)
+color = Color(1, 1, 0.9019608, 1)
+energy = 0.65
+shadow_enabled = true
+texture = ExtResource("6_253sf")
+offset = Vector2(-0.5, 30)
+texture_scale = 0.2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dhfa6pg30wute"]
+[gd_scene load_steps=14 format=3 uid="uid://dhfa6pg30wute"]
 
 [ext_resource type="Script" uid="uid://b4degph1emd72" path="res://joel/scenes/UI/pause_menu.gd" id="1_bl585"]
 [ext_resource type="PackedScene" uid="uid://c4mqr7824uavn" path="res://joel/scenes/UI/options.tscn" id="1_qo2fb"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dfk3j1kkxhare" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Reiniciar_pressed.png" id="7_i6mnm"]
 [ext_resource type="Texture2D" uid="uid://dapqtxfpcconl" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Salir_hover.png" id="8_ap3sl"]
 [ext_resource type="Texture2D" uid="uid://c6yysfn8g2yw2" path="res://sprites/UI/Menu Pausa/BotonesNuevos/Reiniciar_hover.png" id="8_u7348"]
+[ext_resource type="AudioStream" uid="uid://bq07mxh8r106f" path="res://assets/sonidos/ui/PauseMenu.wav" id="13_i6mnm"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
@@ -75,6 +76,13 @@ stretch_mode = 5
 [node name="Options" parent="." instance=ExtResource("1_qo2fb")]
 unique_name_in_owner = true
 visible = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_i6mnm")
+volume_db = -10.0
+pitch_scale = 0.8
+autoplay = true
+bus = &"Music"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ContinueBtn" to="." method="_on_continue_btn_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/OptionBtn" to="." method="_on_option_btn_pressed"]

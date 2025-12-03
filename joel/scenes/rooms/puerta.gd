@@ -38,11 +38,9 @@ func _process(delta: float) -> void:
 			solid(delta)
 
 func transparent(_delta:float):
-	print(self_modulate)
 	self_modulate = lerp(self_modulate,Color(1.0, 1.0, 1.0, 0.4),_delta *2)
 
 func solid(_delta:float):
-	print(self_modulate)
 	self_modulate = lerp(self_modulate,Color(1.0, 1.0, 1.0, 1.0),_delta *2)
 
 func interaction():
