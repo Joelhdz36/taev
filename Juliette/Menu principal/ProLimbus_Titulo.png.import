@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsj0cdy8qgoa5"
-path="res://.godot/imported/Salir_normal.png-53e08e536176701a336cc2f6045a676c.ctex"
+uid="uid://bbfmfi21a2a85"
+path="res://.godot/imported/ProLimbus_Titulo.png-5c131c7c345874c731faa0c138fcf790.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juliette/Menu 1/BotonesNuevos/Salir_normal.png"
-dest_files=["res://.godot/imported/Salir_normal.png-53e08e536176701a336cc2f6045a676c.ctex"]
+source_file="res://Juliette/Menu principal/ProLimbus_Titulo.png"
+dest_files=["res://.godot/imported/ProLimbus_Titulo.png-5c131c7c345874c731faa0c138fcf790.ctex"]
 
 [params]
 

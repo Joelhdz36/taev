@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fc4pxdu3w8q6"
-path="res://.godot/imported/Salir_pressed.png-45bf03d80dc1a66de3d515611bd58187.ctex"
+uid="uid://bdooyvebeh7e6"
+path="res://.godot/imported/Ajustes_03.png-044a0ba1dbb8771100511c742a2143ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juliette/Menu 1/BotonesNuevos/Salir_pressed.png"
-dest_files=["res://.godot/imported/Salir_pressed.png-45bf03d80dc1a66de3d515611bd58187.ctex"]
+source_file="res://Juliette/Menu principal/Botones2/Ajustes_03.png"
+dest_files=["res://.godot/imported/Ajustes_03.png-044a0ba1dbb8771100511c742a2143ab.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdtnn53tko1sj"
-path="res://.godot/imported/Continuar_normal.png-131c6dee6174b60b574dee6b67cb932b.ctex"
+uid="uid://d0p7hwqohv17x"
+path="res://.godot/imported/Creditos_02.png-8912079512ca135fc2fdcfd6756bfda8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juliette/Menu 1/BotonesNuevos/Continuar_normal.png"
-dest_files=["res://.godot/imported/Continuar_normal.png-131c6dee6174b60b574dee6b67cb932b.ctex"]
+source_file="res://Juliette/Menu principal/Botones2/Creditos_02.png"
+dest_files=["res://.godot/imported/Creditos_02.png-8912079512ca135fc2fdcfd6756bfda8.ctex"]
 
 [params]
 

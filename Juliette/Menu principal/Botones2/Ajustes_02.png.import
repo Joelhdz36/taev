@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doiaqjrxy0udj"
-path="res://.godot/imported/Reiniciar_normal.png-9db2690f098ce046410e727ada92011c.ctex"
+uid="uid://bty25ye3rigoq"
+path="res://.godot/imported/Ajustes_02.png-292916d5366e1c6be7bfd9012c464922.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juliette/Menu 1/BotonesNuevos/Reiniciar_normal.png"
-dest_files=["res://.godot/imported/Reiniciar_normal.png-9db2690f098ce046410e727ada92011c.ctex"]
+source_file="res://Juliette/Menu principal/Botones2/Ajustes_02.png"
+dest_files=["res://.godot/imported/Ajustes_02.png-292916d5366e1c6be7bfd9012c464922.ctex"]
 
 [params]
 

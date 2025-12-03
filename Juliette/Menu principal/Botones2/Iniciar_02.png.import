@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dggkxeacw4uon"
-path="res://.godot/imported/Opciones_pressed.png-8275a9a42790a23a856a6b7688063f56.ctex"
+uid="uid://c8ysw03lu85pn"
+path="res://.godot/imported/Iniciar_02.png-eef3779393feca33ae22e848d5eb51f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Juliette/Menu 1/BotonesNuevos/Opciones_pressed.png"
-dest_files=["res://.godot/imported/Opciones_pressed.png-8275a9a42790a23a856a6b7688063f56.ctex"]
+source_file="res://Juliette/Menu principal/Botones2/Iniciar_02.png"
+dest_files=["res://.godot/imported/Iniciar_02.png-eef3779393feca33ae22e848d5eb51f2.ctex"]
 
 [params]
 
