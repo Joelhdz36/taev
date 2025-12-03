@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu4q028m7evic" path="res://joel/scenes/game.gd" id="1_uwrxv"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://dpttdyxe2r4va" path="res://Juliette/Menu principal/MenúPrincipal.png" id="2_sbxfn"]
 [ext_resource type="Texture2D" uid="uid://h3abwelcxw6c" path="res://Juliette/Menu principal/Botones2/Ajustes_01.png" id="3_gvhog"]
 [ext_resource type="Texture2D" uid="uid://bbfmfi21a2a85" path="res://Juliette/Menu principal/ProLimbus_Titulo.png" id="3_mh6pd"]
@@ -17,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://dmu117v3x50rf" path="res://Juliette/Menu principal/Botones2/Salir_03.png" id="13_a6bow"]
 [ext_resource type="Texture2D" uid="uid://b8prl3bcfh7i7" path="res://Juliette/Menu principal/Botones2/Salir_02.png" id="14_pt5a7"]
 =======
+=======
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://cdfp2q0k3omo" path="res://Juliette/Menú Principal/MenúPrincipal.png" id="2_gvhog"]
 [ext_resource type="Texture2D" uid="uid://1kn6n585pr1f" path="res://Juliette/Menú Principal/Botones2/Ajustes_01.png" id="3_rjobp"]
 [ext_resource type="Texture2D" uid="uid://b0uasmuvy4lym" path="res://Juliette/Menú Principal/Botones2/Ajustes_03.png" id="4_e436t"]
@@ -31,6 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://gls2u2i8vil" path="res://Juliette/Menú Principal/Botones2/Salir_02.png" id="13_pt5a7"]
 [ext_resource type="Texture2D" uid="uid://c0fh0nc6ms6ig" path="res://Juliette/Menú Principal/Botones2/Salir_03.png" id="14_shg4m"]
 [ext_resource type="Texture2D" uid="uid://bbww2ht2k356y" path="res://Juliette/Menú Principal/ProLimbus_Titulo.png" id="15_s8hp1"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [node name="Game" type="Node"]

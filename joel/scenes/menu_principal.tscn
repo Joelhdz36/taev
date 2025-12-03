@@ -1,7 +1,13 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=16 format=3 uid="uid://cyyolaqinmppd"]
 
 [ext_resource type="Texture2D" uid="uid://cdfp2q0k3omo" path="res://Juliette/Menú Principal/MenúPrincipal.png" id="1_f687g"]
 [ext_resource type="Script" uid="uid://bb0my4fx1x7qp" path="res://joel/scenes/menu_principal.gd" id="1_n3k5u"]
+=======
+[gd_scene load_steps=15 format=3 uid="uid://cyyolaqinmppd"]
+
+[ext_resource type="Texture2D" uid="uid://cdfp2q0k3omo" path="res://Juliette/Menú Principal/MenúPrincipal.png" id="1_f687g"]
+>>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://1kn6n585pr1f" path="res://Juliette/Menú Principal/Botones2/Ajustes_01.png" id="2_n3k5u"]
 [ext_resource type="Texture2D" uid="uid://b0uasmuvy4lym" path="res://Juliette/Menú Principal/Botones2/Ajustes_03.png" id="3_6wv5n"]
 [ext_resource type="Texture2D" uid="uid://cvltidc3dah20" path="res://Juliette/Menú Principal/Botones2/Ajustes_02.png" id="4_xtnhy"]
@@ -23,7 +29,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+<<<<<<< Updated upstream
 script = ExtResource("1_n3k5u")
+=======
+>>>>>>> Stashed changes
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1920, 1080)
@@ -97,5 +106,8 @@ size_flags_vertical = 4
 localize_numeral_system = false
 texture = ExtResource("14_cjs6b")
 stretch_mode = 5
+<<<<<<< Updated upstream
 
 [connection signal="pressed" from="MarginContainer/TextureRect/Iniciar" to="." method="_on_iniciar_pressed"]
+=======
+>>>>>>> Stashed changes
