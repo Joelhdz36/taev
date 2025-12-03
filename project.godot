@@ -24,6 +24,7 @@ HealthManager="*res://data/globals/health_manager.gd"
 SceneManager="*res://data/globals/scene_manager.gd"
 DataManager="*res://data/globals/data_manager.gd"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
+DialogueManager="*res://data/dialogue_manager.gd"
 
 [dialogic]
 
@@ -32,6 +33,9 @@ directories/dch_directory={
 "character": "res://joel/trash/CustomBaseStyle/character.dch"
 }
 directories/dtl_directory={
+"room_lobotomia": "res://assets/dialogos/timelines/puertas_bloqueadas/room_lobotomia.dtl",
+"room_mads": "res://assets/dialogos/timelines/puertas_bloqueadas/room_mads.dtl",
+"simbolo": "res://assets/dialogos/timelines/simbolo.dtl",
 "timeline_test": "res://joel/trash/timeline_test.dtl",
 "tubo": "res://assets/dialogos/timelines/mads/tubo.dtl"
 }
@@ -75,6 +79,9 @@ audio/channel_defaults={
 }
 }
 audio/type_sound_bus="SFX"
+variables={
+"simbolo": false
+}
 
 [display]
 

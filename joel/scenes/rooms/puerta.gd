@@ -5,6 +5,7 @@ extends Sprite2D
 @export var blocked:bool
 
 @export var key_needed:Resource
+@export var blocked_dialogue:DialogicTimeline
 
 var can_actuate = false
 var go_transparent:bool =false
@@ -55,6 +56,9 @@ func interaction():
 		await  $AudioStreamPlayer2D.finished
 		door_player.global_position = global_position
 		SceneManager.change_scene(next_scene)
+	else:
+		DialogueManager.play_dialogue(blocked_dialogue)
+
 
 func _on_door_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):

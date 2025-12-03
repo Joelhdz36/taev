@@ -1,0 +1,10 @@
+if {simbolo} == false:
+	[signal arg="pause_game"]
+	Mads: Este simbolo...
+	Mads: Lo recuerdo de algún lado
+	Mads: ¿Qué está sucediendo aquí?
+	set {simbolo} = true
+	[end_timeline]
+else:
+	[end_timeline]
+	return

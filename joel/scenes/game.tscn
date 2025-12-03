@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dsiu560phtwcg"]
 
 [ext_resource type="Script" uid="uid://cu4q028m7evic" path="res://joel/scenes/game.gd" id="1_uwrxv"]
-[ext_resource type="PackedScene" uid="uid://bft4bopajvn3m" path="res://joel/scenes/rooms/room_pas_izq_dos.tscn" id="2_yr3qm"]
+[ext_resource type="PackedScene" uid="uid://w7nwrjlhskbc" path="res://joel/scenes/rooms/room_tinas.tscn" id="2_yr3qm"]
 
 [node name="Game" type="Node"]
 script = ExtResource("1_uwrxv")
