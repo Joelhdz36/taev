@@ -7,3 +7,6 @@ var defeated_enemies:Array[Resource]
 var spawn_enemies:bool = InventoryManager.keys_in_inventory.has(preload("res://data/objects/keys/key_tubo.tres"))
 
 var boxes_destroyed:Array[int] = []
+
+var last_player_pos:Vector2
+var last_player_scene:String

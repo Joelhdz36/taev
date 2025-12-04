@@ -1,0 +1,4 @@
+[signal arg="pause_game"]
+Mads: ¿qué es este lugar? ¿dónde estoy?
+set {first_dialogue} = true
+[end_timeline]

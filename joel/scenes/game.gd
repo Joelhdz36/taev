@@ -73,3 +73,9 @@ func open_inventory():
 	ui.add_child(new_inventory)
 	new_inventory.create_inventory()
 	get_tree().paused = !get_tree().paused
+
+func respawn():
+	player = null
+	create_player()
+	player.global_position = DataManager.last_player_pos
+	SceneManager.change_scene(DataManager.last_player_scene)

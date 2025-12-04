@@ -2,7 +2,7 @@ extends Control
 
 
 func _on_iniciar_pressed() -> void:
-	SceneManager.cambio_escena("uid://dsiu560phtwcg")
+	SceneManager.cambio_escena("uid://d8siysa40v6k")
 
 
 func _on_ajustes_pressed() -> void:
@@ -14,3 +14,7 @@ func _on_ajustes_pressed() -> void:
 
 func _on_salir_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_creditos_pressed() -> void:
+	SceneManager.cambio_escena("uid://bumpkbs527cjo")

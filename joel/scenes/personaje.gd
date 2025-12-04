@@ -39,7 +39,9 @@ var enemy_pos:Vector2
 func _ready() -> void:
 	GUIDE.enable_mapping_context(player_context)
 	player_health = HealthManager.health
-
+	if !Dialogic.VAR.first_dialogue:
+		var dialogue = preload("res://assets/dialogos/timelines/mads/mads_start.dtl")
+		DialogueManager.play_dialogue(dialogue)
 
 func _process(_delta: float) -> void:
 	if can_interact and interaction.is_triggered():
@@ -75,7 +77,7 @@ func die():
 	if player_health > 0:
 		return
 	queue_free()
-	get_parent().get_parent().create_player()
+	get_parent().get_parent().respawn()
 
 
 func _on_damage_area_area_entered(area: Area2D) -> void:

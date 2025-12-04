@@ -31,6 +31,7 @@ texture = ExtResource("1_502wo")
 6:0/0/texture_origin = Vector2i(-8, 0)
 6:1/0 = 0
 8:0/0 = 0
+8:0/0/modulate = Color(1, 1, 1, 0)
 8:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_502wo")
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:6/0 = 0

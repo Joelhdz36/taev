@@ -23,6 +23,7 @@ texture = ExtResource("1_qdv7w")
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(0, 8)
 4:2/0 = 0
+4:2/0/modulate = Color(1, 1, 1, 0)
 4:2/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_qdv7w")
 4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:3/0 = 0

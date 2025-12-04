@@ -107,5 +107,6 @@ bus = &"Music"
 [node name="Options" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="MarginContainer/TextureRect/Ajustes" to="." method="_on_ajustes_pressed"]
+[connection signal="pressed" from="MarginContainer/TextureRect/Creditos" to="." method="_on_creditos_pressed"]
 [connection signal="pressed" from="MarginContainer/TextureRect/Iniciar" to="." method="_on_iniciar_pressed"]
 [connection signal="pressed" from="MarginContainer/TextureRect/Salir" to="." method="_on_salir_pressed"]

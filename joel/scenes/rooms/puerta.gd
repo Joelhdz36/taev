@@ -55,6 +55,8 @@ func interaction():
 		door_player.disable_context()
 		await  $AudioStreamPlayer2D.finished
 		door_player.global_position = global_position
+		DataManager.last_player_pos = global_position
+		DataManager.last_player_scene = next_scene
 		SceneManager.change_scene(next_scene)
 	else:
 		DialogueManager.play_dialogue(blocked_dialogue)

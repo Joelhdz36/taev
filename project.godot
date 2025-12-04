@@ -33,6 +33,7 @@ directories/dch_directory={
 "character": "res://joel/trash/CustomBaseStyle/character.dch"
 }
 directories/dtl_directory={
+"mads_start": "res://assets/dialogos/timelines/mads/mads_start.dtl",
 "periodico": "res://assets/dialogos/timelines/mads/periodico.dtl",
 "room_blocked": "res://assets/dialogos/timelines/puertas_bloqueadas/room_blocked.dtl",
 "room_lobotomia": "res://assets/dialogos/timelines/puertas_bloqueadas/room_lobotomia.dtl",
@@ -83,6 +84,7 @@ audio/channel_defaults={
 }
 audio/type_sound_bus="SFX"
 variables={
+"first_dialogue": false,
 "simbolo": false
 }
 

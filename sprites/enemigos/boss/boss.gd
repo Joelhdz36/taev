@@ -32,6 +32,7 @@ func take_damage(_damage:float,_pos:Vector2):
 		die()
 
 func die():
+	SceneManager.cambio_escena("uid://bumpkbs527cjo")
 	queue_free()
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
