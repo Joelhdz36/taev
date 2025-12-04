@@ -1,16 +1,41 @@
-[gd_scene load_steps=9 format=4 uid="uid://dd80a4740yvfn"]
+[gd_scene load_steps=16 format=4 uid="uid://dd80a4740yvfn"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_u2lkr"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_a0h5n"]
 [ext_resource type="TileSet" uid="uid://bqgymsja8adig" path="res://sprites/habitaciones/camaras/tileset_camaras.tres" id="2_in0va"]
 [ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="3_a0h5n"]
+[ext_resource type="PackedScene" uid="uid://bdgfqohj2e35n" path="res://sprites/enemigos/guardia/guardia.tscn" id="3_invgg"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="5_374x1"]
+[ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="5_hl4qr"]
+[ext_resource type="PackedScene" uid="uid://oxuq071cx027" path="res://sprites/enemigos/perro/perro.tscn" id="5_lsesv"]
 [ext_resource type="Texture2D" uid="uid://cdsjjlhwljs0d" path="res://joel/trash/itemTest.png" id="6_253sf"]
+[ext_resource type="SpriteFrames" uid="uid://ct3nyqktc4xy4" path="res://sprites/enemigos/guardia/guardia_frames.tres" id="6_g2bq7"]
+[ext_resource type="SpriteFrames" uid="uid://b6g7nojya6773" path="res://sprites/enemigos/perro/perro_frames.tres" id="8_g2bq7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_n1h7m"]
 font_size = 40
+
+[sub_resource type="Resource" id="Resource_dnwra"]
+script = ExtResource("5_hl4qr")
+name = "Guardia"
+health = 80.0
+damage = 5.0
+wonder_speed = 700.0
+follow_speed = 10.0
+sprite_frames = ExtResource("6_g2bq7")
+metadata/_custom_type_script = "uid://bxuaimm6pl5op"
+
+[sub_resource type="Resource" id="Resource_h0b1i"]
+script = ExtResource("5_hl4qr")
+name = "Perro"
+health = 30.0
+damage = 15.0
+wonder_speed = 550.0
+follow_speed = 18.0
+sprite_frames = ExtResource("8_g2bq7")
+metadata/_custom_type_script = "uid://bxuaimm6pl5op"
 
 [node name="Camaras" type="Node2D"]
 script = ExtResource("1_u2lkr")
@@ -73,6 +98,14 @@ position = Vector2(-560, 0)
 
 [node name="Enemigos" type="Node2D" parent="."]
 position = Vector2(500, 0)
+
+[node name="Guardia" parent="Enemigos" instance=ExtResource("3_invgg")]
+position = Vector2(-962, -16)
+enemy_resource = SubResource("Resource_dnwra")
+
+[node name="Perro" parent="Enemigos" instance=ExtResource("5_lsesv")]
+position = Vector2(-802, -16)
+enemy_resource = SubResource("Resource_h0b1i")
 
 [node name="FadeIn" parent="." instance=ExtResource("3_a0h5n")]
 

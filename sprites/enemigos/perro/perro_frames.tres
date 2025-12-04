@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://b6g7nojya6773"]
+
+[ext_resource type="Texture2D" uid="uid://dgo6tiga36udy" path="res://sprites/enemigos/perro/Run_Sheet.png" id="1_6mmwe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e67dw"]
+atlas = ExtResource("1_6mmwe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf2do"]
+atlas = ExtResource("1_6mmwe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nwoj"]
+atlas = ExtResource("1_6mmwe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sn6cp"]
+atlas = ExtResource("1_6mmwe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eprq0"]
+atlas = ExtResource("1_6mmwe")
+region = Rect2(128, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e67dw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf2do")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nwoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sn6cp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eprq0")
+}],
+"loop": true,
+"name": &"wonder_state",
+"speed": 5.0
+}]

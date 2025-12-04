@@ -1,33 +1,32 @@
-[gd_scene load_steps=12 format=3 uid="uid://bdgfqohj2e35n"]
+[gd_scene load_steps=11 format=3 uid="uid://oxuq071cx027"]
 
-[ext_resource type="Script" uid="uid://b4qmu5a7kwjs3" path="res://ch_enemy.gd" id="1_a2m47"]
-[ext_resource type="Resource" uid="uid://b28b07hh6v8sq" path="res://data/enemies/enemy_guardia.tres" id="2_8qfbf"]
-[ext_resource type="SpriteFrames" uid="uid://ct3nyqktc4xy4" path="res://sprites/enemigos/guardia/guardia_frames.tres" id="3_8qfbf"]
-[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_ds206"]
-[ext_resource type="PackedScene" uid="uid://brhlokdurmn03" path="res://joel/scenes/news_paper.tscn" id="3_jqq2x"]
-[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_jqq2x"]
-[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_oy2pp"]
-[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_rd4rw"]
+[ext_resource type="Script" uid="uid://b4qmu5a7kwjs3" path="res://ch_enemy.gd" id="1_t7sc6"]
+[ext_resource type="Resource" uid="uid://bqgsvpbea47gr" path="res://data/enemies/enemy_perro.tres" id="2_sspem"]
+[ext_resource type="SpriteFrames" uid="uid://b6g7nojya6773" path="res://sprites/enemigos/perro/perro_frames.tres" id="3_r2wmk"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="5_684uv"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="6_5pty4"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="7_hxxd7"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="8_ydeg8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yb87n"]
-radius = 12.0
+radius = 15.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ocf5i"]
-size = Vector2(66, 32)
+size = Vector2(83, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xn8el"]
-size = Vector2(12, 32)
+size = Vector2(20, 19)
 
-[node name="Guardia" type="CharacterBody2D" groups=["Enemigo"]]
-script = ExtResource("1_a2m47")
-enemy_resource = ExtResource("2_8qfbf")
-item_to_drop = ExtResource("3_jqq2x")
+[node name="Perro" type="CharacterBody2D" groups=["Enemigo"]]
+script = ExtResource("1_t7sc6")
+enemy_resource = ExtResource("2_sspem")
 
 [node name="Anim" type="AnimatedSprite2D" parent="."]
 unique_name_in_owner = true
-sprite_frames = ExtResource("3_8qfbf")
+sprite_frames = ExtResource("3_r2wmk")
 animation = &"wonder_state"
-frame_progress = 0.11797371
+frame = 4
+frame_progress = 0.25266865
 
 [node name="DamageArea" type="Area2D" parent="." groups=["Enemigo"]]
 collision_layer = 5
@@ -37,57 +36,57 @@ shape = SubResource("CircleShape2D_yb87n")
 debug_color = Color(0.9664281, 0, 0.48356438, 0.41960785)
 
 [node name="StateChart" type="Node" parent="."]
-script = ExtResource("3_ds206")
+script = ExtResource("5_684uv")
 metadata/_custom_type_script = "uid://couw105c3bde4"
 
 [node name="CompoundState" type="Node" parent="StateChart"]
-script = ExtResource("4_jqq2x")
+script = ExtResource("6_5pty4")
 initial_state = NodePath("Wonder")
 
 [node name="Wonder" type="Node" parent="StateChart/CompoundState"]
-script = ExtResource("5_oy2pp")
+script = ExtResource("7_hxxd7")
 
 [node name="toFollow" type="Node" parent="StateChart/CompoundState/Wonder"]
-script = ExtResource("6_rd4rw")
+script = ExtResource("8_ydeg8")
 to = NodePath("../../Follow")
 event = &"toFollow"
 delay_in_seconds = "0.0"
 
 [node name="Follow" type="Node" parent="StateChart/CompoundState"]
-script = ExtResource("5_oy2pp")
+script = ExtResource("7_hxxd7")
 
 [node name="toOrigin" type="Node" parent="StateChart/CompoundState/Follow"]
-script = ExtResource("6_rd4rw")
+script = ExtResource("8_ydeg8")
 to = NodePath("../../Origin")
 event = &"toOrigin"
 delay_in_seconds = "0.0"
 
 [node name="toHurt" type="Node" parent="StateChart/CompoundState/Follow"]
-script = ExtResource("6_rd4rw")
+script = ExtResource("8_ydeg8")
 to = NodePath("../../Hurt")
 event = &"toHurt"
 delay_in_seconds = "0.0"
 
 [node name="Origin" type="Node" parent="StateChart/CompoundState"]
-script = ExtResource("5_oy2pp")
+script = ExtResource("7_hxxd7")
 
 [node name="Wonder" type="Node" parent="StateChart/CompoundState/Origin"]
-script = ExtResource("6_rd4rw")
+script = ExtResource("8_ydeg8")
 to = NodePath("../../Wonder")
 event = &"toWonder"
 delay_in_seconds = "0.0"
 
 [node name="toFollow" type="Node" parent="StateChart/CompoundState/Origin"]
-script = ExtResource("6_rd4rw")
+script = ExtResource("8_ydeg8")
 to = NodePath("../../Follow")
 event = &"toFollow"
 delay_in_seconds = "0.0"
 
 [node name="Hurt" type="Node" parent="StateChart/CompoundState"]
-script = ExtResource("5_oy2pp")
+script = ExtResource("7_hxxd7")
 
 [node name="toFollow" type="Node" parent="StateChart/CompoundState/Hurt"]
-script = ExtResource("6_rd4rw")
+script = ExtResource("8_ydeg8")
 to = NodePath("../../Follow")
 event = &"toFollow"
 delay_in_seconds = "0.0"
@@ -97,11 +96,12 @@ unique_name_in_owner = true
 position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
-position = Vector2(9, -1)
+position = Vector2(17.5, -1)
 shape = SubResource("RectangleShape2D_ocf5i")
 debug_color = Color(0.37541825, 0.59503603, 0.44172, 0.41960785)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
 shape = SubResource("RectangleShape2D_xn8el")
 
 [connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
