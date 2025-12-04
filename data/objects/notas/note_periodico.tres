@@ -9,5 +9,6 @@ script = ExtResource("1_tqd4u")
 title = "Periodico"
 game_icon = ExtResource("1_o5hl5")
 inventory_icon = ExtResource("2_8u0av")
+note_text = "La nota principal dice: \"En un ataque psicótico agente de la CIA acaba con la vida de senador\""
 obj_type = "item"
 metadata/_custom_type_script = "uid://cxujipwv6hp7y"

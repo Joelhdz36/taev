@@ -33,6 +33,7 @@ directories/dch_directory={
 "character": "res://joel/trash/CustomBaseStyle/character.dch"
 }
 directories/dtl_directory={
+"periodico": "res://assets/dialogos/timelines/mads/periodico.dtl",
 "room_blocked": "res://assets/dialogos/timelines/puertas_bloqueadas/room_blocked.dtl",
 "room_lobotomia": "res://assets/dialogos/timelines/puertas_bloqueadas/room_lobotomia.dtl",
 "room_mads": "res://assets/dialogos/timelines/puertas_bloqueadas/room_mads.dtl",
@@ -98,6 +99,10 @@ movie_writer/movie_file="C:/Users/DICIS/Videos/video_inventario.avi"
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/dialogic/plugin.cfg", "res://addons/godot_resource_groups/plugin.cfg", "res://addons/godot_state_charts/plugin.cfg", "res://addons/guide/plugin.cfg")
+
+[global_group]
+
+Enemigo=""
 
 [godot_resource_groups]
 

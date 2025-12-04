@@ -1,9 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://wjh55w5bsnle"]
+[gd_scene load_steps=5 format=3 uid="uid://wjh55w5bsnle"]
 
 [ext_resource type="Script" uid="uid://byfw40yt66hij" path="res://sprites/enemigos/boss/boss.gd" id="1_05lcp"]
 [ext_resource type="SpriteFrames" uid="uid://cnubefwilwcdh" path="res://sprites/enemigos/boss/animated_sprite_boss.tres" id="1_bs71h"]
 
-[node name="Boss" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_05lcp"]
+radius = 56.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fp20a"]
+radius = 44.04543
+
+[node name="Boss" type="Node2D" groups=["Enemigo"]]
 script = ExtResource("1_05lcp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -11,3 +17,16 @@ unique_name_in_owner = true
 sprite_frames = ExtResource("1_bs71h")
 animation = &"GoingBack"
 flip_h = true
+
+[node name="DamageArea" type="Area2D" parent="." groups=["Enemigo"]]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_05lcp")
+
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CircleShape2D_fp20a")
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

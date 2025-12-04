@@ -59,11 +59,13 @@ func take_damage(damage:float,_player_pos:Vector2):
 	move_and_slide()
 
 func create_blood(blod_dir:float):
-	var new_blood = blood_particles_scene.instantiate() as GPUParticles2D
-	get_parent().add_child(new_blood)
-	new_blood.global_position = position
+	var new_blood = blood_particles_scene.instantiate().duplicate() as GPUParticles2D
+	get_parent().get_parent().add_child(new_blood)
+	new_blood.global_position = global_position
 	new_blood.scale.x = blod_dir
 	new_blood.emitting = true
+	print("hello")
+	print("stop")
 
 func die():
 	if _health <= 0:

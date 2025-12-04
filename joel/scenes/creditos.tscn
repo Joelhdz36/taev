@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://bumpkbs527cjo"]
+
+[ext_resource type="Script" uid="uid://crfahyj752yxa" path="res://joel/scenes/creditos.gd" id="1_pc54d"]
+[ext_resource type="VideoStream" uid="uid://bogjiij57s5jt" path="res://assets/video/creditos_V3.ogv" id="2_pc54d"]
+[ext_resource type="AudioStream" uid="uid://wpav66333ww7" path="res://assets/sonidos/musica/Game Music.wav" id="2_xdy7g"]
+
+[sub_resource type="Animation" id="Animation_pc54d"]
+resource_name = "music_fade_out"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -80.0]
+}
+
+[sub_resource type="Animation" id="Animation_bb3iu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8mlbu"]
+_data = {
+&"RESET": SubResource("Animation_bb3iu"),
+&"music_fade_out": SubResource("Animation_pc54d")
+}
+
+[node name="Creditos" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_pc54d")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource("2_pc54d")
+speed_scale = 0.85
+autoplay = true
+expand = true
+buffering_msec = 1000
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_xdy7g")
+autoplay = true
+bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8mlbu")
+}
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

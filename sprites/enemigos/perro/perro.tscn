@@ -25,8 +25,7 @@ enemy_resource = ExtResource("2_sspem")
 unique_name_in_owner = true
 sprite_frames = ExtResource("3_r2wmk")
 animation = &"wonder_state"
-frame = 4
-frame_progress = 0.25266865
+frame_progress = 0.8517113
 
 [node name="DamageArea" type="Area2D" parent="." groups=["Enemigo"]]
 collision_layer = 5

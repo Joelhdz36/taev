@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://5bys8r1khs47"]
+[gd_scene load_steps=10 format=4 uid="uid://5bys8r1khs47"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_h2yb7"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_7sown"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="3_7sown"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="5_6n1kh"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="6_fk7ml"]
+[ext_resource type="PackedScene" uid="uid://wjh55w5bsnle" path="res://sprites/enemigos/boss/boss.tscn" id="7_fk7ml"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -109,3 +110,6 @@ texture = ExtResource("5_6n1kh")
 offset = Vector2(0, 30)
 
 [node name="LightsOff" parent="." instance=ExtResource("6_fk7ml")]
+
+[node name="Boss" parent="." instance=ExtResource("7_fk7ml")]
+position = Vector2(454, -37)

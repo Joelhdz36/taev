@@ -98,6 +98,10 @@ metadata/_edit_pinned_properties_ = [&"position"]
 
 [node name="Enemigos" type="Node2D" parent="."]
 
+[node name="Paciente" parent="Enemigos" instance=ExtResource("7_ag64i")]
+position = Vector2(136, -16)
+enemy_resource = SubResource("Resource_80mm1")
+
 [node name="Lights" type="Node2D" parent="."]
 position = Vector2(261, 0)
 
@@ -128,7 +132,3 @@ offset = Vector2(0, 30)
 [node name="FadeIn" parent="." instance=ExtResource("4_r7oti")]
 
 [node name="LightsOff" parent="." instance=ExtResource("5_ck7pm")]
-
-[node name="Paciente" parent="." instance=ExtResource("7_ag64i")]
-position = Vector2(136, -16)
-enemy_resource = SubResource("Resource_80mm1")
