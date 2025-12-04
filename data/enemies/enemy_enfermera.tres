@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://cnwg0uj0km0os"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://cnwg0uj0km0os"]
 
 [ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="1_s6rre"]
+[ext_resource type="SpriteFrames" uid="uid://b2rjcvljw1nnp" path="res://sprites/enemigos/enfermera/enfermera_frames.tres" id="2_21hpe"]
 
 [resource]
 script = ExtResource("1_s6rre")
+name = "Enfermera"
+health = 60.0
+damage = 8.0
+wonder_speed = 450.0
+follow_speed = 18.0
+sprite_frames = ExtResource("2_21hpe")
 metadata/_custom_type_script = "uid://bxuaimm6pl5op"

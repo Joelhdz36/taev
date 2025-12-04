@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="5_ibs4x"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="6_shoy6"]
 [ext_resource type="PackedScene" uid="uid://dckd2ojkpblyu" path="res://joel/scenes/caja_obstacle.tscn" id="7_shoy6"]
-[ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="8_y8oo1"]
+[ext_resource type="PackedScene" uid="uid://bdgfqohj2e35n" path="res://sprites/enemigos/guardia/guardia.tscn" id="8_y8oo1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -42,6 +42,7 @@ tile_set = ExtResource("2_bypa7")
 shape = SubResource("WorldBoundaryShape2D_b5gms")
 
 [node name="RoomName" type="Label" parent="."]
+visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -111,5 +112,5 @@ offset = Vector2(0, 30)
 position = Vector2(-765, -15)
 IDnumber = 913514
 
-[node name="InteractableObj" parent="." instance=ExtResource("8_y8oo1")]
-position = Vector2(-384, -16)
+[node name="Enemy" parent="." instance=ExtResource("8_y8oo1")]
+position = Vector2(-439, -16)

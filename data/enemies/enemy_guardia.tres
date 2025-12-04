@@ -1,7 +1,14 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://b28b07hh6v8sq"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://b28b07hh6v8sq"]
 
 [ext_resource type="Script" uid="uid://bxuaimm6pl5op" path="res://data/enemy_class.gd" id="1_7tan5"]
+[ext_resource type="SpriteFrames" uid="uid://ct3nyqktc4xy4" path="res://sprites/enemigos/guardia/guardia_frames.tres" id="2_ald08"]
 
 [resource]
 script = ExtResource("1_7tan5")
+name = "Guardia"
+health = 80.0
+damage = 5.0
+wonder_speed = 700.0
+follow_speed = 10.0
+sprite_frames = ExtResource("2_ald08")
 metadata/_custom_type_script = "uid://bxuaimm6pl5op"

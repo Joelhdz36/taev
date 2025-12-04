@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://ct3nyqktc4xy4"]
+
+[ext_resource type="Texture2D" uid="uid://bfe6rhcrexhax" path="res://sprites/enemigos/guardia/CaminataGuardia.png" id="1_jcfa8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqti6"]
+atlas = ExtResource("1_jcfa8")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ese0i"]
+atlas = ExtResource("1_jcfa8")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xqtmj"]
+atlas = ExtResource("1_jcfa8")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wbru"]
+atlas = ExtResource("1_jcfa8")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqti6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ese0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xqtmj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wbru")
+}],
+"loop": true,
+"name": &"wonder_state",
+"speed": 5.0
+}]

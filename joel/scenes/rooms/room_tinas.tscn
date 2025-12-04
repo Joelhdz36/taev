@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://w7nwrjlhskbc"]
+[gd_scene load_steps=13 format=4 uid="uid://w7nwrjlhskbc"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_1cqbu"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_mkksx"]
@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://d137njghuf4qh" path="res://assets/dialogos/timelines/puertas_bloqueadas/room_lobotomia.dtl" id="5_pae4k"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="8_ihrfl"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="9_2qhr7"]
+[ext_resource type="PackedScene" uid="uid://c0ci4yfhjjcru" path="res://sprites/enemigos/enfermera/enfermera.tscn" id="10_2qhr7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -83,6 +84,12 @@ position = Vector2(-159, 0)
 
 [node name="Enemigos" type="Node2D" parent="."]
 position = Vector2(500, 0)
+
+[node name="Enfermera" parent="Enemigos" instance=ExtResource("10_2qhr7")]
+position = Vector2(-461, -16)
+
+[node name="Enfermera2" parent="Enemigos" instance=ExtResource("10_2qhr7")]
+position = Vector2(-366, -16)
 
 [node name="FadeIn" parent="." instance=ExtResource("3_mkksx")]
 

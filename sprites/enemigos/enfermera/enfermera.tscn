@@ -1,0 +1,113 @@
+[gd_scene load_steps=11 format=3 uid="uid://c0ci4yfhjjcru"]
+
+[ext_resource type="Script" uid="uid://b4qmu5a7kwjs3" path="res://ch_enemy.gd" id="1_8wuoq"]
+[ext_resource type="Resource" uid="uid://cnwg0uj0km0os" path="res://data/enemies/enemy_enfermera.tres" id="2_ds7pk"]
+[ext_resource type="SpriteFrames" uid="uid://b2rjcvljw1nnp" path="res://sprites/enemigos/enfermera/enfermera_frames.tres" id="3_ds7pk"]
+[ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_mcoik"]
+[ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_xtpu8"]
+[ext_resource type="Script" uid="uid://cytafq8i1y8qm" path="res://addons/godot_state_charts/atomic_state.gd" id="5_v2b4n"]
+[ext_resource type="Script" uid="uid://cf1nsco3w0mf6" path="res://addons/godot_state_charts/transition.gd" id="6_rwxhu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yb87n"]
+radius = 7.071068
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocf5i"]
+size = Vector2(87, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xn8el"]
+size = Vector2(8, 31)
+
+[node name="Enfermera" type="CharacterBody2D" groups=["Enemigo"]]
+script = ExtResource("1_8wuoq")
+enemy_resource = ExtResource("2_ds7pk")
+
+[node name="Anim" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+sprite_frames = ExtResource("3_ds7pk")
+animation = &"wonder_state"
+
+[node name="DamageArea" type="Area2D" parent="." groups=["Enemigo"]]
+collision_layer = 5
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_yb87n")
+debug_color = Color(0.9664281, 0, 0.48356438, 0.41960785)
+
+[node name="StateChart" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("3_mcoik")
+metadata/_custom_type_script = "uid://couw105c3bde4"
+
+[node name="CompoundState" type="Node" parent="StateChart"]
+script = ExtResource("4_xtpu8")
+initial_state = NodePath("Wonder")
+
+[node name="Wonder" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("5_v2b4n")
+
+[node name="toFollow" type="Node" parent="StateChart/CompoundState/Wonder"]
+script = ExtResource("6_rwxhu")
+to = NodePath("../../Follow")
+event = &"toFollow"
+delay_in_seconds = "0.0"
+
+[node name="Follow" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("5_v2b4n")
+
+[node name="toOrigin" type="Node" parent="StateChart/CompoundState/Follow"]
+script = ExtResource("6_rwxhu")
+to = NodePath("../../Origin")
+event = &"toOrigin"
+delay_in_seconds = "0.0"
+
+[node name="toHurt" type="Node" parent="StateChart/CompoundState/Follow"]
+script = ExtResource("6_rwxhu")
+to = NodePath("../../Hurt")
+event = &"toHurt"
+delay_in_seconds = "0.0"
+
+[node name="Origin" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("5_v2b4n")
+
+[node name="Wonder" type="Node" parent="StateChart/CompoundState/Origin"]
+script = ExtResource("6_rwxhu")
+to = NodePath("../../Wonder")
+event = &"toWonder"
+delay_in_seconds = "0.0"
+
+[node name="toFollow" type="Node" parent="StateChart/CompoundState/Origin"]
+script = ExtResource("6_rwxhu")
+to = NodePath("../../Follow")
+event = &"toFollow"
+delay_in_seconds = "0.0"
+
+[node name="Hurt" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("5_v2b4n")
+
+[node name="toFollow" type="Node" parent="StateChart/CompoundState/Hurt"]
+script = ExtResource("6_rwxhu")
+to = NodePath("../../Follow")
+event = &"toFollow"
+delay_in_seconds = "0.0"
+
+[node name="DetectionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(29.5, -1)
+shape = SubResource("RectangleShape2D_ocf5i")
+debug_color = Color(0.37541825, 0.59503603, 0.44172, 0.41960785)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -0.5)
+shape = SubResource("RectangleShape2D_xn8el")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Wonder" to="." method="_on_wonder_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Follow" to="." method="_on_follow_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Follow" to="." method="_on_follow_state_physics_processing"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Origin" to="." method="_on_origin_state_physics_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Hurt" to="." method="_on_hurt_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Hurt" to="." method="_on_hurt_state_physics_processing"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]

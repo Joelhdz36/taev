@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var anim: AnimatedSprite2D = %Anim
 
 @export var enemy_resource:Resource
+@export var item_to_drop:PackedScene
 
 var blood_particles_scene:PackedScene = preload("uid://btixd41gt8an5")
 
@@ -23,6 +24,8 @@ var _follow_speed:float
 var direction:Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	if DataManager.defeated_enemies.has(enemy_resource):
+		queue_free()
 	set_initial_values()
 
 func _physics_process(delta: float) -> void:
@@ -65,6 +68,11 @@ func create_blood(blod_dir:float):
 func die():
 	if _health <= 0:
 		DataManager.defeated_enemies.append(enemy_resource)
+		print(DataManager.defeated_enemies)
+		if item_to_drop != null:
+			var new_drop = item_to_drop.instantiate()
+			get_parent().call_deferred("add_child",new_drop)
+			new_drop.global_position = global_position
 		queue_free()
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
@@ -85,6 +93,7 @@ func _on_wonder_state_physics_processing(delta: float) -> void:
 	anim.play("wonder_state")
 	if global_position.x > wonder_max_pos or global_position.x < wonder_min_pos:
 		dir *= -1.0
+		%DetectionArea.scale.x = dir
 	velocity.x = (_wonder_speed * delta) * dir
 	var look_dir:bool = dir > 0
 	anim.flip_h = !look_dir
@@ -103,15 +112,6 @@ func _on_follow_state_physics_processing(_delta: float) -> void:
 		anim.flip_h = !look_dir
 	move_and_slide()
 
-
-
-
-#func _on_origin_state_physics_processing(delta: float) -> void:
-	#velocity.x = 0
-	#global_position.x = move_toward(global_position.x,origin_pos,30.0 * delta)
-	#if global_position.x == origin_pos:
-		#$StateChart.send_event("toWonder")
-#
 
 
 func _on_hurt_state_physics_processing(delta: float) -> void:

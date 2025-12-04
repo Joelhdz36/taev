@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://bdbgmah14ctni"]
+[gd_scene load_steps=11 format=4 uid="uid://bdbgmah14ctni"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_2vnly"]
 [ext_resource type="TileSet" uid="uid://bpartc1ovvgly" path="res://sprites/habitaciones/juegos/tileset_juegos.tres" id="2_6lpgr"]
@@ -7,6 +7,7 @@
 [ext_resource type="Resource" uid="uid://cgkokp8pvrouu" path="res://data/objects/keys/key_llave_cola.tres" id="4_jj86n"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="6_hdsed"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="7_t5gvg"]
+[ext_resource type="PackedScene" uid="uid://dufshx57ykjlw" path="res://joel/scenes/interactable_obj.tscn" id="8_dv0kg"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -41,6 +42,7 @@ tile_set = ExtResource("2_6lpgr")
 shape = SubResource("WorldBoundaryShape2D_b5gms")
 
 [node name="RoomName" type="Label" parent="."]
+visible = false
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
@@ -108,3 +110,7 @@ texture = ExtResource("6_hdsed")
 offset = Vector2(-0.5, 30)
 
 [node name="LightsOff" parent="." instance=ExtResource("7_t5gvg")]
+
+[node name="InteractableObj" parent="." instance=ExtResource("8_dv0kg")]
+position = Vector2(-249, -24)
+obj_resource = ExtResource("4_jj86n")

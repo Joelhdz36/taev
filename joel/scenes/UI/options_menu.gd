@@ -61,4 +61,4 @@ func _on_fullscreen_btn_toggled(toggled_on: bool) -> void:
 
 
 func _on_button_pressed() -> void:
-	SceneManager.cambio_escena("uid://cyyolaqinmppd")
+	queue_free()

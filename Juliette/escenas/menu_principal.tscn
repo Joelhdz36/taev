@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cyyolaqinmppd"]
+[gd_scene load_steps=17 format=3 uid="uid://cyyolaqinmppd"]
 
 [ext_resource type="Script" uid="uid://bb0my4fx1x7qp" path="res://Juliette/escenas/menu_principal.gd" id="1_3vjc8"]
 [ext_resource type="Texture2D" uid="uid://bbww2ht2k356y" path="res://Juliette/Menú Principal/ProLimbus_Titulo.png" id="2_8flw1"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cjnbic72ecxex" path="res://Juliette/Menú Principal/Botones2/Salir_01.png" id="13_caxd4"]
 [ext_resource type="Texture2D" uid="uid://gls2u2i8vil" path="res://Juliette/Menú Principal/Botones2/Salir_02.png" id="14_shf68"]
 [ext_resource type="Texture2D" uid="uid://c0fh0nc6ms6ig" path="res://Juliette/Menú Principal/Botones2/Salir_03.png" id="15_c5yqw"]
+[ext_resource type="AudioStream" uid="uid://wpav66333ww7" path="res://assets/sonidos/musica/Game Music.wav" id="16_pyuwt"]
 
 [node name="Menu principal" type="Control"]
 layout_mode = 3
@@ -97,6 +98,13 @@ rotation = -0.08726646
 texture_normal = ExtResource("13_caxd4")
 texture_pressed = ExtResource("14_shf68")
 texture_hover = ExtResource("15_c5yqw")
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_pyuwt")
+autoplay = true
+bus = &"Music"
+
+[node name="Options" type="CanvasLayer" parent="."]
 
 [connection signal="pressed" from="MarginContainer/TextureRect/Ajustes" to="." method="_on_ajustes_pressed"]
 [connection signal="pressed" from="MarginContainer/TextureRect/Iniciar" to="." method="_on_iniciar_pressed"]

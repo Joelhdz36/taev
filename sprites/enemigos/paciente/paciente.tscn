@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://muoslj4dfx15"]
 
 [ext_resource type="Script" uid="uid://b4qmu5a7kwjs3" path="res://ch_enemy.gd" id="1_1xlms"]
-[ext_resource type="Resource" uid="uid://csnaxfr5voh35" path="res://data/enemies/enmey_paciente.tres" id="2_1xlms"]
+[ext_resource type="Resource" uid="uid://csnaxfr5voh35" path="res://data/enemies/enemey_paciente.tres" id="2_1xlms"]
 [ext_resource type="SpriteFrames" uid="uid://qptjada1rmfo" path="res://sprites/enemigos/paciente/paciente.tres" id="3_dc4nu"]
 [ext_resource type="Script" uid="uid://couw105c3bde4" path="res://addons/godot_state_charts/state_chart.gd" id="3_gsqhw"]
 [ext_resource type="Script" uid="uid://jk2jm1g6q853" path="res://addons/godot_state_charts/compound_state.gd" id="4_io8n5"]
@@ -91,6 +91,7 @@ event = &"toFollow"
 delay_in_seconds = "0.0"
 
 [node name="DetectionArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, 1)
 

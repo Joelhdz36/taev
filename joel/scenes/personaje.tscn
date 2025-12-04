@@ -181,7 +181,7 @@ polygon = PackedVector2Array(4, 0, -4, 0)
 script = ExtResource("1_2kcgv")
 step_sound = ExtResource("7_t6aad")
 SPEED = 2000.0
-damage = 4.0
+damage = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14.5)
