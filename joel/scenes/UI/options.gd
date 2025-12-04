@@ -60,3 +60,7 @@ func _on_fullscreen_btn_toggled(toggled_on: bool) -> void:
 	CameraManager.change_cam_resolution()
 	var index: = game_resolutions.find(get_viewport().size)
 	_on_resolution_size_item_selected(index)
+
+
+func _on_volver_btn_pressed() -> void:
+	queue_free()

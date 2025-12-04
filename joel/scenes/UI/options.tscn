@@ -1,19 +1,16 @@
-[gd_scene load_steps=10 format=3 uid="uid://c4mqr7824uavn"]
+[gd_scene load_steps=13 format=3 uid="uid://c4mqr7824uavn"]
 
 [ext_resource type="Script" uid="uid://b0rs7usj4cyn5" path="res://joel/scenes/UI/options.gd" id="1_u46ye"]
 [ext_resource type="LabelSettings" uid="uid://c4anrvxcd21j1" path="res://joel/assets/labels/Opciones_title_label.tres" id="2_5jdb0"]
+[ext_resource type="Texture2D" uid="uid://df0u7b83hqs1g" path="res://sprites/UI/opciones/fondo.jpg" id="2_6g15e"]
 [ext_resource type="LabelSettings" uid="uid://cdek3rehd63k4" path="res://joel/assets/labels/Inventory_window_label.tres" id="2_gm6ak"]
 [ext_resource type="Theme" uid="uid://cxf5srv6w14yh" path="res://joel/scenes/UI/slider_theme.tres" id="3_3q1fd"]
 [ext_resource type="Texture2D" uid="uid://c3ccg7ie5p7sx" path="res://sprites/UI/opciones/ON.png" id="3_5jdb0"]
 [ext_resource type="Texture2D" uid="uid://cpdywj3t6q5me" path="res://sprites/UI/opciones/Off.png" id="4_xaq7e"]
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5jdb0"]
-size = Vector2(50, 50)
-
-[sub_resource type="Theme" id="Theme_gm6ak"]
-OptionButton/constants/arrow_margin = 10
-OptionButton/font_sizes/font_size = 30
-OptionButton/icons/arrow = SubResource("PlaceholderTexture2D_5jdb0")
+[ext_resource type="Theme" uid="uid://dwooecmoxrpyg" path="res://joel/scenes/UI/options_button_theme.tres" id="5_xshw3"]
+[ext_resource type="Texture2D" uid="uid://ooqeugbukk7w" path="res://sprites/UI/Volver_normal.png" id="9_lf5eg"]
+[ext_resource type="Texture2D" uid="uid://sy27jl6oxfqp" path="res://sprites/UI/Volver_pressed.png" id="10_fjob4"]
+[ext_resource type="Texture2D" uid="uid://c4elgeuvuimt0" path="res://sprites/UI/Volver_hover.png" id="11_35uxm"]
 
 [sub_resource type="Theme" id="Theme_5jdb0"]
 CheckButton/icons/checked = ExtResource("3_5jdb0")
@@ -23,13 +20,14 @@ CheckButton/icons/unchecked = ExtResource("4_xaq7e")
 layer = 2
 script = ExtResource("1_u46ye")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="TextureRect" parent="."]
+self_modulate = Color(0.29, 0.29, 0.29, 1)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.19793725, 0.19793722, 0.19793722, 1)
+texture = ExtResource("2_6g15e")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 15
@@ -71,7 +69,7 @@ size_flags_horizontal = 3
 [node name="ResolutionSize" type="OptionButton" parent="MarginContainer/VBoxContainer/ScreenResolution"]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
-theme = SubResource("Theme_gm6ak")
+theme = ExtResource("5_xshw3")
 alignment = 1
 selected = 0
 item_count = 2
@@ -166,8 +164,20 @@ step = 0.2
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="VolverBtn" type="TextureButton" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_lf5eg")
+texture_pressed = ExtResource("10_fjob4")
+texture_hover = ExtResource("11_35uxm")
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
 [connection signal="item_selected" from="MarginContainer/VBoxContainer/ScreenResolution/ResolutionSize" to="." method="_on_resolution_size_item_selected"]
 [connection signal="toggled" from="MarginContainer/VBoxContainer/Fullscreen/FullscreenBtn" to="." method="_on_fullscreen_btn_toggled"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/SonidoGeneral/GeneralSound" to="." method="_on_general_sound_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/SFX/SFX" to="." method="_on_sfx_value_changed"]
 [connection signal="value_changed" from="MarginContainer/VBoxContainer/Music/Music" to="." method="_on_music_value_changed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VolverBtn" to="." method="_on_volver_btn_pressed"]

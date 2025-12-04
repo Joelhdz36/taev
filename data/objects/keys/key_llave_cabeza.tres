@@ -9,5 +9,6 @@ script = ExtResource("1_3uunq")
 title = "Llave \"Cabeza\""
 game_icon = ExtResource("1_6uhsb")
 inventory_icon = ExtResource("2_l06ea")
+note_text = "Una llave con la cabeza de una serpiente."
 obj_type = "key"
 metadata/_custom_type_script = "uid://cxujipwv6hp7y"

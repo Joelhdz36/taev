@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://b2rjcvljw1nnp"]
+
+[ext_resource type="Texture2D" uid="uid://blx8yqsch5imt" path="res://sprites/enemigos/enfermera/CaminataDra.png" id="1_o8eyr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58v2w"]
+atlas = ExtResource("1_o8eyr")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pnsj3"]
+atlas = ExtResource("1_o8eyr")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_004e1"]
+atlas = ExtResource("1_o8eyr")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eaj2y"]
+atlas = ExtResource("1_o8eyr")
+region = Rect2(96, 0, 32, 32)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58v2w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pnsj3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_004e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eaj2y")
+}],
+"loop": true,
+"name": &"wonder_state",
+"speed": 5.0
+}]

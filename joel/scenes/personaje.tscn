@@ -181,7 +181,7 @@ polygon = PackedVector2Array(4, 0, -4, 0)
 script = ExtResource("1_2kcgv")
 step_sound = ExtResource("7_t6aad")
 SPEED = 2000.0
-damage = 4.0
+damage = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14.5)
@@ -192,8 +192,7 @@ unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_vbhap")
 animation = &"Ataque"
 autoplay = "Idle"
-frame = 2
-frame_progress = 1.0
+frame = 1
 offset = Vector2(0, -16)
 
 [node name="HitBox" type="Area2D" parent="."]
@@ -221,8 +220,7 @@ collision_mask = 4
 
 [node name="DmgCollider" type="CollisionPolygon2D" parent="DamageArea"]
 unique_name_in_owner = true
-visible = false
-polygon = PackedVector2Array(10, 0, 18, -5, 18, -20, 14, -30, 3, -26, 2, -13)
+polygon = PackedVector2Array(2, 0, 10, 0, 14, -12, 15, -26, 5, -29, 2, -13)
 disabled = true
 
 [node name="StateChart" type="Node" parent="."]

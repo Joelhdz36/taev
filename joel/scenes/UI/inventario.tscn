@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://chiow8h7m2so7"]
+[gd_scene load_steps=11 format=3 uid="uid://chiow8h7m2so7"]
 
 [ext_resource type="Script" uid="uid://c2i6c8c451j83" path="res://joel/scenes/UI/inventario.gd" id="1_13d1u"]
 [ext_resource type="Texture2D" uid="uid://bcv0iv40c42vm" path="res://sprites/UI/inventario/Inventario_background.png" id="2_855sf"]
 [ext_resource type="LabelSettings" uid="uid://cdek3rehd63k4" path="res://joel/assets/labels/Inventory_window_label.tres" id="2_nu5i1"]
 [ext_resource type="LabelSettings" uid="uid://coget2fvi5cbf" path="res://joel/assets/labels/Inventory_title_label.tres" id="3_855sf"]
+[ext_resource type="Texture2D" uid="uid://csc0bglxprpwk" path="res://sprites/UI/inventario/Botones Naranja/Izquierda_normal.png" id="5_5hyxw"]
+[ext_resource type="Texture2D" uid="uid://ckbkmuoqhgukf" path="res://sprites/UI/inventario/Botones Naranja/Izquierda_pressed 2.png" id="6_avvd5"]
+[ext_resource type="Texture2D" uid="uid://ryl3eusmsfo5" path="res://sprites/UI/inventario/Botones Naranja/Izquierda_hover.png" id="7_acnib"]
+[ext_resource type="Texture2D" uid="uid://c5kwpj6xk4vvg" path="res://sprites/UI/inventario/Botones Naranja/Derecha_normal.png" id="8_n1eef"]
+[ext_resource type="Texture2D" uid="uid://4gnn3b5j3vn" path="res://sprites/UI/inventario/Botones Naranja/Derecha_Pressed.png" id="9_ya2oh"]
+[ext_resource type="Texture2D" uid="uid://b8h56503v0f6v" path="res://sprites/UI/inventario/Botones Naranja/Derecha_hover.png" id="10_727ar"]
 
 [node name="Inventario" type="CanvasLayer" node_paths=PackedStringArray("inventory_displayers")]
 process_mode = 3
@@ -65,9 +71,9 @@ horizontal_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 60
+theme_override_constants/margin_left = 434
 theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 60
+theme_override_constants/margin_right = 154
 theme_override_constants/margin_bottom = 60
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer"]
@@ -78,10 +84,12 @@ theme_override_constants/separation = 30
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="NoteLeftBtn" type="Button" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer"]
+[node name="NoteLeftBtn" type="TextureButton" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = "<"
+texture_normal = ExtResource("5_5hyxw")
+texture_pressed = ExtResource("6_avvd5")
+texture_hover = ExtResource("7_acnib")
 
 [node name="ImageVisualizer" type="PanelContainer" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -89,10 +97,12 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NoteRightBtn" type="Button" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer"]
+[node name="NoteRightBtn" type="TextureButton" parent="MarginContainer/InventoryLayout/LeftSide/NotesInv/MarginContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-text = ">"
+texture_normal = ExtResource("8_n1eef")
+texture_pressed = ExtResource("9_ya2oh")
+texture_hover = ExtResource("10_727ar")
 
 [node name="KeyInv" type="VBoxContainer" parent="MarginContainer/InventoryLayout/LeftSide"]
 layout_mode = 2
@@ -112,9 +122,9 @@ vertical_alignment = 1
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/margin_left = 60
+theme_override_constants/margin_left = 434
 theme_override_constants/margin_top = 60
-theme_override_constants/margin_right = 60
+theme_override_constants/margin_right = 154
 theme_override_constants/margin_bottom = 60
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer"]
@@ -125,11 +135,13 @@ theme_override_constants/separation = 30
 alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="KeyLeftBtn" type="Button" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer"]
+[node name="KeyLeftBtn" type="TextureButton" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(70, 100)
 layout_mode = 2
 size_flags_vertical = 4
-text = "<"
+texture_normal = ExtResource("5_5hyxw")
+texture_pressed = ExtResource("6_avvd5")
+texture_hover = ExtResource("7_acnib")
 
 [node name="KeyVisualizer" type="PanelContainer" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -137,11 +149,13 @@ self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="KeyRightBtn" type="Button" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer"]
+[node name="KeyRightBtn" type="TextureButton" parent="MarginContainer/InventoryLayout/LeftSide/KeyInv/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(70, 100)
 layout_mode = 2
 size_flags_vertical = 4
-text = ">"
+texture_normal = ExtResource("8_n1eef")
+texture_pressed = ExtResource("9_ya2oh")
+texture_hover = ExtResource("10_727ar")
 
 [node name="RightSide" type="VBoxContainer" parent="MarginContainer/InventoryLayout"]
 layout_mode = 2

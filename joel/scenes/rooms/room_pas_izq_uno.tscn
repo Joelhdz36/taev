@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=4 uid="uid://ba12nl6ckr4nm"]
+[gd_scene load_steps=12 format=4 uid="uid://ba12nl6ckr4nm"]
 
 [ext_resource type="Script" uid="uid://di1e7a75yni16" path="res://joel/scenes/rooms/room.gd" id="1_2qtev"]
 [ext_resource type="PackedScene" uid="uid://c4bhfe7m48b3h" path="res://joel/scenes/rooms/puerta.tscn" id="2_eli5e"]
 [ext_resource type="TileSet" uid="uid://c2sabtjvvdaf5" path="res://sprites/habitaciones/pasillos/tileset_pas_derecha.tres" id="2_n8ws5"]
 [ext_resource type="PackedScene" uid="uid://l5g4gq0ghbkt" path="res://joel/scenes/juice/fade_in.tscn" id="3_eli5e"]
+[ext_resource type="Resource" uid="uid://defxgw4lpbns1" path="res://data/objects/keys/key_llave_cabeza.tres" id="4_f7cch"]
+[ext_resource type="Resource" uid="uid://dy5nhh6wmg5yx" path="res://assets/dialogos/timelines/puertas_bloqueadas/room_pas_izq.dtl" id="5_i52he"]
 [ext_resource type="PackedScene" uid="uid://dd1j0twgu6fac" path="res://joel/scenes/lights_off.tscn" id="5_kqdi5"]
 [ext_resource type="Texture2D" uid="uid://dvv14cgawbnt1" path="res://assets/I_Luz_v01.png" id="6_f7cch"]
+[ext_resource type="Texture2D" uid="uid://cg0in466hscxd" path="res://sprites/props/simbolo/I_Simbolo_Part1_v01.png" id="8_i52he"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b5gms"]
 
@@ -64,6 +67,8 @@ position = Vector2(39, 0)
 position = Vector2(-344, 0)
 next_scene = "uid://bft4bopajvn3m"
 in_front = false
+key_needed = ExtResource("4_f7cch")
+blocked_dialogue = ExtResource("5_i52he")
 
 [node name="Tinas" parent="Puertas" instance=ExtResource("2_eli5e")]
 position = Vector2(-128, 0)
@@ -110,3 +115,9 @@ energy = 0.65
 shadow_enabled = true
 texture = ExtResource("6_f7cch")
 offset = Vector2(0, 30)
+
+[node name="ISimboloPart1V01" type="Sprite2D" parent="."]
+z_index = 6
+position = Vector2(-349, -33)
+scale = Vector2(0.31249964, 0.31249964)
+texture = ExtResource("8_i52he")
